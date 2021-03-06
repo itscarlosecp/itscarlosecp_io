@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+	@supports (
+		(-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))
+	) {
+		.blur {
+			@apply bg-opacity-60;
+			backdrop-filter: saturate(180%) blur(20px);
+			-webkit-backdrop-filter: saturate(180%) blur(20px);
+		}
+	}
+}
+
+.card {
+	@apply p-2 rounded;
+	@apply bg-light dark:bg-dark;
+}
