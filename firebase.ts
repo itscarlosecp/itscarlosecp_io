@@ -13,10 +13,18 @@ const firebaseConfig = {
 	measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 }
 
-if (!firebase.app.length) {
+if (!firebase.apps.length) {
 	firebase.initializeApp(firebaseConfig)
+	if (typeof window !== 'undefined') {
+		if ('measurementId' in firebaseConfig) {
+			firebase.analytics()
+			firebase.performance()
+		}
+	}
 }
 
 export const auth = firebase.auth()
+export const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
+export const githubAuthProvider = new firebase.auth.GithubAuthProvider()
 export const firestore = firebase.firestore()
 export const storage = firebase.storage()
