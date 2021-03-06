@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import * as Icons from 'react-bootstrap-icons'
-import links from '../lib/links'
+import links from '@lib/links'
 
 const Navbar = () => {
 	const { theme, setTheme } = useTheme()
@@ -26,7 +26,10 @@ const Navbar = () => {
 				</button>
 				<ul className='flex'>
 					{links.map((link) => (
-						<li key={link.path} className='p-1 sm:p-4'>
+						<li
+							key={link.path}
+							className='p-1 sm:p-4 flex items-center'
+						>
 							<Link href={link.path}>
 								<a className='text-black dark:text-white hover:cursor-pointer transition-colors'>
 									{link.name}

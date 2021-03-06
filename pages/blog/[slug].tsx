@@ -1,36 +1,35 @@
-import { InferGetStaticPropsType, GetStaticPaths } from 'next'
-import fs from 'fs'
-import path from 'path'
+import { GetStaticPaths, InferGetStaticPropsType } from 'next'
+import hydrate from 'next-mdx-remote/hydrate'
+import { getFiles, getFileBySlug } from '../../lib/mdx'
+import BlogTemplate from '@layouts/BlogTemplate'
+import MDXComponents from '@components/MDXComponents'
 
-const root = process.cwd()
+const BlogPost = ({ mdxSource, frontMatter }) => {
+	const content = hydrate(mdxSource, {
+		components: MDXComponents,
+	})
 
-const Post = ({ slug }: InferGetStaticPropsType<typeof getStaticProps>) => {
-	return <div>{slug}</div>
+	return <BlogTemplate frontMatter={frontMatter}>{content}</BlogTemplate>
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const files = fs.readdirSync(path.join(root, 'data', 'blog'))
-
+	const files = await getFiles('blog')
 	const paths = files.map((filename) => ({
 		params: {
-			slug: filename.replace('.md', ''),
+			slug: filename.replace('.mdx', ''),
 		},
 	}))
 
-	console.log(paths)
-
 	return {
 		paths,
-		fallback: true,
+		fallback: false,
 	}
 }
 
-export const getStaticProps = async ({ params: { slug } }) => {
-	return {
-		props: {
-			slug,
-		},
-	}
+export const getStaticProps = async ({ params }) => {
+	const post = await getFileBySlug('blog', params.slug)
+
+	return { props: post }
 }
 
-export default Post
+export default BlogPost

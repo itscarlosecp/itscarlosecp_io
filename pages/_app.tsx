@@ -1,15 +1,16 @@
-import * as React from 'react'
-import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
-import Layout from '../components/Layout'
-import '../styles/index.css'
+import * as React from 'react'
+import { MDXProvider } from '@mdx-js/react'
+import { ThemeProvider } from 'next-themes'
+import MDXComponents from '@components/MDXComponents'
+import '@styles/index.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 	return (
 		<ThemeProvider attribute='class'>
-			<Layout>
+			<MDXProvider components={MDXComponents}>
 				<Component {...pageProps} />
-			</Layout>
+			</MDXProvider>
 		</ThemeProvider>
 	)
 }
