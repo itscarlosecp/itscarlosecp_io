@@ -18,6 +18,8 @@ export const getFileBySlug = async (type: string, slug: string) => {
 		: fs.readFileSync(path.join(root, 'data', `${type}.mdx`), 'utf8')
 
 	const { data, content } = matter(source)
+	console.log(data)
+
 	const mdxSource = await renderToString(content, {
 		components: MDXComponents,
 		mdxOptions: {
@@ -46,7 +48,8 @@ export const getAllFilesFrontMatter = async (type: string) => {
 
 	return files.reduce((allPosts, postSlug) => {
 		const source = fs.readFileSync(
-			path.join(root, 'data', type, postSlug, 'utf8')
+			path.join(root, 'data', type, postSlug),
+			'utf8'
 		)
 
 		const { data } = matter(source)

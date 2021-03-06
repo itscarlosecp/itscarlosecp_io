@@ -1,7 +1,7 @@
-import { GetStaticPaths, InferGetStaticPropsType } from 'next'
 import hydrate from 'next-mdx-remote/hydrate'
-import { getFiles, getFileBySlug } from '../../lib/mdx'
-import BlogTemplate from '@layouts/BlogTemplate'
+import { GetStaticPaths } from 'next'
+import { getFiles, getFileBySlug } from '@lib/mdx'
+import BlogLayout from '@layouts/Blog'
 import MDXComponents from '@components/MDXComponents'
 
 const BlogPost = ({ mdxSource, frontMatter }) => {
@@ -9,7 +9,7 @@ const BlogPost = ({ mdxSource, frontMatter }) => {
 		components: MDXComponents,
 	})
 
-	return <BlogTemplate frontMatter={frontMatter}>{content}</BlogTemplate>
+	return <BlogLayout frontMatter={frontMatter}>{content}</BlogLayout>
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

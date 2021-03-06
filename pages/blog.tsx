@@ -1,6 +1,7 @@
 import { InferGetStaticPropsType } from 'next'
-import Container from '@components/Container'
 import { getAllFilesFrontMatter } from '@lib/mdx'
+import Container from '@components/Container'
+import BlogPost from '@components/BlogPost'
 
 const index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
@@ -23,6 +24,9 @@ const index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white'>
 					All Posts
 				</h3>
+				{posts.map((frontMatter) => (
+					<BlogPost key={frontMatter.title} {...frontMatter} />
+				))}
 			</div>
 		</Container>
 	)
@@ -30,8 +34,6 @@ const index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps = async () => {
 	const posts = await getAllFilesFrontMatter('blog')
-
-	console.log(posts)
 
 	return {
 		props: {
