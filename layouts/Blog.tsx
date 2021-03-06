@@ -32,7 +32,7 @@ const BlogLayout = ({ frontMatter, children }) => {
 					<div className='ml-3 w-full flex flex-col sm:flex-row justify-between'>
 						<p className='text-sm text-gray-700 dark:text-gray-300'>
 							{frontMatter.by}
-							{'Carlos Castillo / '}
+							{`${frontMatter.author} / `}
 							{format(
 								parseISO(frontMatter.publishedAt),
 								'MMMM dd, yyyy'

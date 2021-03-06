@@ -24,7 +24,7 @@ const Container = ({ cstmMeta, children }: Props) => {
 	}
 
 	return (
-		<div className='bg-white dark:bg-black'>
+		<div className='bg-white dark:bg-black transition-colors'>
 			<Head>
 				<title>{meta.title}</title>
 				<meta name='robots' content='follow, index' />
@@ -39,7 +39,7 @@ const Container = ({ cstmMeta, children }: Props) => {
 				<meta property='og:title' content={meta.title} />
 			</Head>
 
-			<nav className='sticky top-0 z-10 w-full bg-white dark:bg-black blur'>
+			<nav className='sticky top-0 z-10 w-full bg-white dark:bg-black transition-colors blur'>
 				<div className='w-full max-w-4xl p-8 mx-auto mb-8 flex justify-between'>
 					<button
 						type='button'
