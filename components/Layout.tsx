@@ -9,7 +9,9 @@ const Layout = ({ children }: Props) => {
 	return (
 		<>
 			<Navbar />
-			<main className='bg-light dark:bg-dark'>{children}</main>
+			<main className=''>
+				<div className='max-w-3xl mx-auto'>{children}</div>
+			</main>
 		</>
 	)
 }

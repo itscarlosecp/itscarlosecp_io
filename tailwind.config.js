@@ -9,8 +9,6 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				light: colors.white,
-				dark: colors.gray['800'],
 				transparent: 'transparent',
 				current: 'currentColor',
 				black: colors.black,

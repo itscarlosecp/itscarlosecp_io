@@ -7,7 +7,7 @@ interface Props {
 
 const Posts = ({ posts }: Props) => {
 	return (
-		<ul className='flex flex-col gap-2'>
+		<ul className='bg-background flex flex-col gap-2'>
 			{posts.map((post) => (
 				<PostItem key={post.id} post={post} />
 			))}

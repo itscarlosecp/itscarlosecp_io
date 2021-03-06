@@ -1,6 +1,19 @@
-const Navbar = () => {
+import * as React from 'react'
+import { useTheme } from 'next-themes'
+
+interface Props {}
+
+const Navbar = ({}: Props) => {
+	const { theme, setTheme } = useTheme()
+
+	const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
+
 	return (
-		<nav className='sticky top-0 z-10 w-full h-32 flex justify-between bg-light dark:bg-dark bg-opacity-60 bg-clip-padding blur'></nav>
+		<nav className='sticky top-0 z-10 w-full bg-white blur'>
+			<div className='sticky top-0 z-10 w-full max-w-4xl'>
+				<button onClick={toggleTheme}>{theme}</button>
+			</div>
+		</nav>
 	)
 }
 
