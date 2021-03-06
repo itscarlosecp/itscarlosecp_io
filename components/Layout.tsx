@@ -9,8 +9,8 @@ const Layout = ({ children }: Props) => {
 	return (
 		<>
 			<Navbar />
-			<main className=''>
-				<div className='max-w-3xl mx-auto'>{children}</div>
+			<main className='flex flex-col justify-center px-8'>
+				<div className='w-full max-w-2xl mx-auto'>{children}</div>
 			</main>
 		</>
 	)

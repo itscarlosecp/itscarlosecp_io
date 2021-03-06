@@ -1,4 +1,4 @@
-export const links = [
+export default [
 	{
 		name: 'Home',
 		path: '/',
@@ -6,5 +6,9 @@ export const links = [
 	{
 		name: 'Blog',
 		path: '/blog',
+	},
+	{
+		name: 'Contact',
+		path: '/contact',
 	},
 ]
