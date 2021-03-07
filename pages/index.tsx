@@ -4,7 +4,12 @@ import Container from '@components/Container'
 import BlogPost from '@components/BlogPost'
 
 interface Props {
-	blogPosts: { title: string; summary: string; slug: string }[]
+	blogPosts: {
+		title: string
+		summary: string
+		slug: string
+		fileUrl: string
+	}[]
 }
 
 const index = ({ blogPosts }: Props) => {
@@ -29,6 +34,7 @@ const index = ({ blogPosts }: Props) => {
 				<ul>
 					{blogPosts.map((post) => (
 						<BlogPost
+							key={post.slug}
 							title={post.title}
 							summary={post.summary}
 							slug={post.slug}
