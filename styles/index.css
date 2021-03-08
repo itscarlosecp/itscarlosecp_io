@@ -30,3 +30,11 @@ body {
 		}
 	}
 }
+
+figure {
+	@apply text-center;
+}
+
+figure > img {
+	@apply mx-auto;
+}

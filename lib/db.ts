@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import { Post } from './types'
 // import readingTime from 'reading-time'
 // import MDXComponents from '@/components/MDXComponents'
 
@@ -11,16 +12,23 @@ export const getPosts = async () => {
 	)
 
 	const data = await res.json()
-	return data.posts
+	return data.posts as Post[]
 }
 
 export const getFeaturedPosts = async () => {
 	const res = await fetch(
-		`${process.env.GHOST_CMS_URL}/ghost/api/v3/content/posts/?key=${process.env.GHOST_CMS_CONTENT_API_KEY}&&filter=featured:true`
+		`${process.env.GHOST_CMS_URL}/ghost/api/v3/content/posts/?key=${process.env.GHOST_CMS_CONTENT_API_KEY}&filter=featured:true`
 	)
 
 	const data = await res.json()
-	return data.posts
+	return data.posts as Post[]
 }
 
-export const getPostBySlug = async (collection: string, slug: string) => {}
+export const getPostBySlug = async (slug: string) => {
+	const res = await fetch(
+		`${process.env.GHOST_CMS_URL}/ghost/api/v3/content/posts/${slug}/?key=${process.env.GHOST_CMS_CONTENT_API_KEY}`
+	)
+
+	const data = await res.json()
+	return data.posts[0] as Post
+}

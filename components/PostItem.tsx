@@ -1,9 +1,9 @@
 import { Post } from '@lib/types'
 import Link from 'next/link'
 
-const BlogPost = (post: Post) => {
+const PostItem = (post: Post) => {
 	return (
-		<Link href={`/blog/${post.slug}`}>
+		<Link href={`/blog/${post.id}`}>
 			<a className='w-full'>
 				<div className='mb-8 w-full'>
 					<div className='flex flex-col md:flex-row justify-between'>
@@ -11,11 +11,13 @@ const BlogPost = (post: Post) => {
 							{post.meta_title || post.title}
 						</h4>
 					</div>
-					<p className='text-gray-600 dark:text-gray-400'></p>
+					<p className='text-gray-600 dark:text-gray-400'>
+						{post.custom_excerpt || post.meta_description}
+					</p>
 				</div>
 			</a>
 		</Link>
 	)
 }
 
-export default BlogPost
+export default PostItem

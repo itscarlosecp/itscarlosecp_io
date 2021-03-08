@@ -17,6 +17,8 @@ export type Post = {
 	codeinjection_foot?: null
 	custom_template?: null
 	canonical_url?: null
+	authors?: AuthorsEntityOrPrimaryAuthor[] | null
+	primary_author: AuthorsEntityOrPrimaryAuthor
 	url: string
 	excerpt: string
 	reading_time: number
@@ -26,7 +28,23 @@ export type Post = {
 	twitter_image?: null
 	twitter_title?: null
 	twitter_description?: null
+	meta_title: string
+	meta_description: string
+	email_subject?: null
+}
+
+type AuthorsEntityOrPrimaryAuthor = {
+	id: string
+	name: string
+	slug: string
+	profile_image?: null
+	cover_image?: null
+	bio?: null
+	website?: null
+	location?: null
+	facebook?: null
+	twitter?: null
 	meta_title?: null
 	meta_description?: null
-	email_subject?: null
+	url: string
 }

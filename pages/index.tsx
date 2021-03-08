@@ -1,8 +1,8 @@
 import type { Post } from '@lib/types'
 import Link from 'next/link'
 import Container from '@components/Container'
-import BlogPost from '@components/BlogPost'
-import { getFeaturedPosts } from '@lib/mdx'
+import PostItem from '@components/PostItem'
+import { getFeaturedPosts } from '@lib/db'
 
 interface Props {
 	featuredPosts: Post[]
@@ -27,15 +27,9 @@ const index = ({ featuredPosts }: Props) => {
 				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white'>
 					Featured Posts
 				</h3>
-				<ul>
-					{featuredPosts.map((post) => (
-						<BlogPost
-							key={post.slug}
-							title={post.title}
-							slug={post.slug}
-						/>
-					))}
-				</ul>
+				{featuredPosts.map((post) => (
+					<PostItem key={post.id} {...post} />
+				))}
 			</div>
 		</Container>
 	)

@@ -1,8 +1,8 @@
 import type { Post } from '@lib/types'
 import * as React from 'react'
 import Container from '@components/Container'
-import BlogPost from '@components/BlogPost'
-import { getPosts } from '@lib/mdx'
+import PostItem from '@components/PostItem'
+import { getPosts } from '@lib/db'
 
 interface Props {
 	posts: Post[]
@@ -28,7 +28,7 @@ const blog = ({ posts }: Props) => {
 					All Posts
 				</h3>
 				{posts.map((post) => (
-					<BlogPost key={post.id} {...post} />
+					<PostItem key={post.id} {...post} />
 				))}
 			</div>
 		</Container>
