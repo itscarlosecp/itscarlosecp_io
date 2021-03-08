@@ -1,18 +1,14 @@
+import type { Post } from '@lib/types'
 import Link from 'next/link'
-import { firestore } from '@lib/firebase'
 import Container from '@components/Container'
 import BlogPost from '@components/BlogPost'
+import { getFeaturedPosts } from '@lib/mdx'
 
 interface Props {
-	blogPosts: {
-		title: string
-		summary: string
-		slug: string
-		fileUrl: string
-	}[]
+	featuredPosts: Post[]
 }
 
-const index = ({ blogPosts }: Props) => {
+const index = ({ featuredPosts }: Props) => {
 	return (
 		<Container>
 			<div className='flex flex-col justify-center items-start max-w-2xl mx-auto mb-16'>
@@ -29,14 +25,13 @@ const index = ({ blogPosts }: Props) => {
 					while you're here.
 				</h2>
 				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white'>
-					Latest Posts
+					Featured Posts
 				</h3>
 				<ul>
-					{blogPosts.map((post) => (
+					{featuredPosts.map((post) => (
 						<BlogPost
 							key={post.slug}
 							title={post.title}
-							summary={post.summary}
 							slug={post.slug}
 						/>
 					))}
@@ -47,20 +42,11 @@ const index = ({ blogPosts }: Props) => {
 }
 
 export const getStaticProps = async () => {
-	const blogPosts = []
-
-	const postsRef = await firestore
-		.collection('posts')
-		.get()
-		.then((querySnapshot) => {
-			querySnapshot.forEach((doc) => {
-				blogPosts.push(doc.data())
-			})
-		})
+	const featuredPosts = await getFeaturedPosts()
 
 	return {
 		props: {
-			blogPosts,
+			featuredPosts,
 		},
 	}
 }

@@ -11,9 +11,12 @@ interface Props {
 }
 
 const Container = ({ children, ...customMeta }: Props) => {
+	const [mounted, setMounted] = React.useState(false)
 	const { theme, setTheme } = useTheme()
 
 	const router = useRouter()
+
+	React.useEffect(() => setMounted(true), [])
 
 	const meta = {
 		title: 'itscarlosecp - developer',
@@ -58,12 +61,19 @@ const Container = ({ children, ...customMeta }: Props) => {
 							setTheme(theme === 'dark' ? 'light' : 'dark')
 						}
 					>
-						{theme === 'light' ? (
-							<Icons.MoonFill
-								style={{ width: '14px', height: '14px' }}
-							/>
-						) : (
-							<Icons.SunFill />
+						{mounted && (
+							<>
+								{theme === 'light' ? (
+									<Icons.MoonFill
+										style={{
+											width: '14px',
+											height: '14px',
+										}}
+									/>
+								) : (
+									<Icons.SunFill />
+								)}
+							</>
 						)}
 					</button>
 					<ul className='flex'>
