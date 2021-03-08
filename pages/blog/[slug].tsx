@@ -1,35 +1,31 @@
 import hydrate from 'next-mdx-remote/hydrate'
-import { GetStaticPaths } from 'next'
-import { getFiles, getFileBySlug } from '@lib/mdx'
-import BlogLayout from '@layouts/Blog'
-import MDXComponents from '@components/MDXComponents'
+import { getFiles, getFileBySlug } from '@/lib/mdx'
+// import BlogLayout from '@/layouts/blog'
+// import MDXComponents from '@/components/MDXComponents'
 
-const BlogPost = ({ mdxSource, frontMatter }) => {
+export default function Blog({ mdxSource, frontMatter }) {
 	const content = hydrate(mdxSource, {
-		components: MDXComponents,
+		// components: MDXComponents,
 	})
 
-	return <BlogLayout frontMatter={frontMatter}>{content}</BlogLayout>
+	return <div></div>
+	// return <BlogLayout frontMatter={frontMatter}>{content}</BlogLayout>
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-	const files = await getFiles('blog')
-	const paths = files.map((filename) => ({
-		params: {
-			slug: filename.replace('.mdx', ''),
-		},
-	}))
+export async function getStaticPaths() {
+	const posts = await getFiles('blog')
 
 	return {
-		paths,
+		paths: posts.map((p) => ({
+			params: {
+				slug: p.replace(/\.mdx/, ''),
+			},
+		})),
 		fallback: false,
 	}
 }
 
-export const getStaticProps = async ({ params }) => {
-	const post = await getFileBySlug('blog', params.slug)
-
+export async function getStaticProps({ params }) {
+	const post = await getFileBySlug('blog', 'eOsqlvhcVK0QsddOqBP9')
 	return { props: post }
 }
-
-export default BlogPost

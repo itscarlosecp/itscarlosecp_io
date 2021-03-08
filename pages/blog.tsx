@@ -1,15 +1,18 @@
-import { InferGetStaticPropsType } from 'next'
-import { getAllFilesFrontMatter } from '@lib/mdx'
+import type { Post } from '@lib/types'
+import * as React from 'react'
 import Container from '@components/Container'
 import BlogPost from '@components/BlogPost'
+import { getPosts } from '@lib/mdx'
 
-const index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+interface Props {
+	posts: Post[]
+}
+
+const blog = ({ posts }: Props) => {
 	return (
 		<Container
-			cstmMeta={{
-				title: 'Blog - itscarlosecp',
-				description: 'My blog',
-			}}
+			title='itscarlosecp - Blog'
+			description='Thoughts on the software industry, programming, tech, videography, music, and my personal life.'
 		>
 			<div className='flex flex-col justify-center items-start max-w-2xl mx-auto mb-16'>
 				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
@@ -24,8 +27,8 @@ const index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white'>
 					All Posts
 				</h3>
-				{posts.map((frontMatter) => (
-					<BlogPost key={frontMatter.title} {...frontMatter} />
+				{posts.map((post) => (
+					<BlogPost key={post.id} {...post} />
 				))}
 			</div>
 		</Container>
@@ -33,7 +36,7 @@ const index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 }
 
 export const getStaticProps = async () => {
-	const posts = await getAllFilesFrontMatter('blog')
+	const posts = await getPosts()
 
 	return {
 		props: {
@@ -42,4 +45,4 @@ export const getStaticProps = async () => {
 	}
 }
 
-export default index
+export default blog

@@ -1,14 +1,21 @@
+import { Post } from '@lib/types'
 import Link from 'next/link'
-import format from 'comma-number'
 
-interface Props {
-	title: string
-	description: string
-	slug: string
-}
-
-const BlogPost = ({ title, description, slug }) => {
-	return <Link href={`/blog/${slug}`}>{title}</Link>
+const BlogPost = (post: Post) => {
+	return (
+		<Link href={`/blog/${post.slug}`}>
+			<a className='w-full'>
+				<div className='mb-8 w-full'>
+					<div className='flex flex-col md:flex-row justify-between'>
+						<h4 className='text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100'>
+							{post.meta_title || post.title}
+						</h4>
+					</div>
+					<p className='text-gray-600 dark:text-gray-400'></p>
+				</div>
+			</a>
+		</Link>
+	)
 }
 
 export default BlogPost
