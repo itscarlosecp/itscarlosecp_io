@@ -1,4 +1,3 @@
-import type { GithubProfile } from '@lib/types'
 import * as Icons from 'react-bootstrap-icons'
 import Container from '@components/Container'
 
