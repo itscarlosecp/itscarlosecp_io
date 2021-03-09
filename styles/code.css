@@ -1,0 +1,16 @@
+.hljs-keyword {
+	color: rgb(197, 134, 192, var(--tw-text-opacity));
+}
+
+.hljs-built_in {
+	color: rgb(78, 201, 176, var(--tw-text-opacity));
+}
+
+.hljs-string {
+	color: rgb(206, 145, 120, var(--tw-text-opacity));
+}
+
+.hljs-comment {
+	font-style: italic;
+	color: rgb(106, 153, 85, var(--tw-text-opacity));
+}
