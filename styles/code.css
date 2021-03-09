@@ -1,0 +1,38 @@
+.token.interpolation-punctuation.punctuation,
+.token.tag,
+.token.keyword {
+	color: rgb(86, 156, 214, var(--tw-text-opacity));
+}
+
+.token.function-variable,
+.token.function {
+	color: rgb(220, 220, 170, var(--tw-text-opacity));
+}
+
+.token.attr-equals,
+.token.script,
+.token.interpolation,
+.token.attr-name,
+.token.parameter {
+	color: rgb(156, 220, 254, var(--tw-text-opacity));
+}
+
+.token.builtin,
+.token.number,
+.token.class-name {
+	color: rgb(78, 201, 176, var(--tw-text-opacity));
+}
+
+.token.comment {
+	color: rgb(106, 153, 85, var(--tw-text-opacity));
+}
+
+.token.comment {
+	font-style: italic;
+}
+
+.token.attr-value,
+.token.template-string,
+.token.string {
+	color: rgb(206, 145, 120, var(--tw-text-opacity));
+}

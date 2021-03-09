@@ -2,9 +2,20 @@ import type { InferGetStaticPropsType, GetStaticPaths } from 'next'
 import * as React from 'react'
 import PostLayout from '@layouts/Post'
 import { getPostBySlug, getPosts } from '@lib/db'
-import highlight from '@lib/highlight'
+
+import Prism from 'prismjs'
+
+import 'prismjs/components/prism-jsx'
+import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-tsx'
+import 'prismjs/components/prism-typescript'
+import 'prismjs/components/prism-python'
 
 const Post = (post: InferGetStaticPropsType<typeof getStaticProps>) => {
+	React.useEffect(() => {
+		Prism.highlightAll()
+	}, [])
+
 	return <PostLayout {...post} />
 }
 
