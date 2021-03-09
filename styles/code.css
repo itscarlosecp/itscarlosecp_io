@@ -17,11 +17,14 @@
 	color: rgb(156, 220, 254, var(--tw-text-opacity));
 }
 
-.token.comment,
 .token.builtin,
 .token.number,
 .token.class-name {
 	color: rgb(78, 201, 176, var(--tw-text-opacity));
+}
+
+.token.comment {
+	color: rgb(106, 153, 85, var(--tw-text-opacity));
 }
 
 .token.comment {
