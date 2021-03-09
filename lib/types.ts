@@ -83,3 +83,62 @@ export type GithubProfile = {
 	created_at: string
 	updated_at: string
 }
+
+export type Track = {
+	album: Album
+	artists: ArtistsEntity[]
+	available_markets?: string[] | null
+	disc_number: number
+	duration_ms: number
+	explicit: boolean
+	external_ids: ExternalIds
+	external_urls: ExternalUrls
+	href: string
+	id: string
+	is_local: boolean
+	name: string
+	popularity: number
+	preview_url: string
+	track_number: number
+	type: string
+	uri: string
+}
+
+type Album = {
+	album_type: string
+	artists?: ArtistsEntity[] | null
+	available_markets?: string[] | null
+	external_urls: ExternalUrls
+	href: string
+	id: string
+	images?: ImagesEntity[] | null
+	name: string
+	release_date: string
+	release_date_precision: string
+	total_tracks: number
+	type: string
+	uri: string
+}
+
+type ArtistsEntity = {
+	external_urls: ExternalUrls
+	href: string
+	id: string
+	name: string
+	type: string
+	uri: string
+}
+
+type ExternalUrls = {
+	spotify: string
+}
+
+type ImagesEntity = {
+	height: number
+	url: string
+	width: number
+}
+
+type ExternalIds = {
+	isrc: string
+}
