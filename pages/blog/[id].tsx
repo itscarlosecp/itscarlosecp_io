@@ -2,20 +2,16 @@ import type { InferGetStaticPropsType, GetStaticPaths } from 'next'
 import * as React from 'react'
 import PostLayout from '@layouts/Post'
 import { getPostBySlug, getPosts } from '@lib/db'
-import hljs from 'highlight.js'
-import javascript from 'highlight.js/lib/languages/javascript'
-import typescript from 'highlight.js/lib/languages/typescript'
-import css from 'highlight.js/lib/languages/css'
-import python from 'highlight.js/lib/languages/python'
+import Prism from 'prismjs'
+import 'prismjs/components/prism-python'
 
 const Post = (post: InferGetStaticPropsType<typeof getStaticProps>) => {
 	React.useEffect(() => {
-		hljs.registerLanguage('javascript', javascript)
-		hljs.registerLanguage('typescript', typescript)
-		hljs.registerLanguage('css', css)
-		hljs.registerLanguage('python', python)
-		hljs.highlightAll()
+		Prism.highlightAll()
 	}, [])
+
+	return <PostLayout {...post} />
+}
 
 	return <PostLayout {...post} />
 }
