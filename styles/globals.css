@@ -15,14 +15,6 @@
 		U+2215, U+FEFF, U+FFFD;
 }
 
-@font-face {
-	font-family: 'JetBrainsMono';
-	font-style: normal;
-	font-weight: 400;
-	font-display: optional;
-	src: url(/fonts/jetbrains-mono.ttf) format('truetype');
-}
-
 html {
 	scroll-behavior: smooth;
 }
@@ -52,7 +44,6 @@ figure > img {
 }
 
 .prose pre {
-	font-family: 'JetBrainsMono';
 	@apply bg-code-bg;
 }
 
