@@ -27,10 +27,7 @@ export const getTopTracks = async () => {
 	const res = await fetch(
 		'https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10',
 		{
-			method: 'GET',
 			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/application/json',
 				Authorization: `Bearer ${access_token}`,
 			},
 		}
