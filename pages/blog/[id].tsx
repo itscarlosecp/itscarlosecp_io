@@ -3,18 +3,21 @@ import * as React from 'react'
 import PostLayout from '@layouts/Post'
 import { getPostBySlug, getPosts } from '@lib/db'
 import hljs from 'highlight.js'
-import highlight from '@lib/highlight'
+import javascript from 'highlight.js/lib/languages/javascript'
+import typescript from 'highlight.js/lib/languages/typescript'
+import css from 'highlight.js/lib/languages/css'
+import python from 'highlight.js/lib/languages/python'
 
 const Post = (post: InferGetStaticPropsType<typeof getStaticProps>) => {
-	const [mounted, setMounted] = React.useState(false)
-
 	React.useEffect(() => {
-		highlight()
+		hljs.registerLanguage('javascript', javascript)
+		hljs.registerLanguage('typescript', typescript)
+		hljs.registerLanguage('css', css)
+		hljs.registerLanguage('python', python)
 		hljs.highlightAll()
-		setMounted(true)
 	}, [])
 
-	return mounted ? <PostLayout {...post} /> : <div></div>
+	return <PostLayout {...post} />
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
