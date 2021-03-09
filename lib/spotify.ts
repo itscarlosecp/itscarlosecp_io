@@ -1,19 +1,28 @@
+import fetch from 'isomorphic-unfetch'
+import querystring from 'querystring'
+
 export const getAccessToken = async () => {
-	const res = await fetch(
-		'https://accounts.spotify.com/api/token?grant_type=client_credentials',
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-				Authorization:
-					'Basic ' +
-					'ZTRhOWQxMzI1ZjM0NDczZmJjMTIzMzcwNzIwNjVhZWI6OWNkNmMwMWU3Nzg4NGFmMzkzYTAwMmMwMjBjMTQ5YWY=',
-			},
-		}
-	)
+	const Authorization =
+		'Basic ' +
+		'ZTRhOWQxMzI1ZjM0NDczZmJjMTIzMzcwNzIwNjVhZWI6OWNkNmMwMWU3Nzg4NGFmMzkzYTAwMmMwMjBjMTQ5YWY='
+	console.log(Authorization)
+
+	const res = await fetch('https://accounts.spotify.com/api/token', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded',
+			Authorization:
+				'Basic ZTRhOWQxMzI1ZjM0NDczZmJjMTIzMzcwNzIwNjVhZWI6OWNkNmMwMWU3Nzg4NGFmMzkzYTAwMmMwMjBjMTQ5YWY=',
+		},
+		body: querystring.stringify({
+			grant_type: 'refresh_token',
+			refresh_token: `${process.env.SPOTIFY_OAUTH_TOKEN}`,
+		}),
+	})
 
 	const data = await res.json()
 	console.log(data)
+	return data
 }
 
 export const getTopTracks = async () => {
