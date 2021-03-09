@@ -1,8 +1,8 @@
 import type { Post } from '@lib/types'
 import Link from 'next/link'
 import Container from '@components/Container'
-import BlogPost from '@components/BlogPost'
-import { getFeaturedPosts } from '@lib/mdx'
+import PostItem from '@components/PostItem'
+import { getFeaturedPosts } from '@lib/db'
 
 interface Props {
 	featuredPosts: Post[]
@@ -16,26 +16,16 @@ const index = ({ featuredPosts }: Props) => {
 					Hi, I'm Carlos Castillo
 				</h1>
 				<h2 className='prose text-gray-600 dark:text-gray-400 mb-16'>
-					I’m a developer, writer, and creator. I work at ▲Vercel as a
-					Solutions Architect. You’ve found my personal slice of the
-					internet –&nbsp;
-					<Link href='/guestbook'>
-						<a>sign my guestbook&nbsp;</a>
-					</Link>
-					while you're here.
+					I'm a developer from Nicaragua, currently living in
+					Argentina and studying computer engineering @ University of
+					Buenos Aires.
 				</h2>
 				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white'>
 					Featured Posts
 				</h3>
-				<ul>
-					{featuredPosts.map((post) => (
-						<BlogPost
-							key={post.slug}
-							title={post.title}
-							slug={post.slug}
-						/>
-					))}
-				</ul>
+				{featuredPosts.map((post) => (
+					<PostItem key={post.id} {...post} />
+				))}
 			</div>
 		</Container>
 	)

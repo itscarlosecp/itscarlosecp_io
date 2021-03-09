@@ -55,7 +55,7 @@ const Container = ({ children, ...customMeta }: Props) => {
 				<div className='w-full max-w-4xl p-8 mb-8 mx-auto flex justify-between items-center'>
 					<button
 						type='button'
-						className='w-10 h-10 flex justify-center items-center text-black dark:text-white bg-gray-200 dark:bg-gray-800 rounded'
+						className='w-10 h-10 flex justify-center items-center text-black dark:text-white bg-gray-200 dark:bg-code-bg rounded'
 						aria-label='Toggle Dark Theme'
 						onClick={() =>
 							setTheme(theme === 'dark' ? 'light' : 'dark')
