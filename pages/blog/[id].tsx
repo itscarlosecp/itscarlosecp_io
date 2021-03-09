@@ -4,12 +4,7 @@ import PostLayout from '@layouts/Post'
 import { getPostBySlug, getPosts } from '@lib/db'
 
 import Prism from 'prismjs'
-
-import 'prismjs/components/prism-jsx'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-tsx'
-import 'prismjs/components/prism-typescript'
-import 'prismjs/components/prism-python'
+import '@lib/prism'
 
 const Post = (post: InferGetStaticPropsType<typeof getStaticProps>) => {
 	React.useEffect(() => {

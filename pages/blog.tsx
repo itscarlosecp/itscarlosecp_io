@@ -24,7 +24,8 @@ const blog = ({ posts, featuredPosts }: Props) => {
 					years. These are mostly tutorials or snippets showing how to
 					use an specific technology or implement some functionality
 					in a specific language, but sometimes I do comments and
-					share my opinion about the programming community and tech world in general.
+					share my opinion about the programming community and tech
+					world in general.
 				</p>
 				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white'>
 					Featured Posts

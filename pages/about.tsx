@@ -1,52 +1,93 @@
+import type { InferGetStaticPropsType } from 'next'
+import * as React from 'react'
 import * as Icons from 'react-bootstrap-icons'
+import Image from 'next/image'
 import Container from '@components/Container'
+import { getAccessToken, getTopTracks } from '@lib/spotify'
+import TrackItem from '@components/TrackItem'
+import { Track } from '@lib/types'
 
-const about = () => {
+const about = ({
+	topTracks,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
 		<Container>
-			<div className='flex flex-col justify-center items-stretch max-w-2xl mx-auto mb-16'>
+			<div className='flex flex-col justify-center max-w-2xl mx-auto mb-16'>
 				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
 					About Me
 				</h1>
-				<div className='mb-8 prose leading-6 text-gray-600 dark:text-gray-400'>
+				<div className='mb-4 prose leading-6 text-gray-600 dark:text-gray-400'>
 					<p>
-						Hey, I’m Lee. I'm a developer, writer, and the creator
-						of&nbsp;
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Autem odit assumenda modi quo architecto dolorem itaque
+						harum? Quae nihil magnam aspernatur est sequi eveniet
+						magni temporibus, laborum alias consequatur sapiente.
 					</p>
 					<p>
-						I’ve spoken across the country at conferences and
-						meet-ups about front-end development, design, and
-						recruiting. I write about development, tech careers, and
-						my personal life on&nbsp;
-					</p>
-					<p>
-						I grew up in small-town Iowa and went to school at Iowa
-						State, graduating with a degree in Computer Engineering.
-						I spend my free time playing music, creating videos, and
-						enjoying time with friends and family in Des Moines, IA.
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Natus tempore dolores neque, nihil recusandae facilis,
+						quaerat fugit quod ullam animi voluptatem voluptatibus
+						quos modi nisi dicta enim, nesciunt est quis?
 					</p>
 				</div>
-				<a
-					href='https://github.com/itscarlosecp'
-					className='no-underline'
-				>
-					<button className='px-4 py-2 rounded bg-black text-white flex gap-2 items-center'>
-						<Icons.Github />
-						Open Github
-					</button>
-				</a>
+				<div className='flex gap-4'>
+					<a
+						href='https://github.com/itscarlosecp'
+						className='no-underline'
+					>
+						<button className='px-4 py-2 rounded bg-black dark:bg-code-bg text-white flex gap-2 items-center'>
+							<Icons.Github />
+							Visit Github
+						</button>
+					</a>
+				</div>
+			</div>
+			<div className='flex flex-col justify-center max-w-2xl mx-auto mb-16'>
+				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
+					Top Tracks
+				</h1>
+				<div className='mb-4 prose leading-6 text-gray-600 dark:text-gray-400'>
+					<p>
+						I unlock my full "developer potencial" when I am
+						listening to the music I like the most, this is
+						especially true during long codign sessions. Take a look
+						at my most played tracks over the last month.
+					</p>
+				</div>
+
+				{topTracks.map((track, index) => (
+					<TrackItem key={track.id} ranking={index} track={track} />
+				))}
+			</div>
+			<div className='flex flex-col justify-center max-w-2xl mx-auto mb-16'>
+				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
+					Dev Environment + Gear
+				</h1>
+				<div className='mb-4 prose leading-6 text-gray-600 dark:text-gray-400'>
+					<p>
+						These are the gadgets and technologies I use on a day to
+						day basis, most of the are part of my development
+						workflow:
+					</p>
+					<ul>
+						<li>Ubuntu on WSL2 (Windows SubSystem for Linux)</li>
+						<li>Dell Inspiron 7000 2-in-1 (Late 2017)</li>
+						<li>24" BenQ GW2480</li>
+						<li>Logitech MX Master 3 Mouse</li>
+						<li>Fifine K730</li>
+					</ul>
+				</div>
 			</div>
 		</Container>
 	)
 }
 
 export const getStaticProps = async () => {
-	const res = await fetch('https://api.github.com/users/itscarlosecp')
-	const githubProfile = await res.json()
+	const topTracks = await getTopTracks()
 
 	return {
 		props: {
-			githubProfile,
+			topTracks: topTracks.items as Track[],
 		},
 	}
 }
