@@ -2,13 +2,14 @@ import type { Post } from '@lib/types'
 import * as React from 'react'
 import Container from '@components/Container'
 import PostItem from '@components/PostItem'
-import { getPosts } from '@lib/db'
+import { getPosts, getFeaturedPosts } from '@lib/db'
 
 interface Props {
 	posts: Post[]
+	featuredPosts: Post[]
 }
 
-const blog = ({ posts }: Props) => {
+const blog = ({ posts, featuredPosts }: Props) => {
 	return (
 		<Container
 			title='itscarlosecp - Blog'
@@ -19,11 +20,18 @@ const blog = ({ posts }: Props) => {
 					Blog
 				</h1>
 				<p className='text-gray-600 dark:text-gray-400 mb-4'>
-					{`I've been writing online since 2014, mostly about web development and tech careers.
-            In total, I've written ${posts.length} articles on this site.
-            Use the search below to filter by title.`}
+					This is a collection of the blog posts I've written over the
+					years. These are mostly tutorials or snippets showing how to
+					use an specific technology or implement some functionality
+					in a specific language, but sometimes I do comments and
+					share my opinion about the programming community and tech world in general.
 				</p>
-
+				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white'>
+					Featured Posts
+				</h3>
+				{featuredPosts.map((post) => (
+					<PostItem key={post.id} {...post} />
+				))}
 				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white'>
 					All Posts
 				</h3>
@@ -37,10 +45,12 @@ const blog = ({ posts }: Props) => {
 
 export const getStaticProps = async () => {
 	const posts = await getPosts()
+	const featuredPosts = await getFeaturedPosts()
 
 	return {
 		props: {
 			posts,
+			featuredPosts,
 		},
 	}
 }

@@ -1,10 +1,4 @@
-import fs from 'fs'
-import path from 'path'
 import { Post } from './types'
-// import readingTime from 'reading-time'
-// import MDXComponents from '@/components/MDXComponents'
-
-const root = process.cwd()
 
 export const getPosts = async () => {
 	const res = await fetch(

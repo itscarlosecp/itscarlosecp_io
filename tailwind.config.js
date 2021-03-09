@@ -10,11 +10,12 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
+				'code-bg': '#161616',
 				transparent: 'transparent',
 				current: 'currentColor',
 				black: colors.black,
 				white: colors.white,
-				gray: colors.blueGray,
+				gray: colors.gray,
 				indigo: colors.indigo,
 				red: colors.rose,
 				yellow: colors.amber,
@@ -43,7 +44,7 @@ module.exports = {
 						'h2,h3,h4': {
 							'scroll-margin-top': spacing[32],
 						},
-						code: { color: theme('colors.pink.500') },
+						figcaption: { color: theme('color.gray.400') },
 						'blockquote p:first-of-type::before': false,
 						'blockquote p:last-of-type::after': false,
 					},
