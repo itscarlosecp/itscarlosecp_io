@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './code.css';
-
 @font-face {
 	font-family: 'Inter';
 	font-style: normal;

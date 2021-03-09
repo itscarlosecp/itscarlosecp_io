@@ -46,7 +46,7 @@ const Container = ({ children, ...customMeta }: Props) => {
 				<meta property='og:title' content={meta.title} />
 			</Head>
 			<nav className='sticky top-0 z-10 w-full bg-white dark:bg-black transition-colors blur'>
-				<div className='w-full max-w-4xl p-8 mb-8 mx-auto flex justify-between items-center'>
+				<div className='w-full max-w-4xl p-4 sm:p-8 mb-8 mx-auto flex justify-between items-center'>
 					<button
 						type='button'
 						className='w-12 h-12 flex justify-center items-center text-black dark:text-white bg-gray-200 dark:bg-code-bg rounded'
@@ -71,21 +71,21 @@ const Container = ({ children, ...customMeta }: Props) => {
 						)}
 					</button>
 					<ul className='flex'>
-						<li className='p-1 sm:p-4 flex items-center'>
+						<li className='p-2 sm:p-4 flex items-center'>
 							<Link href='/'>
 								<a className='text-black dark:text-white hover:cursor-pointer transition-colors'>
 									Home
 								</a>
 							</Link>
 						</li>
-						<li className='p-1 sm:p-4 flex items-center'>
+						<li className='p-2 sm:p-4 flex items-center'>
 							<Link href='/blog'>
 								<a className='text-black dark:text-white hover:cursor-pointer transition-colors'>
 									Blog
 								</a>
 							</Link>
 						</li>
-						<li className='p-1 sm:p-4 flex items-center'>
+						<li className='p-2 sm:p-4 flex items-center'>
 							<Link href='/about'>
 								<a className='text-black dark:text-white hover:cursor-pointer transition-colors'>
 									About
