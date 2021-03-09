@@ -1,5 +1,4 @@
 import type { Post } from '@lib/types'
-import Link from 'next/link'
 import Container from '@components/Container'
 import PostItem from '@components/PostItem'
 import { getFeaturedPosts } from '@lib/db'

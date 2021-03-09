@@ -19,10 +19,10 @@ const PostLayout = (post: Post) => {
 				<div className='flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8'>
 					<div className='flex items-center'>
 						<Image
-							alt='Lee Robinson'
+							alt='itscarloescp'
 							height={24}
 							width={24}
-							src='/avatar.jpg'
+							src='https://avatars.githubusercontent.com/u/47466248?v=4'
 							className='rounded-full'
 						/>
 						<p className='text-sm text-gray-700 dark:text-gray-300 ml-2'>
@@ -33,9 +33,12 @@ const PostLayout = (post: Post) => {
 							)}
 						</p>
 					</div>
+					<p className='text-sm text-gray-500 min-w-32 mt-2 md:mt-0'>
+						{post.reading_time} min read
+					</p>
 				</div>
 				<div
-					className='prose dark:prose-dark max-w-none w-full'
+					className='mt-6 prose dark:prose-dark max-w-none w-full'
 					dangerouslySetInnerHTML={{ __html: post.html }}
 				></div>
 			</article>
