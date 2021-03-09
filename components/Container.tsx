@@ -30,7 +30,6 @@ const Container = ({ children, ...customMeta }: Props) => {
 		<>
 			<Head>
 				<title>{meta.title}</title>
-				<meta name='robots' content='all' />
 				<meta content={meta.description} name='description' />
 				<meta
 					property='og:url'
@@ -44,10 +43,6 @@ const Container = ({ children, ...customMeta }: Props) => {
 				<meta property='og:site_name' content='itscarlosecp' />
 				<meta property='og:description' content={meta.description} />
 				<meta property='og:title' content={meta.title} />
-				<meta name='twitter:card' content='summary_large_image' />
-				<meta name='twitter:site' content='@itscarlosecp' />
-				<meta name='twitter:title' content={meta.title} />
-				<meta name='twitter:description' content={meta.description} />
 			</Head>
 			<nav className='sticky top-0 z-10 w-full bg-white dark:bg-black transition-colors blur'>
 				<div className='w-full max-w-4xl p-8 mb-8 mx-auto flex justify-between items-center'>
