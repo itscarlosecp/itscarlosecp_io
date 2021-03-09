@@ -71,10 +71,20 @@ const about = ({
 					</p>
 					<ul>
 						<li>Ubuntu on WSL2 (Windows SubSystem for Linux)</li>
+						<li>
+							VSCode+
+							<a href='https://github.com/VSCodeVim/Vim'>
+								Vim Extension
+							</a>{' '}
+							/ Neovim -{' '}
+							<a href='https://github.com/itscarlosecp/.dotfiles'>
+								(config files)
+							</a>
+						</li>
 						<li>Dell Inspiron 7000 2-in-1 (Late 2017)</li>
-						<li>24" BenQ GW2480</li>
+						<li>24" BenQ GW2480 Monitor</li>
 						<li>Logitech MX Master 3 Mouse</li>
-						<li>Fifine K730</li>
+						<li>Fifine K730 Microphone</li>
 					</ul>
 				</div>
 			</div>
