@@ -40,6 +40,7 @@ const Container = ({ children, ...customMeta }: Props) => {
 					href={`https://itscarlosecp.io/${router.asPath}`}
 				/>
 				<meta property='og:type' content={meta.type} />
+				<meta property='og:image' content={meta.image} />
 				<meta property='og:site_name' content='itscarlosecp' />
 				<meta property='og:description' content={meta.description} />
 				<meta property='og:title' content={meta.title} />
@@ -48,7 +49,7 @@ const Container = ({ children, ...customMeta }: Props) => {
 				<div className='w-full max-w-4xl p-8 mb-8 mx-auto flex justify-between items-center'>
 					<button
 						type='button'
-						className='w-10 h-10 flex justify-center items-center text-black dark:text-white bg-gray-200 dark:bg-code-bg rounded'
+						className='w-12 h-12 flex justify-center items-center text-black dark:text-white bg-gray-200 dark:bg-code-bg rounded'
 						aria-label='Toggle Dark Theme'
 						onClick={() =>
 							setTheme(theme === 'dark' ? 'light' : 'dark')
@@ -81,6 +82,13 @@ const Container = ({ children, ...customMeta }: Props) => {
 							<Link href='/blog'>
 								<a className='text-black dark:text-white hover:cursor-pointer transition-colors'>
 									Blog
+								</a>
+							</Link>
+						</li>
+						<li className='p-1 sm:p-4 flex items-center'>
+							<Link href='/about'>
+								<a className='text-black dark:text-white hover:cursor-pointer transition-colors'>
+									About
 								</a>
 							</Link>
 						</li>

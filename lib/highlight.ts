@@ -9,6 +9,7 @@ const highlight = () => {
 	hljs.registerLanguage('typescript', typescript)
 	hljs.registerLanguage('css', css)
 	hljs.registerLanguage('python', python)
+	hljs.highlightAll()
 }
 
 export default highlight

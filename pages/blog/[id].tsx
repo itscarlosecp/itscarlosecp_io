@@ -1,14 +1,12 @@
 import type { InferGetStaticPropsType, GetStaticPaths } from 'next'
 import * as React from 'react'
-import hljs from 'highlight.js'
-import highlight from '@lib/highlight'
 import PostLayout from '@layouts/Post'
 import { getPostBySlug, getPosts } from '@lib/db'
+import highlight from '@lib/highlight'
 
 const Post = (post: InferGetStaticPropsType<typeof getStaticProps>) => {
 	React.useEffect(() => {
 		highlight()
-		hljs.initHighlighting()
 	}, [])
 
 	return <PostLayout {...post} />
