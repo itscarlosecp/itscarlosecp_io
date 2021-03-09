@@ -5,10 +5,6 @@ import { getPostBySlug, getPosts } from '@lib/db'
 import highlight from '@lib/highlight'
 
 const Post = (post: InferGetStaticPropsType<typeof getStaticProps>) => {
-	React.useEffect(() => {
-		highlight()
-	}, [])
-
 	return <PostLayout {...post} />
 }
 
