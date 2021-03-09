@@ -10,10 +10,6 @@ import { Track } from '@lib/types'
 const about = ({
 	topTracks,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-	React.useEffect(() => {
-		getAccessToken()
-	}, [])
-
 	return (
 		<Container>
 			<div className='flex flex-col justify-center max-w-2xl mx-auto mb-16'>
@@ -74,14 +70,7 @@ const about = ({
 						workflow:
 					</p>
 					<ul>
-						<li>
-							<Image
-								width={16}
-								height={16}
-								src={'/icons/ubuntu.svg'}
-							/>
-							Ubuntu on Windows Subsystem for Linux 2
-						</li>
+						<li>Ubuntu on WSL2 (Windows SubSystem for Linux)</li>
 						<li>Dell Inspiron 7000 2-in-1 (Late 2017)</li>
 						<li>24" BenQ GW2480</li>
 						<li>Logitech MX Master 3 Mouse</li>
@@ -98,7 +87,7 @@ export const getStaticProps = async () => {
 
 	return {
 		props: {
-			topTracks: [] as Track[],
+			topTracks: topTracks.items as Track[],
 		},
 	}
 }
