@@ -38,7 +38,7 @@ const PostLayout = (post: Post) => {
 					</p>
 				</div>
 				<div
-					className='mt-6 prose dark:prose-dark max-w-none w-full'
+					className='prose dark:prose-dark max-w-none w-full'
 					dangerouslySetInnerHTML={{ __html: post.html }}
 				/>
 			</article>

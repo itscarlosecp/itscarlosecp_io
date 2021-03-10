@@ -28,14 +28,14 @@ html {
 		(-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))
 	) {
 		.blur {
-			@apply bg-opacity-60;
+			@apply bg-opacity-70;
 			backdrop-filter: blur(12px);
 			-webkit-backdrop-filter: blur(12px);
 		}
 	}
 }
 
-figure {
+figcaption {
 	@apply text-center;
 }
 

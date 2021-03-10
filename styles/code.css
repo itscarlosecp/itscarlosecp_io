@@ -1,5 +1,6 @@
 .token.interpolation-punctuation.punctuation,
 .token.tag,
+.token.rule,
 .token.keyword {
 	color: rgb(86, 156, 214, var(--tw-text-opacity));
 }
