@@ -1,7 +1,6 @@
 import type { InferGetStaticPropsType } from 'next'
 import * as React from 'react'
 import * as Icons from 'react-bootstrap-icons'
-import Image from 'next/image'
 import Container from '@components/Container'
 import { getAccessToken, getTopTracks } from '@lib/spotify'
 import TrackItem from '@components/TrackItem'
@@ -72,16 +71,12 @@ const about = ({
 					<ul>
 						<li>Ubuntu on WSL2 (Windows SubSystem for Linux)</li>
 						<li>
-							VSCode+
-							<a href='https://github.com/VSCodeVim/Vim'>
-								Vim Extension
-							</a>{' '}
-							/ Neovim -{' '}
+							VSCode / Neovim -{' '}
 							<a href='https://github.com/itscarlosecp/.dotfiles'>
 								(config files)
 							</a>
 						</li>
-						<li>Dell Inspiron 7000 2-in-1 (Late 2017)</li>
+						<li>Dell Inspiron 15 7000 2-in-1 (Late 2017)</li>
 						<li>24" BenQ GW2480 Monitor</li>
 						<li>Logitech MX Master 3 Mouse</li>
 						<li>Fifine K730 Microphone</li>
