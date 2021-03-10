@@ -142,3 +142,10 @@ type ImagesEntity = {
 type ExternalIds = {
 	isrc: string
 }
+
+export type Project = {
+	name: string
+	iconLoc: string
+	description: string
+	ref: string
+}

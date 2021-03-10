@@ -37,7 +37,7 @@ const Container = ({ children, ...customMeta }: Props) => {
 				<meta property='og:description' content={meta.description} />
 				<meta property='og:title' content={meta.title} />
 			</Head>
-			<main className='flex flex-col justify-center bg-white dark:bg-black transition-colors px-8'>
+			<main className='bg-white dark:bg-black transition-colors px-8'>
 				{children}
 			</main>
 		</>

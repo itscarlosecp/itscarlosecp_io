@@ -1,8 +1,9 @@
 import type { Post } from '@lib/types'
 import * as React from 'react'
 import Container from '@components/Container'
-import PostItem from '@components/PostItem'
+import Posts from '@components/Posts'
 import { getPosts, getFeaturedPosts } from '@lib/db'
+import PageSection from '@components/PageSection'
 
 interface Props {
 	posts: Post[]
@@ -27,18 +28,12 @@ const blog = ({ posts, featuredPosts }: Props) => {
 					share my opinion about the programming community and tech
 					world in general.
 				</p>
-				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white'>
-					Featured Posts
-				</h3>
-				{featuredPosts.map((post) => (
-					<PostItem key={post.id} {...post} />
-				))}
-				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white'>
-					All Posts
-				</h3>
-				{posts.map((post) => (
-					<PostItem key={post.id} {...post} />
-				))}
+				<PageSection sectionTitle='Featured Posts'>
+					<Posts posts={featuredPosts} />
+				</PageSection>
+				<PageSection sectionTitle='All Posts'>
+					<Posts posts={posts} />
+				</PageSection>
 			</div>
 		</Container>
 	)
