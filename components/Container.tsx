@@ -25,11 +25,11 @@ const Container = ({ children, ...customMeta }: Props) => {
 				<meta content={meta.description} name='description' />
 				<meta
 					property='og:url'
-					content={`https://itscarlosecp.dev/${router.asPath}`}
+					content={`https://itscarlosecp.dev${router.asPath}`}
 				/>
 				<link
 					rel='canonical'
-					href={`https://itscarlosecp.dev/${router.asPath}`}
+					href={`https://itscarlosecp-dev.verce.app${router.asPath}`}
 				/>
 				<meta property='og:type' content={meta.type} />
 				<meta property='og:image' content={meta.image} />
