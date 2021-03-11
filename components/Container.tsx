@@ -33,7 +33,7 @@ const Container = ({ children, ...customMeta }: Props) => {
 				/>
 				<meta property='og:type' content={meta.type} />
 				<meta property='og:image' content={meta.image} />
-				<meta property='og:site_name' content='itscarlosecp' />
+				<meta property='og:site_name' content='itscarlosecp.dev' />
 				<meta property='og:description' content={meta.description} />
 				<meta property='og:title' content={meta.title} />
 			</Head>
