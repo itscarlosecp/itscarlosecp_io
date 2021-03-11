@@ -3,7 +3,6 @@ import Container from '@components/Container'
 import Posts from '@components/Posts'
 import { getFeaturedPosts } from '@lib/db'
 import PageSection from '@components/PageSection'
-import Projects from '@components/Projects'
 import { getProjects } from '@lib/projects'
 import ProjectItem from '@components/ProjectItems'
 

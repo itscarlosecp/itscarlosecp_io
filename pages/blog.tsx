@@ -28,10 +28,10 @@ const blog = ({ posts, featuredPosts }: Props) => {
 					share my opinion about the programming community and tech
 					world in general.
 				</p>
-				<PageSection sectionTitle='Featured Posts'>
+				<PageSection title='Featured Posts'>
 					<Posts posts={featuredPosts} />
 				</PageSection>
-				<PageSection sectionTitle='All Posts'>
+				<PageSection title='All Posts'>
 					<Posts posts={posts} />
 				</PageSection>
 			</div>
