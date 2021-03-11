@@ -34,7 +34,7 @@ const index = ({ featuredPosts, projects }: Props) => {
 				<PageSection title='Featured Posts'>
 					<ul className='flex flex-col gap-8'>
 						{projects.map((project) => (
-							<ProjectItem {...project} />
+							<ProjectItem key={project.iconId} {...project} />
 						))}
 					</ul>
 				</PageSection>
