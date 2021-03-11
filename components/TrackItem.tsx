@@ -7,7 +7,7 @@ interface Props {
 
 const TrackItem = ({ ranking, track }: Props) => {
 	return (
-		<div className='flex flex-row items-baseline border-b border-gray-100 dark:border-gray-800 max-w-3xl w-full mt-8'>
+		<li className='flex flex-row items-baseline max-w-3xl w-full py-4'>
 			<p className='text-sm font-bold text-gray-400 dark:text-gray-600'>
 				{ranking + 1}
 			</p>
@@ -20,16 +20,13 @@ const TrackItem = ({ ranking, track }: Props) => {
 				>
 					{track.name}
 				</a>
-				<p
-					className='text-gray-500 mb-4 truncate w-60 sm:w-96 md:w-full'
-					color='gray.500'
-				>
+				<p className='text-gray-500 truncate w-60 sm:w-96 md:w-full'>
 					{track.artists.map((artist, index) => {
 						return index === 0 ? artist.name : `, ${artist.name}`
 					})}
 				</p>
 			</div>
-		</div>
+		</li>
 	)
 }
 

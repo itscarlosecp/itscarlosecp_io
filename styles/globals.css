@@ -7,7 +7,7 @@
 @font-face {
 	font-family: 'Inter';
 	font-style: normal;
-	font-weight: 100 900;
+	font-weight: 100 500 900;
 	font-display: optional;
 	src: url(/fonts/inter-var-latin.woff2) format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
@@ -44,9 +44,23 @@ figure > img {
 }
 
 .prose pre {
-	@apply bg-code-bg;
+	@apply bg-code-bg shadow-lg;
 }
 
 .prose code {
 	@apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md;
+}
+
+pre::-webkit-scrollbar {
+	display: none;
+}
+
+pre {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+table {
+	display: block;
+	overflow-y: scroll;
 }

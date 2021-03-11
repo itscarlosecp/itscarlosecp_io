@@ -25,7 +25,7 @@ const PostLayout = (post: Post) => {
 							src='https://avatars.githubusercontent.com/u/47466248?v=4'
 							className='rounded-full'
 						/>
-						<p className='text-sm text-gray-700 dark:text-gray-300 ml-2'>
+						<p className='text-sm text-gray-800 dark:text-gray-300 ml-2'>
 							{'Carlos Castillo / '}
 							{format(
 								parseISO(post.published_at),
@@ -38,8 +38,13 @@ const PostLayout = (post: Post) => {
 					</p>
 				</div>
 				<div
-					className='prose dark:prose-dark max-w-none w-full'
-					dangerouslySetInnerHTML={{ __html: post.html }}
+					className='prose lg:prose-lg dark:prose-dark max-w-none w-full'
+					dangerouslySetInnerHTML={{
+						__html: post.html.replace(
+							/href="http/g,
+							'target="_blank" rel="external nofollow" href="http'
+						),
+					}}
 				/>
 			</article>
 		</Container>

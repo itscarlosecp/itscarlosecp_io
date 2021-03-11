@@ -40,7 +40,7 @@ const Navbar = ({ children }: Props) => {
 							</>
 						)}
 					</button>
-					<ul className='flex'>
+					<ul className='flex font-medium'>
 						<li className='p-2 sm:p-4 flex items-center'>
 							<Link href='/'>
 								<a className='text-black dark:text-white hover:cursor-pointer transition-colors'>
