@@ -45,7 +45,10 @@ module.exports = {
 						'h2,h3,h4': {
 							'scroll-margin-top': spacing[32],
 						},
-						figcaption: { color: colors.gray['400'] },
+						figcaption: {
+							color: colors.gray['500'],
+							'text-align': 'center',
+						},
 						'blockquote p:first-of-type::before': false,
 						'blockquote p:last-of-type::after': false,
 					},
