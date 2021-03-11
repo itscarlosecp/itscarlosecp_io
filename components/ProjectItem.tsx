@@ -14,7 +14,7 @@ const ProjectItem = (project: Project) => {
 				<h4 className='text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100'>
 					{project.name}
 				</h4>
-				<p className='leading-5 text-gray-700 dark:text-gray-300'>
+				<p className='prose leading-5 text-gray-700 dark:text-gray-300'>
 					{project.description}
 				</p>
 			</div>

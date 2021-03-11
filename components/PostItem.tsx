@@ -16,7 +16,7 @@ const PostItem = (post: Post) => {
 					<p className='text-gray-500'>
 						{publishDate} (about {timeSincePublish})
 					</p>
-					<p className='text-gray-600 dark:text-gray-400'>
+					<p className='prose text-gray-600 dark:text-gray-400'>
 						{post.custom_excerpt || post.meta_description}
 					</p>
 				</div>
