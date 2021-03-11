@@ -68,13 +68,13 @@ const about = ({
 								Ubuntu on WSL2 (Windows SubSystem for Linux)
 							</li>
 							<li>
-								VSCode+
-								<a href='https://github.com/VSCodeVim/Vim'>
-									Vim Extension
-								</a>{' '}
-								/ Neovim -{' '}
-								<a href='https://github.com/itscarlosecp/.dotfiles'>
-									(config files)
+								VSCode / Neovim -{' '}
+								<a
+									target='_blank'
+									rel='external nofollow'
+									href='https://github.com/itscarlosecp/.dotfiles'
+								>
+									config files
 								</a>
 							</li>
 							<li>Dell Inspiron 7000 2-in-1 (Late 2017)</li>
