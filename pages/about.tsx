@@ -71,7 +71,7 @@ const about = ({
 								VSCode / Neovim -{' '}
 								<a
 									target='_blank'
-									rel='external nofollow'
+									rel='noopener noreferrer'
 									href='https://github.com/itscarlosecp/.dotfiles'
 								>
 									config files
