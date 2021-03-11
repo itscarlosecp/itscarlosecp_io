@@ -29,7 +29,7 @@ const Container = ({ children, ...customMeta }: Props) => {
 				/>
 				<link
 					rel='canonical'
-					href={`https://itscarlosecp-dev.verce.app${router.asPath}`}
+					href={`https://itscarlosecp-dev.vercel.app${router.asPath}`}
 				/>
 				<meta property='og:type' content={meta.type} />
 				<meta property='og:image' content={meta.image} />
