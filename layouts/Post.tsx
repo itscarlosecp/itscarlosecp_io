@@ -33,10 +33,25 @@ const PostLayout = (post: Post) => {
 							)}
 						</p>
 					</div>
-					<p className='text-sm text-gray-500 min-w-32 mt-2 md:mt-0'>
+					<p className='transition text-sm text-gray-500 min-w-32 mt-2 md:mt-0'>
 						{post.reading_time} min read
 					</p>
 				</div>
+				<div className='mb-8'>
+					<figure>
+						<Image
+							src={post.feature_image}
+							width={1920}
+							height={1080}
+							alt={post.meta_title || post.title}
+							priority
+						/>
+						<figcaption className='text-gray-500 text-sm mt-3.5 text-center'>
+							{post.meta_title || post.title}
+						</figcaption>
+					</figure>
+				</div>
+
 				<div
 					className='prose lg:prose-lg dark:prose-dark max-w-none w-full'
 					dangerouslySetInnerHTML={{

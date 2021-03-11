@@ -1,4 +1,4 @@
-import * as withPWA from 'next-pwa'
+const withPWA = require('next-pwa')
 
 module.exports = withPWA({
 	pwa: {
@@ -7,6 +7,9 @@ module.exports = withPWA({
 		skipWaiting: true,
 	},
 	images: {
-		domains: ['https://s3-us-east-2.amazonaws.com/'],
+		domains: [
+			's3-us-east-2.amazonaws.com',
+			'avatars.githubusercontent.com',
+		],
 	},
 })
