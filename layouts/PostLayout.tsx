@@ -1,7 +1,7 @@
 import type { Post } from '@lib/types'
+import Container from '@components/Container'
 import Image from 'next/image'
 import { parseISO, format } from 'date-fns'
-import Container from '@components/Container'
 
 const PostLayout = (post: Post) => {
 	return (
@@ -38,7 +38,7 @@ const PostLayout = (post: Post) => {
 					</p>
 				</div>
 				<div
-					className='mt-6 prose dark:prose-dark max-w-none w-full'
+					className='prose dark:prose-dark max-w-none w-full'
 					dangerouslySetInnerHTML={{ __html: post.html }}
 				/>
 			</article>
