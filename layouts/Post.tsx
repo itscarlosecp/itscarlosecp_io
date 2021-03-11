@@ -42,7 +42,7 @@ const PostLayout = (post: Post) => {
 					dangerouslySetInnerHTML={{
 						__html: post.html.replace(
 							/href="http/g,
-							'target="_blank" rel="external nofollow" href="http'
+							'target="_blank" nofollow" href="http'
 						),
 					}}
 				/>
