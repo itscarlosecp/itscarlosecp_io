@@ -9,7 +9,7 @@ const PostItem = (post: Post) => {
 	return (
 		<Link href={`/blog/${post.id}`}>
 			<a className='w-full'>
-				<div className='flex flex-col gap-2 justify-between'>
+				<div className='flex flex-col gap-2 justify-between hover:shadow'>
 					<h4 className='text-lg md:text-2xl font-medium w-full text-gray-900 dark:text-gray-100'>
 						{post.meta_title || post.title}
 					</h4>

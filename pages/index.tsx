@@ -1,15 +1,19 @@
-import type { Post } from '@lib/types'
+import type { Post, Project } from '@lib/types'
 import Container from '@components/Container'
 import Posts from '@components/Posts'
 import { getFeaturedPosts } from '@lib/db'
 import PageSection from '@components/PageSection'
 import Projects from '@components/Projects'
+import { getProjects } from '@lib/projects'
 
 interface Props {
 	featuredPosts: Post[]
+	projects: Project[]
 }
 
-const index = ({ featuredPosts }: Props) => {
+const index = ({ featuredPosts, projects }: Props) => {
+	console.log(projects)
+
 	return (
 		<Container>
 			<div className='flex flex-col gap-12 justify-center items-start max-w-2xl mx-auto mb-16'>
@@ -44,6 +48,7 @@ export const getStaticProps = async () => {
 	return {
 		props: {
 			featuredPosts,
+			projects,
 		},
 	}
 }
