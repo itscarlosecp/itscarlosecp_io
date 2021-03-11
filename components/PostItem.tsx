@@ -1,7 +1,11 @@
-import { Post } from '@lib/types'
+import type { Post } from '@lib/types'
 import Link from 'next/link'
+import moment from 'moment'
 
 const PostItem = (post: Post) => {
+	const publishDate = moment(post.published_at).format('dddd, MMMM Do YYYY')
+	const timeSincePublish = moment(post.published_at).fromNow()
+
 	return (
 		<Link href={`/blog/${post.id}`}>
 			<a className='w-full'>

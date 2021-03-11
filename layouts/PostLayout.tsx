@@ -1,7 +1,7 @@
 import type { Post } from '@lib/types'
+import Container from '@components/Container'
 import Image from 'next/image'
 import { parseISO, format } from 'date-fns'
-import Container from '@components/Container'
 
 const PostLayout = (post: Post) => {
 	return (

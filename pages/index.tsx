@@ -1,14 +1,19 @@
-import type { Post } from '@lib/types'
+import type { Post, Project } from '@lib/types'
 import Container from '@components/Container'
 import Page, { PageHeader, PageSection } from '@layouts/Page'
 import PostItem from '@components/PostItem'
 import { getFeaturedPosts } from '@lib/db'
+import { getProjects } from '@lib/projects'
+import PageSection from '@components/PageSection'
+import Posts from '@components/Posts'
+import ProjectItem from '@components/ProjectItem'
 
 interface Props {
 	featuredPosts: Post[]
+	projects: Project[]
 }
 
-const index = ({ featuredPosts }: Props) => {
+const index = ({ featuredPosts, projects }: Props) => {
 	return (
 		<Container>
 			<Page>
@@ -37,10 +42,12 @@ const index = ({ featuredPosts }: Props) => {
 
 export const getStaticProps = async () => {
 	const featuredPosts = await getFeaturedPosts()
+	const projects = await getProjects()
 
 	return {
 		props: {
 			featuredPosts,
+			projects,
 		},
 	}
 }
