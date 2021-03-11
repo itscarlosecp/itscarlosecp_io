@@ -1,9 +1,9 @@
 import type { Post } from '@lib/types'
 import * as React from 'react'
 import Container from '@components/Container'
-import Posts from '@components/Posts'
 import { getPosts, getFeaturedPosts } from '@lib/db'
-import PageSection from '@components/PageSection'
+import Page, { PageHeader, PageSection } from '@layouts/Page'
+import PostItem from '@components/PostItem'
 
 interface Props {
 	posts: Post[]
@@ -16,27 +16,33 @@ const blog = ({ posts, featuredPosts }: Props) => {
 			title='itscarlosecp - Blog'
 			description='Thoughts on the software industry, programming, tech, videography, music, and my personal life.'
 		>
-			<div className='flex flex-col justify-center items-start max-w-2xl mx-auto mb-16'>
-				<PageSection>
-					<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
-						Blog
-					</h1>
-					<p className='prose text-gray-600 dark:text-gray-400 mb-4'>
-						This is a collection of the blog posts I've written over
-						the years. These are mostly tutorials or snippets
-						showing how to use an specific technology or implement
-						some functionality in a specific language, but sometimes
-						I do comments and share my opinion about the programming
-						community and tech world in general.
-					</p>
-				</PageSection>
+			<Page>
+				{/* Blog Introduction Container */}
+				<PageHeader
+					title='Blog'
+					description="
+					This is a collection of the blog posts I've written over the
+					years. These are mostly tutorials or snippets showing how to
+					use an specific technology or implement some functionality
+					in a specific language, but sometimes I do comments and
+					share my opinion about the programming community and tech
+					world in general."
+				/>
+
+				{/* Featured Posts Container */}
 				<PageSection title='Featured Posts'>
-					<Posts posts={featuredPosts} />
+					{featuredPosts.map((post) => (
+						<PostItem key={post.id} {...post} />
+					))}
 				</PageSection>
+
+				{/* All Posts Container */}
 				<PageSection title='All Posts'>
-					<Posts posts={posts} />
+					{posts.map((post) => (
+						<PostItem key={post.id} {...post} />
+					))}
 				</PageSection>
-			</div>
+			</Page>
 		</Container>
 	)
 }

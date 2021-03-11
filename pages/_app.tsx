@@ -3,6 +3,7 @@ import * as React from 'react'
 import { analytics } from '@lib/firebase'
 import Navbar from '@components/Navbar'
 import { ThemeProvider } from 'next-themes'
+import Navbar from '@components/Navbar'
 import '@styles/globals.css'
 
 const App = ({ Component, pageProps }: AppProps) => {

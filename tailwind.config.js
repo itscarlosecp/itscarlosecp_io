@@ -11,7 +11,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				'code-bg': '#161616',
+				'code-bg': '#1C1C1C',
 				transparent: 'transparent',
 				current: 'currentColor',
 				black: colors.black,
@@ -34,60 +34,60 @@ module.exports = {
 			typography: (theme) => ({
 				DEFAULT: {
 					css: {
-						color: theme('colors.gray.700'),
+						color: colors.gray['700'],
 						a: {
-							color: theme('colors.blue.500'),
+							color: colors.blue['500'],
 							'&:hover': {
-								color: theme('colors.blue.700'),
+								color: colors.blue['700'],
 							},
-							code: { color: theme('colors.blue.400') },
+							code: { color: colors.blue['400'] },
 						},
 						'h2,h3,h4': {
 							'scroll-margin-top': spacing[32],
 						},
-						figcaption: { color: theme('color.gray.400') },
+						figcaption: { color: colors.gray['400'] },
 						'blockquote p:first-of-type::before': false,
 						'blockquote p:last-of-type::after': false,
 					},
 				},
 				dark: {
 					css: {
-						color: theme('colors.gray.300'),
+						color: colors.gray['300'],
 						a: {
-							color: theme('colors.blue.400'),
+							color: colors.blue['400'],
 							'&:hover': {
-								color: theme('colors.blue.600'),
+								color: colors.blue['600'],
 							},
-							code: { color: theme('colors.blue.400') },
+							code: { color: colors.blue['400'] },
 						},
 						blockquote: {
-							borderLeftColor: theme('colors.gray.700'),
-							color: theme('colors.gray.300'),
+							borderLeftColor: colors.gray['700'],
+							color: colors.gray['300'],
 						},
 						'h2,h3,h4': {
-							color: theme('colors.gray.100'),
+							color: colors.gray['100'],
 							'scroll-margin-top': spacing[32],
 						},
-						hr: { borderColor: theme('colors.gray.700') },
+						hr: { borderColor: colors.gray['700'] },
 						ol: {
 							li: {
-								'&:before': { color: theme('colors.gray.500') },
+								'&:before': { color: colors.gray['500'] },
 							},
 						},
 						ul: {
 							li: {
 								'&:before': {
-									backgroundColor: theme('colors.gray.500'),
+									backgroundColor: colors.gray['500'],
 								},
 							},
 						},
-						strong: { color: theme('colors.gray.300') },
+						strong: { color: colors.gray['300'] },
 						thead: {
-							color: theme('colors.gray.100'),
+							color: colors.gray['100'],
 						},
 						tbody: {
 							tr: {
-								borderBottomColor: theme('colors.gray.700'),
+								borderBottomColor: colors.gray['700'],
 							},
 						},
 					},
