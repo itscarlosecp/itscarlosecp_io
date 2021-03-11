@@ -2,7 +2,7 @@ import type { InferGetStaticPropsType } from 'next'
 import * as React from 'react'
 import * as Icons from 'react-bootstrap-icons'
 import Container from '@components/Container'
-import { getAccessToken, getTopTracks } from '@lib/spotify'
+import { getTopTracks } from '@lib/spotify'
 import TrackItem from '@components/TrackItem'
 import { Track } from '@lib/types'
 

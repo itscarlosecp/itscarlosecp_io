@@ -1,10 +1,10 @@
 import type { Post, Project } from '@lib/types'
 import Container from '@components/Container'
-import Posts from '@components/Posts'
 import { getFeaturedPosts } from '@lib/db'
-import PageSection from '@components/PageSection'
 import { getProjects } from '@lib/projects'
-import ProjectItem from '@components/ProjectItems'
+import PageSection from '@components/PageSection'
+import Posts from '@components/Posts'
+import ProjectItem from '@components/ProjectItem'
 
 interface Props {
 	featuredPosts: Post[]
@@ -14,7 +14,7 @@ interface Props {
 const index = ({ featuredPosts, projects }: Props) => {
 	return (
 		<Container>
-			<div className='flex flex-col gap-12 justify-center items-start max-w-2xl mx-auto mb-16'>
+			<div className='flex flex-col justify-center items-start max-w-2xl mx-auto'>
 				<PageSection>
 					<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
 						Hi, I'm Carlos
@@ -31,8 +31,8 @@ const index = ({ featuredPosts, projects }: Props) => {
 				<PageSection title='Featured Posts'>
 					<Posts posts={featuredPosts} />
 				</PageSection>
-				<PageSection title='Featured Posts'>
-					<ul className='flex flex-col gap-8'>
+				<PageSection title='Projects'>
+					<ul className='flex flex-col gap-4'>
 						{projects.map((project) => (
 							<ProjectItem key={project.iconId} {...project} />
 						))}

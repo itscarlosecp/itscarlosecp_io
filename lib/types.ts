@@ -146,6 +146,6 @@ type ExternalIds = {
 export type Project = {
 	name: string
 	description: string
+	href: string
 	iconId: string
-	refUrl: string
 }

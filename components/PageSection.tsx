@@ -7,14 +7,14 @@ interface Props {
 
 const PageSection = ({ title, children }: Props) => {
 	return (
-		<div className=''>
+		<section className='mb-16'>
 			{title && (
-				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white'>
+				<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white'>
 					{title}
 				</h3>
 			)}
 			{children}
-		</div>
+		</section>
 	)
 }
 
