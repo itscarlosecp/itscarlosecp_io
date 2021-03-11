@@ -1,6 +1,6 @@
 import type { InferGetStaticPropsType, GetStaticPaths } from 'next'
 import * as React from 'react'
-import PostLayout from '@layouts/PostLayout'
+import PostLayout from '@layouts/Post'
 import { getPostBySlug, getPosts } from '@lib/db'
 
 import Prism from 'prismjs'
