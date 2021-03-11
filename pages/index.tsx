@@ -5,6 +5,7 @@ import { getFeaturedPosts } from '@lib/db'
 import PageSection from '@components/PageSection'
 import Projects from '@components/Projects'
 import { getProjects } from '@lib/projects'
+import ProjectItem from '@components/ProjectItems'
 
 interface Props {
 	featuredPosts: Post[]
@@ -12,8 +13,6 @@ interface Props {
 }
 
 const index = ({ featuredPosts, projects }: Props) => {
-	console.log(projects)
-
 	return (
 		<Container>
 			<div className='flex flex-col gap-12 justify-center items-start max-w-2xl mx-auto mb-16'>
@@ -34,7 +33,11 @@ const index = ({ featuredPosts, projects }: Props) => {
 					<Posts posts={featuredPosts} />
 				</PageSection>
 				<PageSection title='Featured Posts'>
-					<Projects />
+					<ul className='flex flex-col gap-8'>
+						{projects.map((project) => (
+							<ProjectItem {...project} />
+						))}
+					</ul>
 				</PageSection>
 			</div>
 		</Container>
