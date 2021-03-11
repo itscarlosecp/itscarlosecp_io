@@ -1,12 +1,13 @@
 {
-	"name": "itscarlosecp",
-	"short_name": "ICECP",
+	"name": "itscarlosecp.dev",
+	"short_name": "itscarlosecp.dev",
 	"theme_color": "#000000",
 	"background_color": "#ffffff",
 	"display": "standalone",
 	"orientation": "portrait",
 	"scope": "/",
 	"start_url": "/",
+	"description": "A minimalist blog and portfolio built with NextJS, GhostCMS and styled with TailwindCSS.",
 	"icons": [
 		{
 			"src": "/icon-192.png",
