@@ -41,9 +41,9 @@ interface PageSectionProps {
 const PageSection = ({ title, description, children }: PageSectionProps) => {
 	return (
 		<div>
-			<h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white'>
+			<h2 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white'>
 				{title}
-			</h3>
+			</h2>
 			{description && (
 				<p className='prose mb-4 text-gray-600 dark:text-gray-400'>
 					{description}
