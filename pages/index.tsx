@@ -23,7 +23,7 @@ const index = ({ featuredPosts }: Props) => {
 				/>
 
 				{/* Contenedor Featured Posts */}
-				<PageSection title='Fetured Posts'>
+				<PageSection title='Featured Posts'>
 					{featuredPosts.map((post) => (
 						<PostItem key={post.id} {...post} />
 					))}
