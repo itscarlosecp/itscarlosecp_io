@@ -54,10 +54,12 @@ const PostLayout = (post: Post) => {
 				<div
 					className='prose lg:prose-lg dark:prose-dark max-w-none w-full'
 					dangerouslySetInnerHTML={{
-						__html: post.html.replace(
-							/href="http/g,
-							'target="_blank" nofollow" rel="noopener noreferrer" href="http'
-						),
+						__html: post.html
+							.replace(
+								/href="http/g,
+								'target="_blank" nofollow" rel="noopener noreferrer" href="http'
+							)
+							.replace(/img/g, 'Image priority={false}'),
 					}}
 				/>
 			</article>
