@@ -6,6 +6,7 @@
 @font-face {
 	font-family: 'Inter';
 	font-weight: 100 900;
+	font-display: swap;
 	src: url(/fonts/inter-var-latin.woff2) format('woff2');
 }
 
@@ -17,14 +18,20 @@ html {
 	min-height: 100vh;
 }
 
-@supports (
-	(-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))
-) {
-	.blur {
-		@apply bg-opacity-70;
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
+@layer utilities {
+	@supports (
+		(-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))
+	) {
+		.blur {
+			@apply bg-opacity-70;
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+		}
 	}
+}
+
+figcaption {
+	@apply text-center;
 }
 
 figure > img {
@@ -33,6 +40,10 @@ figure > img {
 
 .prose pre {
 	@apply bg-code-bg shadow-lg;
+}
+
+.prose code {
+	@apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md;
 }
 
 pre::-webkit-scrollbar {
