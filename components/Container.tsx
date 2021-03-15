@@ -31,11 +31,12 @@ const Container = ({ children, ...customMeta }: Props) => {
 					rel='canonical'
 					href={`https://itscarlosecp-dev.vercel.app${router.asPath}`}
 				/>
-				<meta property='og:type' content={meta.type} />
+				<meta property='og:title' content={meta.title} />
+				<meta property='og:description' content={meta.description} />
 				<meta property='og:image' content={meta.image} />
 				<meta property='og:site_name' content='itscarlosecp' />
-				<meta property='og:description' content={meta.description} />
-				<meta property='og:title' content={meta.title} />
+				<meta property='og:type' content={meta.type} />
+				<meta name='twitter:creator' content='@itscarlosecp' />
 			</Head>
 			<main className='bg-white dark:bg-black transition-colors px-8'>
 				{children}

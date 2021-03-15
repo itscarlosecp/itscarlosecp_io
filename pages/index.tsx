@@ -2,7 +2,7 @@ import type { Post, Project } from '@lib/types'
 import Container from '@components/Container'
 import Page, { PageHeader, PageSection } from '@layouts/Page'
 import PostItem from '@components/PostItem'
-import { getFeaturedPosts } from '@lib/db'
+import { getFeaturedPosts } from '@lib/api'
 
 interface Props {
 	featuredPosts: Post[]

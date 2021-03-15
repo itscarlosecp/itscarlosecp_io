@@ -1,10 +1,10 @@
 const withPWA = require('next-pwa')
-const runtimeChacing = reuire('next-pwa/cache')
+const runtimeCaching = reuire('next-pwa/cache')
 
 module.exports = withPWA({
 	pwa: {
 		dest: 'public',
-		runtimaChaching,
+		runtimeCaching,
 	},
 	images: {
 		domains: [
