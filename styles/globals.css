@@ -39,7 +39,7 @@ figcaption {
 }
 
 figure > img {
-	@apply mx-auto;
+	@apply mx-auto shadow-lg;
 }
 
 table {
