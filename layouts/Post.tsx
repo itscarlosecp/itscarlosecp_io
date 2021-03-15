@@ -1,9 +1,9 @@
-import type { Post } from '@lib/types'
+import type { PostOrPage } from '@tryghost/content-api'
 import Container from '@components/Container'
 import Image from 'next/image'
 import { parseISO, format } from 'date-fns'
 
-const PostLayout = (post: Post) => {
+const PostLayout = (post: PostOrPage) => {
 	return (
 		<Container
 			title={`${post.meta_title || post.title} – itscarlosecp`}
