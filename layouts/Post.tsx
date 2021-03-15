@@ -59,7 +59,10 @@ const PostLayout = (post: PostOrPage) => {
 								/href="http/g,
 								'target="_blank" nofollow" rel="noopener noreferrer" href="http'
 							)
-							.replace(/img/g, 'img loading="lazy"'),
+							.replace(
+								/img/g,
+								'img loading="lazy" decoding="async"'
+							),
 					}}
 				/>
 			</article>
