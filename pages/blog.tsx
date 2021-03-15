@@ -26,7 +26,7 @@ const blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
 		<Container
 			title='itscarlosecp - Blog'
-			description='Thoughts on the software industry, programming, tech, videography, music, and my personal life.'
+			description='Thoughts on the software industry, programming and tech.'
 		>
 			<Page>
 				{/* Blog Introduction Container */}
