@@ -16,13 +16,17 @@ const about = ({
 				{/* About Introduction */}
 				<PageHeader
 					title='About Me'
-					description="This is a collection of the blog posts I've written over
-						the years. These are mostly tutorials or snippets
-						showing how to use an specific technology or implement
-						some functionality in a specific language, but sometimes
-						I do comments and share my opinion about the programming
-						community and tech world in general."
+					description="I'm a developer from Nicaragua, currently living in Argentina and studying computer engineering @ University of Buenos Aires. I would describe myself as a creative person, someone who is passionate about development, mostly web user interfaces. I'm also interested in math, science and sharing my knowledge with others."
 				>
+					<div className='prose'>
+						<ul>
+							<li>🚧 Working on my personal blog.</li>
+							<li>
+								💾 Talk to me about tech, that's what I love,
+								tech.
+							</li>
+						</ul>
+					</div>
 					<div className='mt-4 flex gap-4'>
 						<a
 							href='https://github.com/itscarlosecp'
