@@ -7,7 +7,7 @@ const api = new GhostContentAPI({
 })
 
 export const getPosts = async () => {
-	return await api.posts.browse({ limit: 'all' })
+	return await api.posts.browse({ limit: 'all', include: 'tags' })
 }
 
 export const getFeaturedPosts = async () => {

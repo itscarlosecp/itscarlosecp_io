@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import Footer from '@components/Footer'
 
 interface Props {
 	children: React.ReactNode
@@ -40,6 +41,7 @@ const Container = ({ children, ...customMeta }: Props) => {
 			</Head>
 			<main className='bg-white dark:bg-black transition-colors px-8'>
 				{children}
+				<Footer />
 			</main>
 		</>
 	)
