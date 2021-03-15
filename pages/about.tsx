@@ -11,7 +11,10 @@ const about = ({
 	topTracks,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
-		<Container>
+		<Container
+			title='itscarlosecp - About'
+			description='Carlos Castillo, software developer. Get to know me a little bit better.'
+		>
 			<Page>
 				{/* About Introduction */}
 				<PageHeader
