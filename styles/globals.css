@@ -40,7 +40,7 @@ figcaption {
 }
 
 figure > img {
-	@apply mx-auto shadow-lg;
+	@apply mx-auto;
 }
 
 table {
