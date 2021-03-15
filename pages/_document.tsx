@@ -4,7 +4,12 @@ class MyDocument extends Document {
 	render() {
 		return (
 			<Html lang='en'>
-				<Head />
+				<Head>
+					<link rel='manifest' href='/manifest.json' />
+					<link rel='apple-touch-icon' href='/icon-192.png' />
+					<link rel='shortcut icon' href='/favicon.ico' />
+					<meta name='theme-color' content='#fff' />
+				</Head>
 				<body className='bg-white dark:bg-black transition-colors'>
 					<Main />
 					<NextScript />
