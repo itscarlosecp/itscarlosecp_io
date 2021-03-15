@@ -1,9 +1,9 @@
-import type { Post } from '@lib/types'
+import type { PostOrPage } from '@tryghost/content-api'
 import Link from 'next/link'
 
-const PostItem = (post: Post) => {
+const PostItem = (post: PostOrPage) => {
 	return (
-		<Link href={`/blog/${post.id}`}>
+		<Link href={`/blog/${post.slug}`}>
 			<a className='w-full'>
 				<div className='mb-8 w-full'>
 					<div className='flex flex-col md:flex-row justify-between'>

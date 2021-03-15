@@ -1,16 +1,14 @@
-import type { Post } from '@lib/types'
+import type { InferGetStaticPropsType } from 'next'
 import * as React from 'react'
 import Container from '@components/Container'
-import { getPosts, getFeaturedPosts } from '@lib/db'
+import { getPosts, getFeaturedPosts } from '@lib/api'
 import Page, { PageHeader, PageSection } from '@layouts/Page'
 import PostItem from '@components/PostItem'
 
-interface Props {
-	posts: Post[]
-	featuredPosts: Post[]
-}
-
-const blog = ({ posts, featuredPosts }: Props) => {
+const blog = ({
+	posts,
+	featuredPosts,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
 		<Container
 			title='itscarlosecp - Blog'

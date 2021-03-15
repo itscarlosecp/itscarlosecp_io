@@ -1,3 +1,30 @@
+.prose pre {
+	tab-size: 4;
+	@apply bg-code-bg shadow-lg;
+}
+
+pre.language-jsx,
+pre.language-tsx,
+pre.language-javascript,
+pre.language-typescript,
+pre.language-html,
+pre.language-css {
+	tab-size: 2;
+}
+
+.prose code {
+	@apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md;
+}
+
+pre::-webkit-scrollbar {
+	display: none;
+}
+
+pre {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
 .token.interpolation-punctuation.punctuation,
 .token.tag,
 .token.rule,

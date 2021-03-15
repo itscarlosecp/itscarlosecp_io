@@ -1,8 +1,7 @@
 import type { InferGetStaticPropsType, GetStaticPaths } from 'next'
 import * as React from 'react'
 import PostLayout from '@layouts/Post'
-import { getPostBySlug, getPosts } from '@lib/db'
-
+import { getPostBySlug, getPosts } from '@lib/api'
 import Prism from 'prismjs'
 import '@lib/prism'
 
@@ -20,7 +19,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	return {
 		paths: posts.map((postData) => ({
 			params: {
-				id: postData.id,
+				slug: postData.slug,
 			},
 		})),
 		fallback: false,
@@ -28,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-	const post = await getPostBySlug(params.id)
+	const post = await getPostBySlug(params.slug)
 
 	return {
 		props: post,
