@@ -1,5 +1,5 @@
 const withPWA = require('next-pwa')
-const runtimeChacing = reuire('next-pwa/cache')
+const runtimeChacing = require('next-pwa/cache')
 
 module.exports = withPWA({
 	pwa: {
