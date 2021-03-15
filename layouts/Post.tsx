@@ -16,26 +16,26 @@ const PostLayout = (post: PostOrPage) => {
 				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white transition-colors'>
 					{post.title}
 				</h1>
-				<div className='flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8'>
-					<div className='flex items-center'>
-						<Image
-							alt='itscarloescp'
-							height={24}
-							width={24}
-							src='https://avatars.githubusercontent.com/u/47466248?v=4'
-							className='rounded-full'
-						/>
-						<p className='text-sm text-gray-800 dark:text-gray-300 ml-2'>
+				<div className='flex items-center w-full mt-2 mb-8'>
+					<Image
+						alt='itscarloescp'
+						height={24}
+						width={24}
+						src='https://avatars.githubusercontent.com/u/47466248?v=4'
+						className='rounded-full'
+					/>
+					<div className='w-full flex flex-col sm:flex-row justify-between sm:items-center ml-2'>
+						<p className='text-sm text-gray-800 dark:text-gray-300'>
 							{'Carlos Castillo / '}
 							{format(
 								parseISO(post.published_at),
 								'MMMM dd, yyyy'
 							)}
 						</p>
+						<p className='text-sm text-gray-500 min-w-32'>
+							{post.reading_time} min read
+						</p>
 					</div>
-					<p className='text-sm text-gray-500 min-w-32 mt-2 md:mt-0'>
-						{post.reading_time} min read
-					</p>
 				</div>
 				<div className='mb-8'>
 					<figure>
