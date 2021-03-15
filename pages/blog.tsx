@@ -33,8 +33,7 @@ const blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 				<PageHeader
 					title='Blog'
 					description="
-					This is a collection of the blog posts I've written over the
-					years. These are mostly tutorials or snippets showing how to
+					This is a collection of the blog posts I've written. These are mostly tutorials or snippets showing how to
 					use an specific technology or implement some functionality
 					in a specific language, but sometimes I do comments and
 					share my opinion about the programming community and tech
