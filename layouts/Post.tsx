@@ -11,8 +11,6 @@ const PostLayout = (post: PostOrPage) => {
 		)
 		.replace(/img/g, 'img loading="lazy"')
 
-	console.log(html)
-
 	return (
 		<Container
 			title={`${post.meta_title || post.title} – itscarlosecp`}
