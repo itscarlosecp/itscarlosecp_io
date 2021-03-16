@@ -4,6 +4,15 @@ import Image from 'next/image'
 import { parseISO, format } from 'date-fns'
 
 const PostLayout = (post: PostOrPage) => {
+	const html = post.html
+		.replace(
+			/href="http/g,
+			'target="_blank" nofollow" rel="noopener noreferrer" href="http'
+		)
+		.replace(/img/g, 'Image layout="responsive"')
+
+	console.log(html)
+
 	return (
 		<Container
 			title={`${post.meta_title || post.title} – itscarlosecp`}
@@ -16,7 +25,7 @@ const PostLayout = (post: PostOrPage) => {
 				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white transition-colors'>
 					{post.title}
 				</h1>
-				<div className='flex items-center w-full mt-2 mb-8'>
+				<div className='flex items-center w-full mt-2 mb-6'>
 					<Image
 						alt='itscarloescp'
 						height={24}
@@ -54,15 +63,7 @@ const PostLayout = (post: PostOrPage) => {
 				<div
 					className='prose lg:prose-lg dark:prose-dark max-w-none w-full'
 					dangerouslySetInnerHTML={{
-						__html: post.html
-							.replace(
-								/href="http/g,
-								'target="_blank" nofollow" rel="noopener noreferrer" href="http'
-							)
-							.replace(
-								/img/g,
-								'img loading="lazy" decoding="async"'
-							),
+						__html: html,
 					}}
 				/>
 			</article>
