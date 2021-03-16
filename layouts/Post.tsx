@@ -11,8 +11,6 @@ const PostLayout = (post: PostOrPage) => {
 		)
 		.replace(/img/g, 'img loading="lazy"')
 
-	console.log(html)
-
 	return (
 		<Container
 			title={`${post.meta_title || post.title} – itscarlosecp`}
@@ -32,6 +30,7 @@ const PostLayout = (post: PostOrPage) => {
 						width={24}
 						src='https://avatars.githubusercontent.com/u/47466248?v=4'
 						className='rounded-full'
+						priority
 					/>
 					<div className='w-full flex flex-col sm:flex-row justify-between sm:items-center ml-2'>
 						<p className='text-sm text-gray-800 dark:text-gray-300'>
