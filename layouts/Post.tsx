@@ -4,13 +4,6 @@ import Image from 'next/image'
 import { parseISO, format } from 'date-fns'
 
 const PostLayout = (post: PostOrPage) => {
-	const html = post.html
-		.replace(
-			/href="http/g,
-			'target="_blank" nofollow" rel="noopener noreferrer" href="http'
-		)
-		.replace(/img/g, 'img loading="lazy"')
-
 	return (
 		<Container
 			title={`${post.meta_title || post.title} – itscarlosecp`}
@@ -62,7 +55,7 @@ const PostLayout = (post: PostOrPage) => {
 				<div
 					className='prose lg:prose-lg dark:prose-dark max-w-none w-full'
 					dangerouslySetInnerHTML={{
-						__html: html,
+						__html: post.html,
 					}}
 				/>
 			</article>

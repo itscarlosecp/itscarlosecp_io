@@ -6,11 +6,18 @@ import Prism from 'prismjs'
 import '@lib/prism'
 
 const Post = (post: InferGetStaticPropsType<typeof getStaticProps>) => {
+	const html = post.html
+		.replace(
+			/href="http/g,
+			'target="_blank" nofollow" rel="noopener noreferrer" href="http'
+		)
+		.replace(/img/g, 'img loading="lazy"')
+
 	React.useEffect(() => {
 		Prism.highlightAll()
 	}, [])
 
-	return <PostLayout {...post} />
+	return <PostLayout {...{ ...post, html }} />
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
