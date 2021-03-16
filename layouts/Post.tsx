@@ -9,7 +9,7 @@ const PostLayout = (post: PostOrPage) => {
 			/href="http/g,
 			'target="_blank" nofollow" rel="noopener noreferrer" href="http'
 		)
-		.replace(/img/g, 'Image layout="responsive"')
+		.replace(/img/g, 'img loading="lazy"')
 
 	console.log(html)
 
