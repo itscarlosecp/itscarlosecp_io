@@ -26,11 +26,11 @@ const Container = ({ children, ...customMeta }: Props) => {
 				<meta content={meta.description} name='description' />
 				<meta
 					property='og:url'
-					content={`https://itscarlosecp-dev.vercel.app${router.asPath}`}
+					content={`https://itscarlosecp.dev${router.asPath}`}
 				/>
 				<link
 					rel='canonical'
-					href={`https://itscarlosecp-dev.vercel.app${router.asPath}`}
+					href={`https://itscarlosecp.dev${router.asPath}`}
 				/>
 				<meta property='og:title' content={meta.title} />
 				<meta property='og:description' content={meta.description} />

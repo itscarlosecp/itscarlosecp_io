@@ -19,7 +19,7 @@ const about = ({
 				{/* About Introduction */}
 				<PageHeader
 					title='About Me'
-					description="I'm a developer from Nicaragua, currently living in Argentina and studying computer engineering @ University of Buenos Aires. I would describe myself as a creative person, someone who is passionate about development, mostly web user interfaces. I'm also interested in math, science and sharing my knowledge with others."
+					description="I would describe myself as a creative person, someone who is passionate about development, mostly web user interfaces. I'm also interested in math, science and sharing my knowledge with others."
 				>
 					<div className='prose'>
 						<ul>
@@ -84,7 +84,7 @@ const about = ({
 									config files
 								</a>
 							</li>
-							<li>Dell Inspiron 7000 2-in-1 (Late 2017)</li>
+							<li>Dell Inspiron 15 7000 2-in-1 (Late 2017)</li>
 							<li>24" BenQ GW2480 Monitor</li>
 							<li>Logitech MX Master 3 Mouse</li>
 							<li>Fifine K730 Microphone</li>
