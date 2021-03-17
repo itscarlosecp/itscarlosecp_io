@@ -84,7 +84,7 @@ const about = ({
 									config files
 								</a>
 							</li>
-							<li>Dell Inspiron 7000 2-in-1 (Late 2017)</li>
+							<li>Dell Inspiron 15 7000 2-in-1 (Late 2017)</li>
 							<li>24" BenQ GW2480 Monitor</li>
 							<li>Logitech MX Master 3 Mouse</li>
 							<li>Fifine K730 Microphone</li>
