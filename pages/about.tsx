@@ -19,7 +19,7 @@ const about = ({
 				{/* About Introduction */}
 				<PageHeader
 					title='About Me'
-					description="I'm a developer from Nicaragua, currently living in Argentina and studying computer engineering @ University of Buenos Aires. I would describe myself as a creative person, someone who is passionate about development, mostly web user interfaces. I'm also interested in math, science and sharing my knowledge with others."
+					description="I would describe myself as a creative person, someone who is passionate about development, mostly web user interfaces. I'm also interested in math, science and sharing my knowledge with others."
 				>
 					<div className='prose'>
 						<ul>
