@@ -1,65 +1,39 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { PageSeo } from '@/components/SEO'
+import { getAllFilesFrontMatter } from '@/lib/mdx'
+import PostItem from '@/components/PostItem'
+import siteMetadata from '@/data/siteMetadata'
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+const Home = ({ featuredPostsFrontMatter }) => {
+	return (
+		<>
+			<PageSeo
+				title={siteMetadata.title}
+				description={siteMetadata.description}
+				url={siteMetadata.url}
+			/>
+			<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
+				Hey, I'm Carlos Castillo
+			</h1>
+			<p className='prose text-gray-600 dark:text-gray-400 mb-16'>
+				I'm a developer from Nicaragua, currently living in Argentina
+				and studying computer engineering @ University of Buenos Aires.
+			</p>
+			<h2 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white'>
+				Featured Posts
+			</h2>
+			{featuredPostsFrontMatter.map((frontMatter) => (
+				<PostItem key={frontMatter.slug} {...frontMatter} />
+			))}
+		</>
+	)
 }
+
+export const getStaticProps = async () => {
+	const allPostsFrontMatter = await getAllFilesFrontMatter('blog')
+
+	return {
+		props: { featuredPostsFrontMatter: allPostsFrontMatter },
+	}
+}
+
+export default Home
