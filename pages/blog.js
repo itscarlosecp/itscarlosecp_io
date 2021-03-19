@@ -35,8 +35,8 @@ const Blog = ({ allPostsFrontMatter }) => {
 				This is a collection of the blog posts I've written. These are
 				mostly tutorials or snippets showing how to use an specific
 				technology or implement some functionality in a specific
-				language, but sometimes I do comments and share my opinion about
-				the programming community and tech world in general
+				language. Sometimes I and share my opinion about the programming
+				community and tech world in general.
 			</p>
 			<div className='mt-4 relative w-full mb-16'>
 				<input

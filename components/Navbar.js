@@ -9,11 +9,11 @@ const Navbar = () => {
 	React.useEffect(() => setMounted(true), [])
 
 	return (
-		<nav className='sticky top-0 z-10 w-full blur'>
+		<nav className='sticky top-0 z-10 w-full bg-white dark:bg-black transition-colors blur bg-opacity-60'>
 			<div className='w-full max-w-4xl p-4 sm:p-8 mb-8 mx-auto flex justify-between items-center'>
 				<button
 					type='button'
-					className='w-12 h-12 flex justify-center items-center text-black dark:text-white bg-gray-200 dark:bg-[#1C1C1C] rounded'
+					className='w-10 h-10 flex justify-center items-center text-black dark:text-white bg-gray-200 dark:bg-[#1C1C1C] rounded'
 					aria-label='Toggle Dark Theme'
 					onClick={() =>
 						setTheme(theme === 'dark' ? 'light' : 'dark')
@@ -34,7 +34,7 @@ const Navbar = () => {
 								xmlns='http://www.w3.org/2000/svg'
 								viewBox='0 0 20 20'
 								fill='currentColor'
-								className='w-6 h-6'
+								className='w-[20px] h-[20px]'
 							>
 								<path
 									fillRule='evenodd'

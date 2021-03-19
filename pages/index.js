@@ -24,6 +24,9 @@ const Home = ({ featuredPostsFrontMatter }) => {
 			{featuredPostsFrontMatter.map((frontMatter) => (
 				<PostItem key={frontMatter.slug} {...frontMatter} />
 			))}
+			<h2 className='mt-8 font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white'>
+				Projects
+			</h2>
 		</>
 	)
 }
