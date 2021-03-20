@@ -1,105 +1,86 @@
-const colors = require('tailwindcss/colors')
 const { spacing, fontFamily } = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
-	purge: [
-		'./pages/**/*.{js,ts,jsx,tsx}',
-		'./components/**/*.{js,ts,jsx,tsx}',
-		'./layouts/**/*.{js,ts,jsx,tsx}',
-	],
+	purge: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js'],
 	darkMode: 'class',
 	theme: {
 		extend: {
-			colors: {
-				'code-bg': '#1C1C1C',
-				transparent: 'transparent',
-				current: 'currentColor',
-				black: colors.black,
-				white: colors.white,
-				gray: colors.gray,
-				indigo: colors.indigo,
-				red: colors.rose,
-				yellow: colors.amber,
-				blue: colors.blue,
-				green: colors.green,
-				cyan: colors.cyan,
-			},
 			fontFamily: {
 				sans: ['Inter', ...fontFamily.sans],
-			},
-			container: {
-				center: true,
-				padding: '1rem',
 			},
 			typography: (theme) => ({
 				DEFAULT: {
 					css: {
-						color: colors.gray['700'],
+						color: theme('colors.gray.700'),
 						a: {
-							color: colors.blue['600'],
+							color: theme('colors.blue.500'),
 							'&:hover': {
-								color: colors.blue['700'],
+								color: theme('colors.blue.700'),
 							},
-							code: { color: colors.blue['400'] },
+							code: { color: theme('colors.blue.400') },
 						},
 						'h2,h3,h4': {
 							'scroll-margin-top': spacing[32],
 						},
-						figcaption: { color: colors.gray['400'] },
+						code: { color: theme('colors.pink.500') },
 						'blockquote p:first-of-type::before': false,
 						'blockquote p:last-of-type::after': false,
 					},
 				},
 				dark: {
 					css: {
-						color: colors.gray['300'],
+						color: theme('colors.gray.300'),
 						a: {
-							color: colors.blue['400'],
+							color: theme('colors.blue.400'),
 							'&:hover': {
-								color: colors.blue['600'],
+								color: theme('colors.blue.600'),
 							},
-							code: { color: colors.blue['400'] },
+							code: { color: theme('colors.blue.400') },
 						},
 						blockquote: {
-							borderLeftColor: colors.gray['700'],
-							color: colors.gray['300'],
+							borderLeftColor: theme('colors.gray.700'),
+							color: theme('colors.gray.300'),
 						},
 						'h2,h3,h4': {
-							color: colors.gray['100'],
+							color: theme('colors.gray.100'),
 							'scroll-margin-top': spacing[32],
 						},
-						hr: { borderColor: colors.gray['700'] },
+						hr: { borderColor: theme('colors.gray.700') },
 						ol: {
 							li: {
-								'&:before': { color: colors.gray['500'] },
+								'&:before': { color: theme('colors.gray.500') },
 							},
 						},
 						ul: {
 							li: {
 								'&:before': {
-									backgroundColor: colors.gray['500'],
+									backgroundColor: theme('colors.gray.500'),
 								},
 							},
 						},
-						strong: { color: colors.gray['300'] },
+						strong: { color: theme('colors.gray.300') },
 						thead: {
-							color: colors.gray['100'],
+							color: theme('colors.gray.100'),
 						},
 						tbody: {
 							tr: {
-								borderBottomColor: colors.gray['700'],
+								borderBottomColor: theme('colors.gray.700'),
 							},
 						},
 					},
 				},
 			}),
 		},
+		colors: {
+			gray: colors.gray,
+			white: colors.white,
+			black: colors.black,
+			blue: colors.blue,
+		},
 	},
 	variants: {
 		typography: ['dark'],
 	},
-	plugins: [
-		require('tailwindcss-dark-mode'),
-		require('@tailwindcss/typography'),
-	],
+	plugins: [require('@tailwindcss/typography')],
 }
