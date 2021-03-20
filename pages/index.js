@@ -9,9 +9,9 @@ const Home = ({ featuredPostsFrontMatter }) => {
 	return (
 		<>
 			<PageSeo
-				title='Home'
+				title={siteMetadata.title}
 				description={siteMetadata.description}
-				url={siteMetadata.url}
+				url={siteMetadata.siteUrl}
 			/>
 			<div className='flex flex-col mb-16'>
 				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
