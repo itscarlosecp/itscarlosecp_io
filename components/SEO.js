@@ -14,8 +14,8 @@ export const SEO = {
 			{
 				url: `${siteMetadata.siteUrl}${siteMetadata.socialBanner}`,
 				alt: siteMetadata.title,
-				width: 1200,
-				height: 600,
+				width: 1500,
+				height: 500,
 			},
 		],
 	},
