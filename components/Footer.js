@@ -33,11 +33,14 @@ const Footer = () => (
 				<ExternalLink href={siteMetadata.github}>GitHub</ExternalLink>
 			</div>
 			<div className='flex flex-col gap-4'>
-				<Link href='/tutorials'>
+				<Link href='/notes'>
 					<a className='text-gray-500 dark:text-gray-400 hover:text-gray-600 '>
-						Tutorials
+						Notes
 					</a>
 				</Link>
+				<ExternalLink href={`${siteMetadata.github}/tutorials`}>
+					Tutorials
+				</ExternalLink>
 			</div>
 		</div>
 	</footer>
