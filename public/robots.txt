@@ -1,2 +1,2 @@
 User-Agent: *
-Sitemap: [https://itscarlosecp.dev/sitemap.xml]
+Sitemap: https://itscarlosecp.dev/sitemap.xml
