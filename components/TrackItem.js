@@ -1,13 +1,6 @@
-import type { Track } from '@lib/types'
-
-interface Props {
-	ranking: number
-	track: Track
-}
-
-const TrackItem = ({ ranking, track }: Props) => {
+const TrackItem = ({ ranking, track }) => {
 	return (
-		<li className='flex flex-row items-baseline max-w-3xl w-full py-4'>
+		<div className='flex flex-row items-baseline max-w-3xl w-full py-4'>
 			<p className='text-sm font-bold text-gray-500 dark:text-gray-400'>
 				{ranking + 1}
 			</p>
@@ -26,7 +19,7 @@ const TrackItem = ({ ranking, track }: Props) => {
 					})}
 				</p>
 			</div>
-		</li>
+		</div>
 	)
 }
 

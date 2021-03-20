@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './code.css';
 
 @font-face {
 	font-family: 'Inter';
@@ -14,6 +13,11 @@
 		U+2215, U+FEFF, U+FFFD;
 }
 
+::selection {
+	background-color: #47a3f3;
+	color: #fefefe;
+}
+
 html {
 	min-width: 360px;
 	scroll-behavior: smooth;
@@ -23,27 +27,14 @@ html {
 	min-height: 100vh;
 }
 
-@layer utilities {
-	@supports (
-		(-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))
-	) {
-		.blur {
-			@apply bg-opacity-70;
-			backdrop-filter: blur(12px);
-			-webkit-backdrop-filter: blur(12px);
-		}
+.blur {
+	backdrop-filter: saturate(180%) blur(20px);
+	transition: background-color 0.1 ease-in-out;
+}
+
+@supports not (backdrop-filter: none) {
+	.blur {
+		backdrop-filter: none;
+		@apply bg-opacity-100;
 	}
-}
-
-figcaption {
-	@apply text-center;
-}
-
-figure > img {
-	@apply mx-auto;
-}
-
-table {
-	display: block;
-	overflow-y: scroll;
 }
