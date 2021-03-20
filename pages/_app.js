@@ -2,7 +2,6 @@ import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { ThemeProvider } from 'next-themes'
 import { DefaultSeo } from 'next-seo'
-import { analytics } from '@/lib/firebase'
 import Head from 'next/head'
 
 import { SEO } from '@/components/SEO'
@@ -13,14 +12,8 @@ import '@/styles/globals.css'
 import '@/styles/katex.min.css'
 
 const MyApp = ({ Component, pageProps }) => {
-	React.useEffect(() => {
-		if (process.env.NODE_ENV === 'production') {
-			analytics()
-		}
-	}, [])
-
 	return (
-		<ThemeProvider attribute='class'>
+		<ThemeProvider attribute='class' defaultTheme='light'>
 			<MDXProvider components={MDXComponents}>
 				<Head>
 					<meta
