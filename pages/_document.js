@@ -38,6 +38,10 @@ class MyDocument extends Document {
 						integrity='sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j'
 						crossOrigin='anonymous'
 					/>
+					<link rel='manifest' href='/manifest.webmanifest' />
+					<link rel='apple-touch-icon' href='/icons/icon-192.png' />
+					<link rel='shortcut icon' href='/favicon.ico' />
+					<meta name='theme-color' content='#fff' />
 				</Head>
 				<body className='antialiased bg-white dark:bg-black text-black dark:text-white'>
 					<Main />
