@@ -13,7 +13,7 @@ Can we find an off-the-shelf product that satisfies the needs of our company? Wh
 
 This article will be a real-world example of why we chose to build our own monitoring and alerting system to support our Software as a Service (SaaS) product. To start, let me first explain the company and give some background.
 
-### What is Workiva?
+## What is Workiva?
 
 [Workiva (WK)](https://www.workiva.com/) is a cloud-based software company in the finance industry used by over 80% of Fortune 500 companies. Founded in 2008, we now have over 1200 employees and many offices around the world.
 
@@ -21,7 +21,7 @@ We want to ship quality code as fast and securely as possible. I joined Workiva 
 
 > “DevOps is a set of practices intended to reduce the time between committing a change to a system and the change being placed into normal production, while ensuring high quality.”
 
-### State of Monitoring (2015)
+## State of Monitoring (2015)
 
 An engineer on a product team is given requirements for a task to complete. After making the necessary code changes and testing her work, she opens a pull request (PR) on GitHub to have the changes reviewed by her team.
 
@@ -33,7 +33,7 @@ Unfortunately, this was not the reality for most engineers at this time. The mai
 
 This meant it sometimes took hours before engineers reacted to an issue if there hadn’t been a complaint from a customer yet. We wanted to improve our support process and ideally fix issues before customers even noticed there was a problem. We wanted every team to be set up with near real-time alerting for the errors they cared about. These alerts needed to be relevant and helpful, decreasing the time it took to analyze and fix issues.
 
-### Evaluating Options
+## Evaluating Options
 
 Our company, product, and industry presented us with some difficult requirements:
 
@@ -48,7 +48,7 @@ At the time, very few had SOC compliance or the ability to run on-premise. This 
 
 We evaluated the time it would take to adopt the final two contending solutions to match our infrastructure and processes. Did they have all the features we wanted? How much of our codebase would we need to modify to make their product work? Would we be guaranteed support from the company in case we encountered bugs or intricacies with their system? Would we be able to create integrations for company-specific needs?
 
-### Our Decision
+## Our Decision
 
 After weighing the options and much debate, we decided it was in our best interest to build our own solution, utilizing existing Infrastructure as a Service (IaaS) solutions like Amazon Web Services (AWS) and Google App Engine (GAE) which allow you to only pay for what you need. Our main goals behind this decision were to:
 
@@ -58,7 +58,7 @@ After weighing the options and much debate, we decided it was in our best intere
 
 That’s where my journey with Workiva began as we started building our monitoring and alerting system.
 
-### How Does It Work?
+## How Does It Work?
 
 > This section dives into the technical details of how the system is built. If you’re just wondering what the outcome was, skip to the next section.
 
@@ -72,7 +72,7 @@ The main reason we chose GAE over AWS for the rest of our application was so our
 
 The front-end of our web application was originally created with JavaScript & React, but we eventually ended up porting to Dart instead. This is due to the large investment in the Dart ecosystem our company has and the opportunity to dogfood our existing [open-source software](http://workiva.github.io/) and tooling.
 
-### State of Monitoring (2018)
+## State of Monitoring (2018)
 
 Over the past 3 years, we’ve worked tirelessly to create a product that revolutionizes the support process. It’s now a mature product with over 10,000 commits and 700 releases. Most importantly, we have achieved our goal of **100% of production services having near real-time alerting set up**.
 
@@ -109,7 +109,7 @@ Teams are able to proactively fix issues before customers notice. We have proces
 
 We periodically compare our application against other third-party and open-source solutions to see if we’re still providing more value (ideally at a lower cost). Most of the features we built over the past 3 years are now available in other solutions. The industry has caught up in most regards, as exception monitoring has become a necessity of supporting SaaS products.
 
-### Conclusion
+## Conclusion
 
 As of right now, it is still cheaper for us to host our own solution versus migrating over to another provider. If hosting costs were to change, or the volume of logs was to drastically increase, this might not be true. This is why it’s important to constantly evaluate your product against others to determine when it’s right to build vs. buy. If your team currently doesn’t have any exception monitoring, we would recommend either [Sentry](https://sentry.io/) or [BugSnag](https://www.bugsnag.com/).
 

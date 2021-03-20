@@ -151,9 +151,9 @@ const RepoCard = ({ title, description, href, icon }) => {
 					</div>
 				)}
 				<div>
-					<h4 className='text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100'>
+					<h3 className='text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100'>
 						{title}
-					</h4>
+					</h3>
 					<p className='leading-6 text-gray-600 dark:text-gray-400'>
 						{description}
 					</p>
