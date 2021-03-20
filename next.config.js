@@ -5,16 +5,12 @@ module.exports = withPWA({
 		dest: 'public',
 	},
 	images: {
-		domains: [
-			's3-us-east-2.amazonaws.com',
-			'avatars.githubusercontent.com',
-		],
+		domains: ['res.cloudinary.com', 'avatars.githubusercontent.com'],
 	},
 	webpack: (config, { dev, isServer }) => {
-		// if (isServer) {
-		// 	require('./scripts/generate-sitemap')
-		// 	require('./scripts/generate-rss')
-		// }
+		if (isServer) {
+			require('./scripts/generate-sitemap')
+		}
 
 		if (!dev && !isServer) {
 			Object.assign(config.resolve.alias, {

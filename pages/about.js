@@ -4,7 +4,7 @@ import { Section, Paragraph } from '@/components/Page'
 import { PageSeo } from '@/components/SEO'
 import TrackItem from '@/components/TrackItem'
 
-const about = ({ topTracks }) => {
+const About = ({ topTracks }) => {
 	return (
 		<>
 			<PageSeo
@@ -109,4 +109,4 @@ export const getStaticProps = async () => {
 	}
 }
 
-export default about
+export default About
