@@ -3,6 +3,7 @@ import { getTopTracks } from '@/lib/spotify'
 import { Section, Paragraph } from '@/components/Page'
 import { PageSeo } from '@/components/SEO'
 import TrackItem from '@/components/TrackItem'
+import siteMetadata from '@/data/siteMetadata'
 
 const About = ({ topTracks }) => {
 	return (
