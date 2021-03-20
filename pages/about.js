@@ -10,6 +10,7 @@ const About = ({ topTracks }) => {
 			<PageSeo
 				title='itscarlosecp - About'
 				description='Carlos Castillo, software developer. Get to know me a little bit better.'
+				url={`${siteMetadata.siteUrl}/about`}
 			/>
 			<div className='flex flex-col mb-16'>
 				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
