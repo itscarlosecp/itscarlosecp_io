@@ -10,6 +10,7 @@ import LayoutWrapper from '@/components/LayoutWrapper'
 import MDXComponents from '@/components/MDXComponents'
 
 import '@/styles/globals.css'
+import '@/styles/katex.css'
 
 const MyApp = ({ Component, pageProps }) => {
 	React.useEffect(() => {
