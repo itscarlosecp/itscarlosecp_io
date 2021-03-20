@@ -9,7 +9,7 @@ const Navbar = () => {
 	React.useEffect(() => setMounted(true), [])
 
 	return (
-		<nav className='sticky top-0 z-10 w-full bg-white dark:bg-black transition-colors blur bg-opacity-60'>
+		<nav className='sticky top-0 z-10 w-full bg-white dark:bg-black blur bg-opacity-60'>
 			<div className='w-full max-w-4xl p-4 sm:p-8 mb-8 mx-auto flex justify-between items-center'>
 				<button
 					type='button'
@@ -47,21 +47,21 @@ const Navbar = () => {
 				<ul className='flex font-medium'>
 					<li className='p-2 sm:p-4 flex items-center'>
 						<Link href='/'>
-							<a className='text-black dark:text-white hover:cursor-pointer transition-colors'>
+							<a className='text-black dark:text-white hover:cursor-pointer '>
 								Home
 							</a>
 						</Link>
 					</li>
 					<li className='p-2 sm:p-4 flex items-center'>
 						<Link href='/blog'>
-							<a className='text-black dark:text-white hover:cursor-pointer transition-colors'>
+							<a className='text-black dark:text-white hover:cursor-pointer '>
 								Blog
 							</a>
 						</Link>
 					</li>
 					<li className='p-2 sm:p-4 flex items-center'>
 						<Link href='/about'>
-							<a className='text-black dark:text-white hover:cursor-pointer transition-colors'>
+							<a className='text-black dark:text-white hover:cursor-pointer '>
 								About
 							</a>
 						</Link>

@@ -10,7 +10,7 @@ const PostItem = (frontMatter) => {
 							{frontMatter.title}
 						</h3>
 					</div>
-					<p className='prose text-gray-600 dark:text-gray-400'>
+					<p className='leading-6 text-gray-600 dark:text-gray-400'>
 						{frontMatter.summary}
 					</p>
 				</div>

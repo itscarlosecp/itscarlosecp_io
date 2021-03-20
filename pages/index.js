@@ -1,6 +1,8 @@
 import { PageSeo } from '@/components/SEO'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
+import { Section, Paragraph } from '@/components/Page'
 import PostItem from '@/components/PostItem'
+import RepoCard from '@/components/RepoCard'
 import siteMetadata from '@/data/siteMetadata'
 
 const Home = ({ featuredPostsFrontMatter }) => {
@@ -11,22 +13,37 @@ const Home = ({ featuredPostsFrontMatter }) => {
 				description={siteMetadata.description}
 				url={siteMetadata.url}
 			/>
-			<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
-				Hey, I'm Carlos Castillo
-			</h1>
-			<p className='prose text-gray-600 dark:text-gray-400 mb-16'>
-				I'm a developer from Nicaragua, currently living in Argentina
-				and studying computer engineering @ University of Buenos Aires.
-			</p>
-			<h2 className='font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white'>
-				Featured Posts
-			</h2>
-			{featuredPostsFrontMatter.map((frontMatter) => (
-				<PostItem key={frontMatter.slug} {...frontMatter} />
-			))}
-			<h2 className='mt-8 font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white'>
-				Projects
-			</h2>
+			<div className='flex flex-col mb-16'>
+				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
+					Hey, I'm Carlos Castillo
+				</h1>
+				<Paragraph
+					content={`I'm a developer from Nicaragua, currently living in
+					Argentina and studying computer engineering @ University of
+					Buenos Aires.`}
+				/>
+			</div>
+			<Section title='Featured Posts'>
+				{featuredPostsFrontMatter.map((frontMatter) => (
+					<PostItem key={frontMatter.slug} {...frontMatter} />
+				))}
+			</Section>
+			<Section title='Projects'>
+				<RepoCard
+					title='Blog'
+					description='About
+Saving my own development settings files. You are free to use them and modify them, this are just the ones I use in my day to day basis. I use Ubuntu or WSL2 sometimes, but the programs I use should be available on every unix-based os.'
+					href={`${siteMetadata.github}/itscarlosecp_dev`}
+					icon='nextjs'
+				/>
+				<RepoCard
+					title='.dotfiles'
+					description='About
+Saving my own development settings files. You are free to use them and modify them, this are just the ones I use in my day to day basis. I use Ubuntu or WSL2 sometimes, but the programs I use should be available on every unix-based os.'
+					href={`${siteMetadata.github}/.dotfiles`}
+					icon='vscode'
+				/>
+			</Section>
 		</>
 	)
 }

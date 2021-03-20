@@ -11,7 +11,7 @@ const PostLayout = ({ frontMatter, children }) => {
 				{...frontMatter}
 			/>
 			<article className='flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full'>
-				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white transition-colors'>
+				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white '>
 					{frontMatter.title}
 				</h1>
 				<div className='flex items-center w-full mt-2 mb-6'>
@@ -24,14 +24,14 @@ const PostLayout = ({ frontMatter, children }) => {
 						priority
 					/>
 					<div className='w-full flex flex-col sm:flex-row justify-between sm:items-center ml-2'>
-						<p className='text-sm text-gray-800 dark:text-gray-300'>
+						<p className='text-sm text-gray-800 dark:text-gray-300 '>
 							{'Carlos Castillo / '}
 							{format(
 								parseISO(frontMatter.publishedAt),
 								'MMMM dd, yyyy'
 							)}
 						</p>
-						<p className='text-sm text-gray-500 min-w-32'>
+						<p className='text-sm text-gray-500 dark:text-gray-400  min-w-32'>
 							{frontMatter.readingTime.text}
 						</p>
 					</div>
