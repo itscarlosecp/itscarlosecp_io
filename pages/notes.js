@@ -28,6 +28,7 @@ const Notes = ({ allPostsFrontMatter }) => {
 			<PageSeo
 				title={`Notes - ${siteMetadata.title}`}
 				description='Thoughts on the software industry, programming and tech.'
+				url={`${siteMetadata.url}/notes`}
 			/>
 			<div className='flex flex-col mb-16'>
 				<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
