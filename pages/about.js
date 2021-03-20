@@ -59,7 +59,7 @@ const about = ({ topTracks }) => {
 				last month.`}
 				margin='mb-16'
 			>
-				<ul className='w-full flex flex-col divide-y divide-gray-100 dark:divide-gray-800'>
+				<ul className='mt-2 w-full flex flex-col divide-y divide-gray-100 dark:divide-gray-800'>
 					{topTracks.map((track, index) => (
 						<TrackItem
 							key={track.id}

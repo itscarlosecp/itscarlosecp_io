@@ -11,5 +11,7 @@ export const Section = ({ title, description, margin = 'mb-8', children }) => {
 }
 
 export const Paragraph = ({ content }) => (
-	<p className='leading-7 text-gray-600 dark:text-gray-400'>{content}</p>
+	<p className='leading-relaxed text-gray-600 dark:text-gray-400'>
+		{content}
+	</p>
 )
