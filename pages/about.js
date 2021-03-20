@@ -9,7 +9,7 @@ const About = ({ topTracks }) => {
 	return (
 		<>
 			<PageSeo
-				title='About - Carlos Castillo'
+				title='About – Carlos Castillo'
 				description='Carlos Castillo, software developer. Get to know me a little bit better.'
 				url={`${siteMetadata.siteUrl}/about`}
 			/>

@@ -9,7 +9,7 @@ const Home = ({ featuredPostsFrontMatter }) => {
 	return (
 		<>
 			<PageSeo
-				title={siteMetadata.title}
+				title='Carlos Castillo – Web Development Enthusiast'
 				description={siteMetadata.description}
 				url={siteMetadata.siteUrl}
 			/>

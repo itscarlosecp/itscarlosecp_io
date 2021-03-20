@@ -26,7 +26,7 @@ const Blog = ({ allPostsFrontMatter }) => {
 	return (
 		<>
 			<PageSeo
-				title='Blog - Carlos Castillo'
+				title='Blog – Carlos Castillo'
 				description='Articles where I share my thought aboutthe software industry, programming and tech. '
 				url={`${siteMetadata.siteUrl}/blog`}
 			/>
