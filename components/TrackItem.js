@@ -1,6 +1,6 @@
 const TrackItem = ({ ranking, track }) => {
 	return (
-		<div className='flex flex-row items-baseline max-w-3xl w-full py-4'>
+		<li className='flex flex-row items-baseline max-w-3xl w-full py-4'>
 			<p className='text-sm font-bold text-gray-500 dark:text-gray-400'>
 				{ranking + 1}
 			</p>
@@ -19,7 +19,7 @@ const TrackItem = ({ ranking, track }) => {
 					})}
 				</p>
 			</div>
-		</div>
+		</li>
 	)
 }
 
