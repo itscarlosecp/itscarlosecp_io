@@ -39,6 +39,10 @@ html {
 	}
 }
 
+.callout-text {
+	@apply my-0 !important;
+}
+
 pre::-webkit-scrollbar {
 	display: none;
 }
