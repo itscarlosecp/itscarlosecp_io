@@ -1,5 +1,5 @@
 ---
-title: 'Cómo programar de una manera más eficiente'
+title: 'Mis Herramientas de Desarrollo'
 publishedAt: '2021-03-31'
 summary: 'Como programadores solemos pasar mucho tiempo delante de nuestras computadoras. Utilizando las herramientas correctas podemos mejorar mucho la experiencia y tiempos de desarrollo.'
 images: 'https://res.cloudinary.com/dgaiej4np/image/upload/q_auto/v1617220094/itscarlosecp_dev/blog/productive-dev-env/banner_o7kppw.webp'
@@ -86,7 +86,7 @@ También utilizo extensiones para mejorar estéticamente el código en sí. Entr
 
 Otra extensión popular se [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments), que nos permite resaltar nuestros comentarios y clasificarlos en diferentes categorías, por ejemplo, rojo para los comentarios que indiquen algo que hay que cambiar, o verde para los que indiquen que se realizó un cambio correcto. Finalmente también utilizo una extensión llamada [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2), que nos ayuda a guiarnos a través del código cuando tenemos muchos paréntesis o llaves anidadas.
 
-## Linea de Comandos
+## Línea de Comandos
 
 Una de las herramientas que más agilizan las tareas de un programador es la línea de comandos. Desde esta herramienta podemos tener acceso a casi todas las aplicaciones de nuestro sistema, e interactuar y dar instrucciones a nuestra computadora desde una sola aplicación. Podemos navegar entre directorios de una manera rápida, utilizar aplicaciones como Git, inicializar procesos como correr servidores para nuestras aplicaciones, utilizar editores de texto dentro de la misma terminal e incluso realizar peticiones HTTP con la ayuda de herramientas como cURL.
 
@@ -94,6 +94,52 @@ El beneficio principal de utilizar la línea de comando es la velocidad que gana
 
 Al utilizar las aplicaciones que disponen de versión en la línea de comandos también ganamos un mejor entendimiento de cómo funcionan dichas aplicaciones, ya que no estamos ligados a la manera en la que cada una de las aplicaciones deciden organizar sus interfaces, permitiendonos utilizar cualquier aplicación sin tener que adaptarnos estrictamente a la manera en la que esta funciona, y sin utilizar implementaciones o tecnologías propietarias, lo que nos proporciona mayor flexibilidad para decidir la manera en la que queremos trabajar. Asi por ejemplo, si en algún momento queremos cambiar de editor de código, vamos a seguir siendo capaces de compilar nuestros programas de la misma manera a través de la terminal, aunque diferentes editores tengan diferentes compiladores, o si utilizamos aplicaciones como Vim, vamos a poder utilizar un editor con el que estemos familiarizados incluso si estamos accediendo de manera remota a un servidor, etc.
 
+<figure>
+	<Image
+		src={
+			'https://res.cloudinary.com/dgaiej4np/image/upload/q_auto/v1617229389/itscarlosecp_dev/blog/productive-dev-env/terminal_exfilv.webp'
+		}
+		width={1243}
+		height={697}
+		alt='Command Line'
+	/>
+	<figcaption>Instalación de paquetes y utilización de Git</figcaption>
+</figure>
+
 La línea de comandos es uno de los puntos más importantes para aumentar nuestras posibilidades y reducir nuestros tiempos de desarrollo. Tareas que suelen tomar un tiempo considerable desde algun tipo de interfaz, como buscar un botón específico o utilizar funcionalidades que no entendemos cómo funcionan, pueden ser accedidas y ejecutadas con pocos comandos desde una terminal.
 
 También tenemos diferentes opciones de customización para nuestras líneas de comandos, como la posibilidad de utilizar diferentes shells o diferentes terminal (la aplicación a través de la cuál accedemos a la línea de comandos de nuestra computadora). Sin embargo hasta cierto punto todas las líneas de comando son muy similares. En mi caso mi terminal de preferencia es [Alacritty](https://github.com/alacritty/alacritty) por su velocidad y customización. Utilizo [ZSH](https://ohmyz.sh/) como shell. Ocasionalmente utilizo Vim como editor de texto en terminal y [tmux](https://github.com/tmux/tmux/wiki) como terminal multiplexer.
+
+## Vim
+
+Así a como la línea de comandos la principal herramienta de muchos desarrolladores para aumentar su productividad al utlizar las múltiples aplicaciones de sus sistemas, mejorar la movilidad dentro de cada una de las aplicaciones que utilicemos también nos va a permitir mejorar nuestra experiencia de desarrollo, e incrementar nuestra productividad y velocidad.
+
+Debido a que nuestro principal método de interacción con nuestras computadoras es nuestro teclado, saber cómo agilizar nuestra movilidad utilizando el teclado es una de las herramientas nos va a permitir. Herramientas como Vim nos proporcionan una manera sencilla y rápida de controlar nuestras aplicaciones (las que las keybinds de Vim) totalmente desde nuestro teclado, permitiéndonos ser mucho más rapidos a la hora de escribir y editar código, y navegar a través de la aplicación.
+
+Los comandos de Vim estan diseñados de tal forma que el programador pueda unificar el proceso de analizar y escribir código en una misma acción. Al estar gran parte del tiempo dentro de un editor de código, solemos repetir gran cantidad de comandos como elimnar una línea, seleccionar una palabra, borrar un párrafo o navegar de arriba hacia abajo en el código.
+
+<figure>
+	<Image
+		src={
+			'https://res.cloudinary.com/dgaiej4np/image/upload/q_auto/v1617231433/itscarlosecp_dev/blog/productive-dev-env/vim_l66wqa.webp'
+		}
+		width={1242}
+		height={683}
+		alt='Vim makes you more efficient'
+	/>
+	<figcaption>
+		Vim mejora mucho nuestra eficiencia y velocidad al editar código
+	</figcaption>
+</figure>
+
+Vim nos permite no depender el mouse para realizar este tipo de acciones, podemos por ejemplo, eliminar el contenido dentro de un par de paréntesis sin tener que ir a buscar con el cursor donde se cierran y donde se abren los paréntesis, o seleccionar etiquetas HTML que no sabemos donde terminan. Podemos borrar o reemplazar palabras sin necesidad de despegar nuestras manos del teclado, o copiar y pegar utilizando la posición natural de nuestros dedos en el teclado en vez de tener que buscar las teclas por defecto.
+
+A pesar de que Vim puede ser difícil de aprender durante los primero 30 minutos de uso, al cabo de algunos días de práctica se logra superar la velocidad de edición previa al uso de Vim, y de ahí en adelante solo se va incrementando. Es similar a aprender touch-typing (escribir sin ver el teclado) en el sentido que no es necesario para desarrollar o escribir código, pero una vez se aprende, mejoramos mucho en comodidad y velocidad, dejamos de pensar en si estamos presionando la tecla correcta para simplemente pensar en lo que escribimos. El secreto para ser eficientes con Vim y realmente notar sus ventajas está en combinar los diferentes comandos, que si bien ya nos ahorran tiempo al ser utilizados de manera individual, pueden ser combinados para hacernos mucho más rápidos.
+
+## Atajos en VSCode
+
+La manera en la que combino todas estas herramientas es a través de las capacidades de customización que nos brinda VSCode. Para utilizar este editor con los atajos de Vim basta con instalar una [extensión](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) desde la tienda. Esto nos permite mantener las ventajas de utilizar un editor fácil de usar como VSCode, pero utilizando una forma eficiente de aprovechar las ventajas de este mismo al momento de escribir código.
+
+Entre las otras opciones de customización que aplico a mi configuración de VSCode está el utilizar comandos similares a los que se utilizan en Vim para movilizarme entre los diferentes paneles de VSCode. Debido a que este editor está diseñado para cualquier tipo de programador, desde principantes hasta expertos, la manera por defecto de interactuar y movilizarse por el es a través del mouse. Así por ejemplo, para navegar entre nuestros archivos, renombrar, eliminar, crear paneles, dividir la pantalla (entre otras acciones comunes) dependemos nuevamente del mouse. Sin embargo, este editor nos proporciona otra API (similar a la que utilizamos para cambiar el tema) con la que podemos acceder a diferentes comandos de VSCode y de esta forma asignar keybinds o atajos en el teclado a cada una de estas acciones.
+
+Para

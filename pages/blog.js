@@ -10,17 +10,14 @@ const Blog = ({ allPostsFrontMatter }) => {
 	const filteredPosts = allPostsFrontMatter
 		.sort(
 			(a, b) =>
-				Number(new Date(b.publishedAt)) -
-				Number(new Date(a.publishedAt))
+				Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
 		)
 		.filter(
 			(post) =>
 				post.title
 					.toLocaleLowerCase()
 					.includes(searchValue.toLocaleLowerCase()) ||
-				post.tags.some((tag) =>
-					tag.includes(searchValue.toLocaleLowerCase())
-				)
+				post.tags.some((tag) => tag.includes(searchValue.toLocaleLowerCase()))
 		)
 
 	return (
