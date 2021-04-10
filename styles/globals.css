@@ -52,22 +52,14 @@ pre {
 	scrollbar-width: none; /* Firefox */
 }
 
-.prose code,
-.prose kbd {
-	@apply text-sm text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md font-bold;
-}
-
-.prose .callout code,
-.prose .callout kbd {
-	@apply border-gray-200 dark:border-gray-700;
-}
-
 .prose .remark-code-title {
-	@apply text-gray-800 dark:text-gray-200 px-5 py-3 rounded-t bg-[#f1f1f2] dark:bg-[#1C1C1C] text-sm font-mono font-bold;
+	@apply text-gray-800 dark:text-gray-200 px-5 py-3 rounded-t bg-[#f1f1f2] dark:bg-[#1C1C1C] text-sm font-mono font-bold border-b border-gray-200 dark:border-gray-700;
 }
 
-figcaption {
-	@apply text-center;
+.prose pre {
+	tab-size: 2;
+	-moz-tab-size: 2;
+	@apply bg-[#1C1C1C];
 }
 
 .remark-code-title + pre {
@@ -76,6 +68,10 @@ figcaption {
 
 .mdx-marker {
 	@apply block -mx-4 px-4 bg-gray-100 dark:bg-gray-800 border-l-4 border-blue-500;
+}
+
+figcaption {
+	@apply text-center;
 }
 
 pre.language-jsx,

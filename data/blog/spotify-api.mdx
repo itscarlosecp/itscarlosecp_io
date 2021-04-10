@@ -1,0 +1,43 @@
+---
+title: 'Cómo utilizar Spotify API'
+publishedAt: '2021-03-31'
+summary: 'Aprende a consumir los servicios que nos brinda Spotify API'
+images: 'https://res.cloudinary.com/dgaiej4np/image/upload/q_auto/v1617220094/itscarlosecp_dev/blog/productive-dev-env/banner_o7kppw.webp'
+featured: true
+tags: ['programming', 'development environment', 'vim', 'vscode']
+---
+
+<Image
+	src={
+		'https://res.cloudinary.com/dgaiej4np/image/upload/q_auto/v1617220094/itscarlosecp_dev/blog/productive-dev-env/banner_o7kppw.webp'
+	}
+	alt='How to be more productive as a programmer'
+	width={1920}
+	height={1080}
+/>
+
+Spotify API es una serie de endpoints que nos proporciona este popular servicio de streaming de música. Nos permiten acceder a información de la actividad en la plataforma, ya sean listados de las canciones más populares del momento, información sobre álbumes o artistas específicos, datos de un usuario o incluso interactuar de manera directa con la sesión del mismo, pudiendo pausar o reanudar canciones o agregar y eliminar pistas de alguna playlist, entre otras acciones.
+
+En este post explicaré cómo consumir algunos de los endpoints que nos provee este servicio, utilizando NextJS para construir la interfaz.
+
+## Aplicación de NextJS
+
+NextJS es un framework basado en React, que nos facilita la creación de aplicaciones web o single page applications. Está pensado para mejorar el rendimiento, seguiridad y SEO de nuestra aplicaciones, así como también la experiencia de desarrollo. Entre otra de sus ventajas está la cercana integración de frontend y backend, ya que NextJS nos permite construir serverless functions que funcionen a manera de backend, directamente desde nuestra aplicación.
+
+Para iniciar una aplicación básica de NextJS, corremos el siguiente comando:
+
+```bash
+npx create-next-app spotify-api
+```
+
+Esto crea nuestra aplicación dentro del folder llamado `spotify-api` en la carpeta en la que hayamos corrido el comando. Finalmente abrimos esta nueva carpeta dentro de nuestro editor de código preferido.
+
+Antes de iniciar a correr la aplicación, debemos borrar algunos archivos que se nos generaron al momento de crear nuestra aplicación. Primero borramos todo lo que esté dentro de la carpeta `styles` a excepción del archivo `globals.css`.
+
+También borramos la carpeta `/pages/api`. Finalmente podemos borrar todo lo que están en el archivo `/pages/index.js` sin borrar el archivo en sí.
+
+Luego vamos a agregar botones para iniciar sesión junto con una sección que mostrará algunos datos del usuario que se encuentra loggeado, y también aprendermos a crear páginas accesibles solo para usuarios que hayan iniciado sesión.
+
+## Configuración de Spotify
+
+Para asignarle ciertos permisos a nuestra aplicación, primero debemos registrarla a desde nuestra consola de desarrolladores en la pagina de Spotify Developers. Si todavía tenemos cuenta de Spotify for Developers, debemos solicitar los permisos de desarrollador con nuestra cuenta de Spotify a través de la [página oficial](https://developer.spotify.com/dashboard/login). Una vez nos ubicamos en el dashboard, seleccionamos "Create an app".
