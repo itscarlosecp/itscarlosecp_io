@@ -31,15 +31,13 @@ const Home = ({ featuredPostsFrontMatter }) => {
 			<Section title='Projects'>
 				<RepoCard
 					title='Blog'
-					description='About
-Saving my own development settings files. You are free to use them and modify them, this are just the ones I use in my day to day basis. I use Ubuntu or WSL2 sometimes, but the programs I use should be available on every unix-based os.'
+					description={`My personal blog and portfolio. This blog was built with NextJS and TailwindCSS using the JAMStack approach. It features light and dark mode, markdown, code and katex rendering, among other cool libraries. `}
 					href={`${siteMetadata.github}/itscarlosecp_dev`}
 					icon='nextjs'
 				/>
 				<RepoCard
 					title='.dotfiles'
-					description='About
-Saving my own development settings files. You are free to use them and modify them, this are just the ones I use in my day to day basis. I use Ubuntu or WSL2 sometimes, but the programs I use should be available on every unix-based os.'
+					description={`I love programming in my own custom enviroment. In this repository I store and share my most important config files for the various applications I normally use in my programming workflow such as my terminal emulator and code editor.`}
 					href={`${siteMetadata.github}/.dotfiles`}
 					icon='vscode'
 				/>

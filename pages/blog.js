@@ -10,14 +10,17 @@ const Blog = ({ allPostsFrontMatter }) => {
 	const filteredPosts = allPostsFrontMatter
 		.sort(
 			(a, b) =>
-				Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+				Number(new Date(b.publishedAt)) -
+				Number(new Date(a.publishedAt))
 		)
 		.filter(
 			(post) =>
 				post.title
 					.toLocaleLowerCase()
 					.includes(searchValue.toLocaleLowerCase()) ||
-				post.tags.some((tag) => tag.includes(searchValue.toLocaleLowerCase()))
+				post.tags.some((tag) =>
+					tag.includes(searchValue.toLocaleLowerCase())
+				)
 		)
 
 	return (
@@ -35,7 +38,7 @@ const Blog = ({ allPostsFrontMatter }) => {
 					content={`This is a collection of the blog posts I've written. These
 					are mostly tutorials or snippets showing how to use an
 					specific technology or implement some functionality in a
-					specific language. Sometimes I and share my opinion about
+					specific language. Sometimes I share my opinion about
 					the programming community and tech world in general.`}
 				/>
 				<div className='mt-4 relative w-full'>
@@ -43,7 +46,7 @@ const Blog = ({ allPostsFrontMatter }) => {
 						aria-label='Search articles'
 						type='text'
 						onChange={(e) => setSearchValue(e.target.value)}
-						placeholder='Search posts'
+						placeholder='Search posts by tittle or topic'
 						className='px-4 py-2 border border-gray-300 dark:border-gray-900 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100'
 					/>
 					<svg

@@ -52,7 +52,7 @@ const Github = ({ repo = '' }) => {
 			href={`https://github.com/itscarlosecp/tutorials/tree/main/${repo}`}
 			className='no-underline'
 		>
-			<button className='px-2 py-1 rounded bg-[#1C1C1C] text-white inline-flex gap-1 items-center text-sm'>
+			<button className='px-2 py-1 rounded bg-transparent inline-flex gap-1 items-center text-sm'>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					width='16'
