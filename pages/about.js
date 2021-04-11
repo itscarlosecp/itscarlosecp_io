@@ -29,6 +29,7 @@ const About = ({ topTracks }) => {
 						<li>
 							💾 Talk to me about tech, that's what I love, tech.
 						</li>
+						<li>⌨️ Current avg. typing speed: 108 wpm.</li>
 					</ul>
 				</div>
 				<div className='flex gap-4'>
@@ -55,10 +56,7 @@ const About = ({ topTracks }) => {
 			</div>
 			<Section
 				title='Top Tracks'
-				description={`I unlock my full "developer potencial" when I am listening to
-				the music I like the most, this is especially true during long
-				codign sessions. Take a look at my most played tracks over the
-				last month.`}
+				description={`I like listening to music when I'm doing homework and specially when I'm programming in short or really long coding sessions. Take a look at my top tracks over the last four weeks.`}
 				margin='mb-16'
 			>
 				<ul className='mt-2 w-full flex flex-col divide-y divide-gray-100 dark:divide-gray-800'>
