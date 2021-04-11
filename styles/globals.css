@@ -39,7 +39,7 @@ html {
 	}
 }
 
-.callout-text {
+.callout > p {
 	@apply my-0 !important;
 }
 
@@ -52,12 +52,14 @@ pre {
 	scrollbar-width: none; /* Firefox */
 }
 
-.prose code {
-	@apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md;
+.prose .remark-code-title {
+	@apply text-gray-800 dark:text-gray-200 px-5 py-3 rounded-t bg-[#f1f1f2] dark:bg-[#1C1C1C] text-sm font-mono font-bold border-b border-gray-200 dark:border-gray-700;
 }
 
-.remark-code-title {
-	@apply text-gray-800 dark:text-gray-200 px-5 py-3 rounded-t bg-gray-200 dark:bg-[#1C1C1C] text-sm font-mono font-bold;
+.prose pre {
+	tab-size: 2;
+	-moz-tab-size: 2;
+	@apply bg-[#1C1C1C];
 }
 
 .remark-code-title + pre {
@@ -66,6 +68,10 @@ pre {
 
 .mdx-marker {
 	@apply block -mx-4 px-4 bg-gray-100 dark:bg-gray-800 border-l-4 border-blue-500;
+}
+
+figcaption {
+	@apply text-center;
 }
 
 pre.language-jsx,
@@ -80,6 +86,7 @@ pre.language-css {
 .token.interpolation-punctuation.punctuation,
 .token.tag,
 .token.rule,
+.token.boolean,
 .token.keyword {
 	color: rgb(86, 156, 214, var(--tw-text-opacity));
 }
@@ -115,4 +122,8 @@ pre.language-css {
 .token.template-string,
 .token.string {
 	color: rgb(206, 145, 120, var(--tw-text-opacity));
+}
+
+.token.property {
+	color: rgb(156, 220, 254, var(--tw-text-opacity));
 }
