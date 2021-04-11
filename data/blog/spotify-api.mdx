@@ -117,6 +117,8 @@ Para comenzar a utilizar la gran mayoría de APIs que nos proporciona Spotify ([
 
 4. Refrescar el token de acceso. El token que nos fue devuelto tras la autorización inicial tiene vencimiento, así que debemos estarlo refrescando constantemente para mantener la conexión.
 
+### Generación de token temporal
+
 Para hacer la primera solicitud de autorización debemos acceder a un URL específico que nos devolverá nuestro primer token temporal. Este URL está compuesto de los siguiente parámetros:
 
 -   **client_id:** El valor de este parámetro debe ser el mismo valor que nos fue proporcionado anteriormente.
@@ -154,6 +156,8 @@ http://localhost:3000/?code=AQCSX66S1rM3VQsfdT7bNz5bNLnzwcYDFjUr-d...
 
 Este token es solamente temporal (lo identificaremos como `TOKEN_TEMPORAL`), pero lo utilizaremos para generar un token permanente.
 
+### Solicitud de token permanente
+
 Para esto, primero tenemos que encriptar nuestras llaves de acceso ("Client Id" y "Client Secret"), utilizando el codec base64. Podemos utilizar [base64encode](https://www.base64encode.org/) online o alguna otra herramienta. Debemos separar los valores de nuestros nuestras llaves con dos puntos de por medio, de la siguiente forma:
 
 ```bash
@@ -171,13 +175,14 @@ Ahora debemos hacer la petición para obtener el token permanente. Para esto pod
 curl -H "Authorization: Basic <TOKEN_BASE64>" -d grant_type=authorization_code -d code=<TOKEN_TEMPORAL> -d redirect_uri=http%3A%2F%2Flocalhost:3000 https://accounts.spotify.com/api/token
 ```
 
-Reemplazamos `<TOKEN_BASE64>` con el valor encriptado que generamos recientemente, y `<TOKEN_TEMPORAL>` con el que habíamos obtenido en el paso anterior, el que se nos devolvía con el nombre code a través del URL. Al realizar esta petición se nos retornará un objeto JSON que contiene la llave `refresh_token`. Copiamos esa llave y la guardamos junto a las demás variables de entorno.
+Reemplazamos `<TOKEN_BASE64>` con el valor encriptado que generamos recientemente, y `<TOKEN_TEMPORAL>` con el que habíamos obtenido en el paso anterior, el que se nos devolvía con el nombre "code" a través del URL. Al realizar esta petición se nos retornará un objeto JSON que contiene la llave `refresh_token`. Copiamos esa llave y la guardamos junto a las demás variables de entorno.
 
 <Callout>
 	Si el llamado nos retorna una respuesta incorrecta y nos hemos asegurado de
-	haber ingresado bien los campos. Podemos intentar repetir el paso en el que
-	conseguimos el <code>TOKEN_TEMPORAL</code> a través el URL, ya que puede ser
-	que esta haya vencido.
+	haber ingresado bien los campos. Podemos intentar repetir el{' '}
+	<a href='#generación-de-token-temporal'>paso</a> en el que conseguimos el{' '}
+	<code>TOKEN_TEMPORAL</code> a través el URL, ya que puede ser que esta haya
+	vencido.
 </Callout>
 
 ```bash
