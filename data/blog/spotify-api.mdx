@@ -146,13 +146,13 @@ Si nos llegara a dar un error que nos indica que nuestro "Redirect URI" es invá
 	height={958}
 />
 
-Simplemente la damos "Agree" y luego esta página nos redireccionará a nuestra aplicación, que coincide con nuestro "Redirect URI". En el URL al que se nos redireccionó, podemos ubicar un parámetro llamado code, cuyo valor es nuestro token temporal inicial. Debería encontrarse de la siguiente manera:
+Simplemente la damos "Agree" y luego esta página nos redireccionará a nuestra aplicación, que coincide con nuestro "Redirect URI". En este URL podemos ubicar un parámetro llamado ,code", cuyo valor es nuestro token temporal inicial. Debería encontrarse de la siguiente manera:
 
 ```bash
 http://localhost:3000/?code=AQCSX66S1rM3VQsfdT7bNz5bNLnzwcYDFjUr-d...
 ```
 
-Este token es solamente temporal (lo identificaremos como `TEMPORAL_TOKEN`), pero lo utilizaremos para generar uno permanente. Para esto primero tenemos que encriptar nuestras llaves de acceso, utilizando el codec base64. Podemos utilizar [base64encode](https://www.base64encode.org/) online para encriptar estos valores (asegurémonos de seleccionar "encoding" en la parte superior). Debemos separar nuestro Client ID y nuestro Client Secret con dos puntos de por medio, de la siguiente forma:
+Este token es solamente temporal (lo identificaremos como `TEMPORAL_TOKEN`), pero lo utilizaremos para generar un token permanente. Para esto, primero tenemos que encriptar nuestras llaves de acceso, utilizando el codec base64.Podemos utilizar [base64encode](https://www.base64encode.org/) online para encriptar estos valores asegurémonos de seleccionar "encoding" en la parte superior). Debemos separar los valores de nuestros "Client ID" y nuestro "Client Secret" con dos puntos de por medio, de la siguiente forma:
 
 ```bash
 <CLIENT_ID>:<CLIENT_SECRET>
