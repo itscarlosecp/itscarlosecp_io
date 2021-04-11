@@ -38,38 +38,38 @@ Antes de iniciar a correr la aplicación, debemos borrar algunos archivos que se
 
 ```css:/styles/globals.css
 .container {
-	max-width: 720px;
-	margin: auto;
-	padding: 32px;
+  max-width: 720px;
+  margin: auto;
+  padding: 32px;
 
-	display: grid;
-	gap: 32px;
-	grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 ul {
-	padding: 0;
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
-	list-style: none;
+  list-style: none;
 }
 
 .track-item {
-	cursor: pointer;
-	border-radius: 8px;
-	transition: background-color 150ms ease;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 150ms ease;
 }
 
 .track-item > a {
-	padding: 8px 12px;
-	display: flex;
-	flex-direction: column;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 .track-item:hover {
-	background-color: rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240);
 }
 ```
 
@@ -83,7 +83,7 @@ Para asignarle permisos a nuestra aplicación para acceder a los servicios, prim
 
 Una vez en el panel de nuestra aplicación, accedemos a "Edit settings" le asignamos este valor al siguiente campo:
 
--   **Redirect URIs:**: http://localhost:3000
+-   **Redirect URIs:** http://localhost:3000
 
 <Callout>
 	Debemos asegurarnos de seleccionar "Add" al momento de agregar el "Redirect
@@ -166,8 +166,8 @@ curl -H "Authorization: Basic <TOKEN_BASE64>" -d grant_type=authorization_code -
 <Callout>
 	Si el llamado nos retorna una respuesta incorrecta y nos hemos asegurado de
 	haber ingresado bien los campos. Podemos intentar repetir el paso en el que
-	conseguimos el `TOKEN_TEMPORAL` a través el URL, ya que puede ser que esta
-	haya vencido.
+	conseguimos el <code>TOKEN_TEMPORAL</code> a través el URL, ya que puede ser
+	que esta haya vencido.
 </Callout>
 
 Reemplazamos `<TOKEN_BASE64>` con el valor encriptado que generamos recientemente, y `<TOKEN_TEMPORAL>` con el que habíamos obtenido en el paso anterior, el que se nos devolvía con el nombre code a través del URL. Al realizar esta petición se nos retornará un objeto JSON que contiene la llave `refresh_token`. Copiamos esa llave y la guardamos junto a las demás variables de entorno.
@@ -195,52 +195,45 @@ import fetch from 'isomorphic-unfetch'
 import querystring from 'querystring'
 
 export const getAccessToken = async () => {
-	const parsedSecret = Buffer.from(
-		`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
-	).toString('base64')
-	const res = await fetch('https://accounts.spotify.com/api/token', {
-		method: 'POST',
-		headers: {
-			Authorization: `Basic ${parsedSecret}`,
-			'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		body: querystring.stringify({
-			grant_type: 'refresh_token',
-			refresh_token: process.env.SPOTIFY_REFRESH_TOKEN,
-		}),
-	})
+  const parsedSecret = Buffer.from(
+    `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
+  ).toString('base64')
 
-	return res.json()
+  const res = await fetch('https://accounts.spotify.com/api/token', {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${parsedSecret}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: querystring.stringify({
+      grant_type: 'refresh_token',
+      refresh_token: process.env.SPOTIFY_REFRESH_TOKEN,
+    }),
+  })
+
+  return res.json()
 }
 
 export const getTopTracks = async () => {
-	const { access_token } = await getAccessToken()
+  const { access_token } = await getAccessToken()
 
-	const res = await fetch(
-		'https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10',
-		{
-			headers: {
-				Authorization: `Bearer ${access_token}`,
-			},
-		}
-	)
+  const res = await fetch(
+    'https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10',
+    { headers: { Authorization: `Bearer ${access_token}` } }
+  )
 
-	return await res.json()
+  return await res.json()
 }
 
 export const getRecentlyPlayed = async () => {
-	const { access_token } = await getAccessToken()
+  const { access_token } = await getAccessToken()
 
-	const res = await fetch(
-		'https://api.spotify.com/v1/me/player/recently-played?limit=10',
-		{
-			headers: {
-				Authorization: `Bearer ${access_token}`,
-			},
-		}
-	)
+  const res = await fetch(
+    'https://api.spotify.com/v1/me/player/recently-played?limit=10',
+    { headers: { Authorization: `Bearer ${access_token}` } }
+  )
 
-	return await res.json()
+  return await res.json()
 }
 ```
 
@@ -252,16 +245,16 @@ Ahora podemos consumir estas funciones desde cualquier lugar de nuestra aplicaci
 
 ```jsx:/components/TrackItem.js
 const TrackItem = ({ track, ranking }) => (
-	<li className='track-item'>
-		<a href={track.external_urls.spotify}>
-			<b>
-				{ranking + 1}. {track.name}
-			</b>
-			{track.artists.map((artist, index) => {
-				return index === 0 ? artist.name : `, ${artist.name}`
-			})}
-		</a>
-	</li>
+  <li className='track-item'>
+    <a href={track.external_urls.spotify}>
+      <b>
+        {ranking + 1}. {track.name}
+      </b>
+      {track.artists.map((artist, index) => {
+        return index === 0 ? artist.name : `, ${artist.name}`
+      })}
+    </a>
+  </li>
 )
 
 export default TrackItem
@@ -273,14 +266,14 @@ Este componente va a tomar la información de cada una de las canciones y nos va
 import TrackItem from './TrackItem'
 
 const TrackList = ({ title, tracks }) => (
-	<div>
-		<h1>{title}</h1>
-		<ul>
-			{tracks.map((track, index) => (
-				<TrackItem key={track.id} track={track} ranking={index} />
-			))}
-		</ul>
-	</div>
+  <div>
+    <h1>{title}</h1>
+    <ul>
+      {tracks.map((track, index) => (
+        <TrackItem key={track.id} track={track} ranking={index} />
+      ))}
+    </ul>
+  </div>
 )
 
 export default TrackList
@@ -295,22 +288,22 @@ import { getTopTracks, getRecentlyPlayed } from '../lib/spotify'
 import TrackList from '../components/TrackList'
 
 const index = ({ topTracks, recentlyPlayed }) => (
-	<div className='container'>
-		<TrackList title='Top Tracks' tracks={topTracks} />
-		<TrackList title='Recently Played' tracks={recentlyPlayed} />
-	</div>
+  <div className='container'>
+    <TrackList title='Top Tracks' tracks={topTracks} />
+    <TrackList title='Recently Played' tracks={recentlyPlayed} />
+  </div>
 )
 
 export const getStaticProps = async () => {
-	const topTracks = await getTopTracks()
-	const recentlyPlayed = await getRecentlyPlayed()
+  const topTracks = await getTopTracks()
+  const recentlyPlayed = await getRecentlyPlayed()
 
-	return {
-		props: {
-			topTracks: topTracks.items,
-			recentlyPlayed: recentlyPlayed.items.map(({ track }) => track),
-		},
-	}
+  return {
+    props: {
+      topTracks: topTracks.items,
+      recentlyPlayed: recentlyPlayed.items.map(({ track }) => track),
+    },
+  }
 }
 
 export default index
