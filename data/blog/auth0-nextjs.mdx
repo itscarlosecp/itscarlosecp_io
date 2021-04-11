@@ -66,7 +66,7 @@ Para guardar estas llaves, debemos crear un archivo llamado `.env.local` en la r
 
 Simplemente pegamos nuestros valores en el archivo:
 
-```:.env.local
+```bash:.env.local
 AUTH0_SECRET=...
 AUTH0_BASE_URL=http://localhost:3000
 AUTH0_ISSUER_BASE_URL=https://...
@@ -75,7 +75,8 @@ AUTH0_CLIENT_SECRET=...
 ```
 
 <Callout>
-	Debemos agregar `https://` delante del "Domain" que nos proporciona Auth0.
+	Debemos agregar <code>https://</code> delante del "Domain" que nos
+	proporciona Auth0.
 </Callout>
 
 Finalmente debemos agregar dos valores para terminar de configurar nuestra aplicación dentro de la misma pestaña "Settings" desde Auth0. Para esto nos vamos a la sección "Application Login URI", en la misma página en donde encontramos nuestras keys privadas. En los siguientes campos colocamos los valores:
@@ -119,11 +120,11 @@ import { UserProvider } from '@auth0/nextjs-auth0'
 import '../styles/globals.css'
 
 const MyApp = ({ Component, pageProps }) => {
-	return (
-		<UserProvider>
-			<Component {...pageProps} />
-		</UserProvider>
-	)
+  return (
+    <UserProvider>
+      <Component {...pageProps} />
+    </UserProvider>
+  )
 }
 
 export default MyApp
@@ -136,29 +137,29 @@ import { useUser } from '@auth0/nextjs-auth0'
 import Link from 'next/link'
 
 const index = () => {
-	const { user, error, isLoading } = useUser()
+  const { user, error, isLoading } = useUser()
 
-	if (isLoading) return <div>Loading...</div>
-	if (error) return <div>{error.message}</div>
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>{error.message}</div>
 
-	if (user) {
-		return (
-			<div
-				style={{
-					display: 'flex',
-					flexDirection: 'column',
-					textAlign: 'center',
-				}}
-			>
-				Bienvenido {user.name} <a href='/api/auth/logout'>Logout</a>
-				<Link href='/session'>
-					<a>Más información</a>
-				</Link>
-			</div>
-		)
-	}
+  if (user) {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          textAlign: 'center',
+        }}
+      >
+        Bienvenido {user.name} <a href='/api/auth/logout'>Logout</a>
+        <Link href='/session'>
+          <a>Más información</a>
+        </Link>
+      </div>
+    )
+  }
 
-	return <a href='/api/auth/login'>Login</a>
+  return <a href='/api/auth/login'>Login</a>
 }
 
 export default index
@@ -178,23 +179,23 @@ import Link from 'next/link'
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 
 const info = () => {
-	const [session, setSession] = useState({})
+  const [session, setSession] = useState({})
 
-	const getSession = async () => {
-		const res = await fetch('/api/auth/getSession')
-		const data = await res.json()
-		setSession(data)
-	}
+  const getSession = async () => {
+    const res = await fetch('/api/auth/getSession')
+    const data = await res.json()
+    setSession(data)
+  }
 
-	return (
-		<div>
-			<button onClick={getSession}>Get info</button>
-			<div>
-				<pre>{JSON.stringify(session, null, 2)}</pre>
-			</div>
-			<Link href='/'>Volver</Link>
-		</div>
-	)
+  return (
+    <div>
+      <button onClick={getSession}>Get info</button>
+      <div>
+        <pre>{JSON.stringify(session, null, 2)}</pre>
+      </div>
+      <Link href='/'>Volver</Link>
+    </div>
+  )
 }
 
 export const getServerSideProps = withPageAuthRequired()
@@ -211,19 +212,19 @@ También disponemos de una función que nos permite proteger APIs, haciendo que 
 import { withApiAuthRequired , getSession } from '@auth0/nextjs-auth0'
 
 export default (req, res) => {
-	const session = getSession(req, res)
-	const idToken = session.idToken.split('').splice(0, 40).join('') + '...'
-	const picture =
-		session.user.picture.split('').splice(0, 40).join('') + '...'
+  const session = getSession(req, res)
+  const idToken = session.idToken.split('').splice(0, 40).join('') + '...'
+  const picture =
+    session.user.picture.split('').splice(0, 40).join('') + '...'
 
-	res.json({
-		...session,
-		idToken,
+  res.json({
+    ...session,
+    idToken,
     user: {
-			...session.user,
-			picture,
-		},
-	})
+      ...session.user,
+      picture,
+    },
+  })
 }
 ```
 

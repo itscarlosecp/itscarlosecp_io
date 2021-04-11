@@ -27,11 +27,110 @@ html {
 	min-height: 100vh;
 }
 
+.blur {
+	backdrop-filter: saturate(180%) blur(20px);
+	transition: background-color 0.1 ease-in-out;
+}
+
+@supports not (backdrop-filter: none) {
+	.blur {
+		backdrop-filter: none;
+		@apply bg-opacity-100;
+	}
+}
+
+.callout p {
+	@apply my-0 !important;
+}
+
+.token.interpolation-punctuation.punctuation,
+.token.tag,
+.token.rule,
+.token.boolean,
+.token.keyword {
+	@apply text-[#569cd6];
+}
+
+.token.function-variable,
+.token.function {
+	@apply text-[#8A8A38] dark:text-[#DCDCAA];
+}
+
+.token.attr-equals,
+.token.script,
+.token.interpolation,
+.token.attr-name,
+.token.parameter {
+	@apply text-[#0285CA] dark:text-[#9CDCFE];
+}
+
+.token.builtin,
+.token.number,
+.token.class-name,
+.token.unit {
+	@apply text-[#4ec9b0];
+}
+
+.token.comment {
+	@apply text-[#6a9178];
+}
+
+.token.comment {
+	font-style: italic;
+}
+
+.token.attr-value,
+.token.template-string,
+.token.string {
+	color: rgb(206, 145, 120, var(--tw-text-opacity));
+	@apply text-[#ce9178];
+}
+
+.token.property {
+	color: rgb(156, 220, 254, var(--tw-text-opacity));
+	@apply text-[#9cdcfe];
+}
+
+.token.class,
+.token.selector {
+	@apply text-[#D7BA7D];
+}
+
+.prose pre {
+	@apply bg-gray-50 border border-gray-200 dark:border-gray-700 dark:bg-gray-900;
+}
+
+.prose code {
+	@apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+	@apply text-gray-800 dark:text-gray-50;
+}
+
+pre::-webkit-scrollbar {
+	display: none;
+}
+
+pre {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+.remark-code-title {
+	@apply text-gray-800 dark:text-gray-200 px-5 py-3 border border-b-0 border-gray-200 dark:border-gray-700 rounded-t bg-gray-200 dark:bg-gray-800 text-sm font-mono font-bold;
+}
+
+.remark-code-title + pre {
+	@apply mt-0 rounded-t-none;
+}
+
 pre.language-jsx,
 pre.language-tsx,
 pre.language-javascript,
 pre.language-typescript,
 pre.language-html,
 pre.language-css {
-	tab-size: 2 !important;
+	tab-size: 2;
 }
