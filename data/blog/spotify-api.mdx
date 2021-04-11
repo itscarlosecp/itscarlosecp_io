@@ -94,7 +94,7 @@ Esto le indicará a Spotify hacia que dirección nos redirigirá luego de que ha
 
 Para guardar estas llaves, debemos crear un archivo llamado `.env.local` en la raíz de nuestra aplicación web. Dicho archivo almacenará las variables de entorno en nuestra aplicación, que son datos que solo pueden ser proporcionados por el servidor, de tal manera que escondemos sus valores al público. Creamos el archivo y colocamos las siguientes llaves:
 
-```:/.env.local
+```bash:/.env.local
 SPOTIFY_CLIENT_ID=...
 SPOTIFY_CLIENT_SECRET=...
 ```
@@ -125,7 +125,7 @@ Para hacer la primera solicitud de autorización debemos acceder a un URL espec�
 
 Nuestro URL final debería ser el siguiente:
 
-```
+```bash
 https://accounts.spotify.com/authorize?client_id=<CLIENT_ID>&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:3000&scope=user-read-recently-played%20user-top-read
 ```
 
@@ -142,13 +142,13 @@ Nos aseguramos de cambiar el campo `<CLIENT_ID>` por el valor asignado a nuestra
 
 Simplemente la damos "Agree" y luego esta página nos redireccionará a nuestra aplicación, que coincide con nuestro "Redirect URI". En el URL al que se nos redireccionó, podemos ubicar un parámetro llamado code, cuyo valor es nuestro token temporal inicial. Debería encontrarse de la siguiente manera:
 
-```
+```bash
 http://localhost:3000/?code=AQCSX66S1rM3VQsfdT7bNz5bNLnzwcYDFjUr-d...
 ```
 
 Este token es solamente temporal (lo identificaremos como `TEMPORAL_TOKEN`), pero lo utilizaremos para generar uno permanente. Para esto primero tenemos que encriptar nuestras llaves de acceso, utilizando el codec base64. Podemos utilizar [base64encode](https://www.base64encode.org/) online para encriptar estos valores (asegurémonos de seleccionar "encoding" en la parte superior). Debemos separar nuestro Client ID y nuestro Client Secret con dos puntos de por medio, de la siguiente forma:
 
-```
+```bash
 <CLIENT_ID>:<CLIENT_SECRET>
 ```
 
@@ -172,7 +172,7 @@ curl -H "Authorization: Basic <TOKEN_BASE64>" -d grant_type=authorization_code -
 
 Reemplazamos `<TOKEN_BASE64>` con el valor encriptado que generamos recientemente, y `<TOKEN_TEMPORAL>` con el que habíamos obtenido en el paso anterior, el que se nos devolvía con el nombre code a través del URL. Al realizar esta petición se nos retornará un objeto JSON que contiene la llave `refresh_token`. Copiamos esa llave y la guardamos junto a las demás variables de entorno.
 
-```
+```bash
 SPOTIFY_CLIENT_ID=...
 SPOTIFY_CLIENT_SECRET=...
 SPOTIFY_REFRESH_TOKEN=...

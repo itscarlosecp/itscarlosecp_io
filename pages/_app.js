@@ -3,12 +3,10 @@ import { MDXProvider } from '@mdx-js/react'
 import { ThemeProvider } from 'next-themes'
 import { DefaultSeo } from 'next-seo'
 import Head from 'next/head'
-
 import { SEO } from '@/components/SEO'
 import { analytics } from '@/lib/firebase'
 import LayoutWrapper from '@/components/LayoutWrapper'
 import MDXComponents from '@/components/MDXComponents'
-
 import '@/styles/globals.css'
 import '@/styles/katex.min.css'
 
