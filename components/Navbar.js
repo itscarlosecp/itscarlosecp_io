@@ -12,14 +12,14 @@ const Navbar = () => {
 	return (
 		<>
 			<header className='w-full bg-gradient-to-r from-blue-700 to-blue-400 '>
-				<p className='w-full max-w-4xl p-4 sm:px-8 mx-auto text-center font-bold text-white'>
+				<p className='w-full max-w-4xl p-4 sm:px-8 mx-auto text-center font-medium text-white'>
 					Welcome to my personal website! 🎉 — First realease is now
 					live on{' '}
 					<a
 						href={siteMetadata.siteRepo}
 						target='_blank'
 						rel='noopener noreferrer'
-						className='text-[#92DFF3] hover:text-[#69d2ee] transition-colors'
+						className='text-[#92DFF3] hover:text-[#69d2ee] transition-colors underline'
 					>
 						GitHub
 					</a>
