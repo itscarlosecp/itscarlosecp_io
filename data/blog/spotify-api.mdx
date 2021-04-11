@@ -16,15 +16,15 @@ tags: ['spotify', 'api', 'nextjs', 'react']
 	height={1080}
 />
 
-Spotify API es una serie de endpoints que nos proporciona este popular servicio de streaming de música. Nos permiten acceder a información de la actividad en la plataforma, ya sean listados de las canciones más populares del momento, información sobre álbumes o artistas específicos, datos de un usuario o incluso interactuar de manera directa con la sesión del mismo, pudiendo pausar o reanudar canciones o agregar y eliminar pistas de alguna playlist, entre otras acciones.
+Spotify API es una serie de servicios que nos proporciona esta popular aplicación de streaming de música. Nos permiten acceder a información de la actividad en la plataforma, ya sean listados de las canciones más populares del momento, información sobre álbumes o artistas específicos, datos de un usuario o incluso interactuar de manera directa con la sesión del mismo, pudiendo pausar o reanudar canciones o agregar y eliminar pistas de alguna playlist, entre otras acciones.
 
 En este post explicaré cómo consumir algunos de los endpoints que nos provee este servicio, utilizando NextJS para construir la interfaz.
 
-Podés encontrar el repositorio de este ejemplo en mi repositorio [Tutorials](https://github.com/itscarlosecp/tutorials/tree/main/spotify-api).
+Podés encontrar el código finalizado de este ejemplo en mi repositorio [Tutorials](https://github.com/itscarlosecp/tutorials/tree/main/spotify-api).
 
 ## Aplicación de NextJS
 
-NextJS es un framework basado en React, que nos facilita la creación de aplicaciones web o single page applications. Está pensado para mejorar el rendimiento, seguiridad y SEO de nuestra aplicaciones, así como también la experiencia de desarrollo. Entre otra de sus ventajas está la cercana integración de frontend y backend, ya que NextJS nos permite construir serverless functions que funcionen a manera de backend, directamente desde nuestra aplicación.
+NextJS es un framework basado en React, que nos facilita la creación de aplicaciones web o "single page applications". Está pensado para mejorar el rendimiento, seguridad y SEO de nuestra aplicaciones, así como también la experiencia de desarrollo. Entre otra de sus ventajas está la cercana integración de frontend y backend, ya que NextJS nos permite construir serverless functions que funcionan a manera de backend, directamente desde nuestra aplicación.
 
 Para iniciar una aplicación básica de NextJS, corremos el siguiente comando:
 
@@ -34,7 +34,7 @@ npx create-next-app spotify-api
 
 Esto crea nuestra aplicación dentro del folder llamado `spotify-api` en la carpeta en la que hayamos corrido el comando. Finalmente abrimos esta nueva carpeta dentro de nuestro editor de código preferido.
 
-Antes de iniciar a correr la aplicación, debemos borrar algunos archivos que se nos generaron al momento de crear nuestra aplicación. Primero borramos todo lo que esté dentro de la carpeta `styles` a excepción del archivo `globals.css`. En este archivo agregamos lo siguiente:
+Antes de iniciar a correr la aplicación, debemos borrar algunos archivos que se nos generaron al momento de crearla. Primero borramos todo lo que esté dentro de la carpeta `styles` a excepción del archivo `globals.css`. En este archivo agregamos lo siguiente:
 
 ```css:/styles/globals.css
 .container {
@@ -73,13 +73,17 @@ ul {
 }
 ```
 
-También borramos la carpeta `/pages/api`. Finalmente podemos borrar todo lo que está en el archivo `/pages/index.js` sin borrar el archivo en sí.
+Finalmente borramos toda la carpeta `/pages/api` y también podemos reemplazar todo lo que está en el archivo `/pages/index.js` por lo siguiente:
 
-Luego vamos a agregar botones para iniciar sesión junto con una sección que mostrará algunos datos del usuario que se encuentra loggeado, y también aprendermos a crear páginas accesibles solo para usuarios que hayan iniciado sesión.
+```jsx
+const index () => <div>Tutorial Spotify - NextJS</div>
+
+export default index
+```
 
 ## Configuración de Spotify
 
-Para asignarle permisos a nuestra aplicación para acceder a los servicios, primero debemos registrarla a desde nuestra consola de desarrolladores en la pagina de Spotify Developers. Si todavía tenemos cuenta de Spotify for Developers, debemos solicitar los permisos de desarrollador con nuestra cuenta de Spotify a través de la [página para desarrolladores](https://developer.spotify.com/dashboard/login). Una vez nos ubicamos en el dashboard, seleccionamos "Create an app".
+Para asignarle permisos que nuestra aplicación necesita para acceder a los servicios, primero debemos registrarla desde nuestra consola de desarrolladores en la pagina de Spotify Developers. Si todavía no tenemos cuenta de Spotify for Developers, debemos solicitar los permisos de desarrollador con nuestra cuenta de Spotify a través de la [página para desarrolladores](https://developer.spotify.com/dashboard/login). Una vez nos ubicamos en el dashboard, seleccionamos "Create an app".
 
 Una vez en el panel de nuestra aplicación, accedemos a "Edit settings" le asignamos este valor al siguiente campo:
 
@@ -90,9 +94,9 @@ Una vez en el panel de nuestra aplicación, accedemos a "Edit settings" le asign
 	URI", de lo contrario no se guardará.
 </Callout>
 
-Esto le indicará a Spotify hacia que dirección nos redirigirá luego de que hagamos la autorización inicial. Finalmente debemos configurar las credenciales con las que identificaremos a nuestra aplicación para poder consumir los servicios de Spotify, estas son las credenciales "Client ID" y "Client Secret" que podemos ver en la página de nuestra aplicación en Spotify.
+Esto le indicará a Spotify hacia qué dirección nos redirigirá luego de hacer la autorización inicial. Finalmente debemos configurar las credenciales con las que identificaremos a nuestra aplicación para poder consumir los servicios de Spotify: estas son las credenciales "Client ID" y "Client Secret" que podemos ver en la página de nuestra aplicación en Spotify.
 
-Para guardar estas llaves, debemos crear un archivo llamado `.env.local` en la raíz de nuestra aplicación web. Dicho archivo almacenará las variables de entorno en nuestra aplicación, que son datos que solo pueden ser proporcionados por el servidor, de tal manera que escondemos sus valores al público. Creamos el archivo y colocamos las siguientes llaves:
+Para guardar estas llaves, debemos crear un archivo llamado `.env.local` en la raíz de nuestra aplicación web. Dicho archivo almacenará las variables de entorno en nuestra aplicación, que son datos que solo pueden ser leídos por el servidor, de tal manera que escondemos sus valores al público. Creamos el archivo y colocamos las siguientes llaves:
 
 ```bash:/.env.local
 SPOTIFY_CLIENT_ID=...
@@ -103,7 +107,7 @@ Una vez agregamos los valores correspondientes a nuestra aplicación, podemos in
 
 ## Workflow de autorización
 
-Para comenzar a utilizar la gran mayoría de APIs que nos proporciona Spotify (listado completo [acá](https://developer.spotify.com/documentation/web-api/reference/)) nuestra aplicación debe contar con los permisos necesarios. La autorización en Spotify es un proceso compuesto por muchos pasos, pero en la misma guía oficial de autorización, se establecen diferentes patrones para implementar esta funcionalidad. El que nos interesa en este caso es el esquema llamado "Authorization Code Flow" que se divide en una serie de 4 pasos:
+Para comenzar a utilizar la gran mayoría de APIs que nos proporciona Spotify ([listado completo](https://developer.spotify.com/documentation/web-api/reference/)) nuestra aplicación debe contar con los permisos necesarios. La autorización en Spotify es un proceso compuesto por muchos pasos, pero en la misma guía oficial de autorización, se establecen diferentes patrones para implementar esta funcionalidad. El que nos interesa en este caso es el esquema llamado "Authorization Code Flow" que se divide en una serie de 4 pasos:
 
 1. Solicitar la autorización y acceder con un usuario existente que confirme esa solicitud. Este es el paso principal, y consiste en establecer la conexión inicial de nuestra aplicación con la API de Spotify.
 
@@ -121,7 +125,7 @@ Para hacer la primera solicitud de autorización debemos acceder a un URL espec�
 
 -   **redirect_uri:** Corresponde al mismo URI que configuramos en el dashboard de nuestra aplicación. Es el URL al que se nos redirigirá una vez concluyamos el proceso de conexión inicial.
 
--   **scope:** Son cada una de los accesos que queremos que se puedan acceder utilizando el token que se nos va a devolver. Una vez se nos devuelve el primer token, no podremos cambiar el scope, tendríamos que realizar el proceso de autorización inicial de nuevo para conseguir un nuevo token que tenga diferente scope. En el caso de este ejemplo solo utilizaremos un scope: user-top-read y user-read-recently-played, pero existen muchos más scopes, que podemos encontrar en la [documentación oficial](https://developer.spotify.com/documentation/web-api/reference/).
+-   **scope:** Son cada una de los accesos que queremos que se puedan acceder utilizando el token que se nos va a devolver. Una vez se nos devuelve el primer token, no podremos cambiar el scope, tendríamos que realizar el proceso de autorización inicial de nuevo para conseguir un nuevo token que tenga diferente scope. En el caso de este ejemplo solo utilizaremos un scope: user-top-read y user-read-recently-played, pero existen muchos más scopes, que podemos encontrar en el listado de [scopes](https://developer.spotify.com/documentation/web-api/reference/).
 
 Nuestro URL final debería ser el siguiente:
 
