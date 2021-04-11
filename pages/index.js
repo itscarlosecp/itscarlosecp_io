@@ -31,7 +31,7 @@ const Home = ({ featuredPostsFrontMatter }) => {
 			<Section title='Projects'>
 				<RepoCard
 					title='Blog'
-					description={`My personal blog and portfolio. This blog was built using NextJS and TailwindCSS using the JAMStack. It features light and dark mode, markdown, code and katex rendering, among other cool libraries. `}
+					description={`My personal blog and portfolio. This blog was built with NextJS and TailwindCSS using the JAMStack approach. It features light and dark mode, markdown, code and katex rendering, among other cool libraries. `}
 					href={`${siteMetadata.github}/itscarlosecp_dev`}
 					icon='nextjs'
 				/>
