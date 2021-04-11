@@ -152,15 +152,17 @@ Simplemente la damos "Agree" y luego esta página nos redireccionará a nuestra 
 http://localhost:3000/?code=AQCSX66S1rM3VQsfdT7bNz5bNLnzwcYDFjUr-d...
 ```
 
-Este token es solamente temporal (lo identificaremos como `TEMPORAL_TOKEN`), pero lo utilizaremos para generar un token permanente. Para esto, primero tenemos que encriptar nuestras llaves de acceso, utilizando el codec base64.Podemos utilizar [base64encode](https://www.base64encode.org/) online para encriptar estos valores asegurémonos de seleccionar "encoding" en la parte superior). Debemos separar los valores de nuestros "Client ID" y nuestro "Client Secret" con dos puntos de por medio, de la siguiente forma:
+Este token es solamente temporal (lo identificaremos como `TEMPORAL_TOKEN`), pero lo utilizaremos para generar un token permanente.
+
+Para esto, primero tenemos que encriptar nuestras llaves de acceso ("Client Id" y "Client Secret"), utilizando el codec base64. Podemos utilizar [base64encode](https://www.base64encode.org/) online para encriptar estos valores. Debemos separar los valores de nuestros nuestras llaves con dos puntos de por medio, de la siguiente forma:
 
 ```bash
 <CLIENT_ID>:<CLIENT_SECRET>
 ```
 
 <Callout>
-	Si utilizamos base64encode, debemos asegurémonos de seleccionar "encoding"
-	en la parte superior.
+	Si utilizamos base64encode, debemos asegurnos de seleccionar "encoding" en
+	la parte superior.
 </Callout>
 
 Ahora debemos hacer la petición para obtener el token permanente. Para esto podemos utilizar alguna herramiento como cURL desde nuestra consola o con un client online como [reqbin](https://reqbin.com/curl),y corremos el siguiente comando:
