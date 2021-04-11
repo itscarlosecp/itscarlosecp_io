@@ -48,7 +48,7 @@ html {
 .token.rule,
 .token.boolean,
 .token.keyword {
-	@apply text-[#569cd6];
+	@apply text-[#569CD6];
 }
 
 .token.function-variable,
@@ -68,27 +68,22 @@ html {
 .token.number,
 .token.class-name,
 .token.unit {
-	@apply text-[#4ec9b0];
+	@apply text-[#4EC9B0];
 }
 
 .token.comment {
-	@apply text-[#6a9178];
-}
-
-.token.comment {
-	font-style: italic;
+	@apply text-[#6A9178] italic;
 }
 
 .token.attr-value,
 .token.template-string,
 .token.string {
 	color: rgb(206, 145, 120, var(--tw-text-opacity));
-	@apply text-[#ce9178];
+	@apply text-[#CE9178];
 }
 
 .token.property {
-	color: rgb(156, 220, 254, var(--tw-text-opacity));
-	@apply text-[#9cdcfe];
+	@apply text-[#0285CA] dark:text-[#9CDCFE];
 }
 
 .token.class,
