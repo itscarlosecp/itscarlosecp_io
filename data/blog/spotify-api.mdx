@@ -76,7 +76,7 @@ ul {
 Finalmente borramos toda la carpeta `/pages/api` y también podemos reemplazar todo lo que está en el archivo `/pages/index.js` por lo siguiente:
 
 ```jsx
-const index () => <div>Tutorial Spotify - NextJS</div>
+const index = () => <div>Tutorial Spotify - NextJS</div>
 
 export default index
 ```
@@ -121,11 +121,11 @@ Para hacer la primera solicitud de autorización debemos acceder a un URL espec�
 
 -   **client_id:** El valor de este parámetro debe ser el mismo valor que nos fue proporcionado anteriorment.
 
--   **response_type:** Este valor corresponde al tipo de respuesta que queremos que la autenticación inicial nos devuelva. En este caso le asignaremos el valor code.
+-   **response_type:** Este valor corresponde al tipo de respuesta que queremos que la autenticación inicial nos devuelva. En este caso el valor de este parámetro va a ser el valor `code`.
 
 -   **redirect_uri:** Corresponde al mismo URI que configuramos en el dashboard de nuestra aplicación. Es el URL al que se nos redirigirá una vez concluyamos el proceso de conexión inicial.
 
--   **scope:** Son cada una de los accesos que queremos que se puedan acceder utilizando el token que se nos va a devolver. Una vez se nos devuelve el primer token, no podremos cambiar el scope, tendríamos que realizar el proceso de autorización inicial de nuevo para conseguir un nuevo token que tenga diferente scope. En el caso de este ejemplo solo utilizaremos un scope: user-top-read y user-read-recently-played, pero existen muchos más scopes, que podemos encontrar en el listado de [scopes](https://developer.spotify.com/documentation/web-api/reference/).
+-   **scope:** Son cada una de los accesos que queremos que se puedan acceder utilizando el token que se nos va a devolver. Una vez se nos devuelve el primer token, no podremos cambiar el scope, tendríamos que realizar el proceso de autorización inicial de nuevo para conseguir un nuevo token que tenga diferente scope. En el caso de este ejemplo solo utilizaremos un scope: "user-top-read" y "user-read-recently-played", pero existen muchos más scopes, que podemos encontrar en el listado de [scopes](https://developer.spotify.com/documentation/web-api/reference/).
 
 Nuestro URL final debería ser el siguiente:
 
