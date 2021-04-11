@@ -119,13 +119,13 @@ Para comenzar a utilizar la gran mayoría de APIs que nos proporciona Spotify ([
 
 Para hacer la primera solicitud de autorización debemos acceder a un URL específico que nos devolverá nuestro primer token temporal. Este URL está compuesto de los siguiente parámetros:
 
--   **client_id:** El valor de este parámetro debe ser el mismo valor que nos fue proporcionado anteriorment.
+-   **client_id:** El valor de este parámetro debe ser el mismo valor que nos fue proporcionado anteriormente.
 
 -   **response_type:** Este valor corresponde al tipo de respuesta que queremos que la autenticación inicial nos devuelva. En este caso de este parámetro va a tener el valor `code`.
 
 -   **redirect_uri:** Corresponde al mismo URI que configuramos en el dashboard de nuestra aplicación. Es el URL al que se nos redirigirá una vez concluyamos el proceso de conexión inicial.
 
--   **scope:** Son cada una de los accesos que queremos que se puedan acceder utilizando el token que se nos va a devolver. Una vez se nos devuelve el primer token, no podremos cambiar el scope, tendríamos que realizar el proceso de autorización inicial de nuevo para conseguir un nuevo token que tenga diferente scope. En el caso de este ejemplo solo utilizaremos un scope: "user-top-read" y "user-read-recently-played", pero existen muchos más scopes, que podemos encontrar en el listado de [scopes](https://developer.spotify.com/documentation/web-api/reference/).
+-   **scope:** Es cada uno de los accesos que queremos que se puedan acceder utilizando el token que se nos va a devolver. Una vez se nos devuelve el primer token, no podremos cambiar el scope, tendríamos que realizar el proceso de autorización inicial de nuevo para conseguir un nuevo token que tenga diferente scope. En el caso de este ejemplo solo utilizaremos un scope: "user-top-read" y "user-read-recently-played", pero existen muchos más, que podemos encontrar en el listado de [scopes](https://developer.spotify.com/documentation/web-api/reference/).
 
 Nuestro URL final debería ser el siguiente:
 
@@ -133,7 +133,9 @@ Nuestro URL final debería ser el siguiente:
 https://accounts.spotify.com/authorize?client_id=<CLIENT_ID>&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:3000&scope=user-read-recently-played%20user-top-read
 ```
 
-Nos aseguramos de cambiar el campo `<CLIENT_ID>` por el valor asignado a nuestra propia aplicación. Y luego podemos navegar a esa dirección desde nuestro navegador. Si nos llegara a dar un error que nos indica que nuestro "Redirect URI" es inválido, debemos volver a la configuración de nuestra aplicación y asegurarnos que el URI que agregamos antes se haya guardado correctamente. Si generamos el URL de manera correcta se nos debería presentar una pantall similar a la siguiente:
+Nos aseguramos de cambiar el campo `<CLIENT_ID>` por el valor asignado a nuestra propia aplicación. Luego navegamos a esa dirección desde nuestro navegador.
+
+Si nos llegara a dar un error que nos indica que nuestro "Redirect URI" es inválido, debemos volver a la configuración de nuestra aplicación y asegurarnos que el URI que agregamos antes se haya guardado correctamente. Si generamos el URL de manera correcta se nos debería presentar una pantalla similar a la siguiente:
 
 <Image
 	src={
