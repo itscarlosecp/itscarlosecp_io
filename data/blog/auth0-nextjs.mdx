@@ -16,17 +16,17 @@ tags: ['auth', 'auth0', 'nextjs', 'react']
 	height={1080}
 />
 
-Auth0 es un servicio que nos permite implementar funcionalidad de autenticación y autorización en nuestras aplicaciones de manera sencilla. Entras las ventajas que nos efrece esta forma de trabajar se encuentran la seguridad, la facilidad de utilización tanto para el usuario como para el desarrollador.
+Auth0 es un servicio que nos permite implementar funcionalidades de autenticación y autorización en nuestras aplicaciones de manera sencilla. Entre sus ventajas se encuentran la seguridad, la facilidad de utilización tanto para el usuario como para el desarrollador.
 
-Los diferentes productos de Auth0 nos ofrecen frameworks de trabajo óptimos para cada una de las opciones que deseemos utilizar, y además también existen múchas formas en las que nosotros podemos configurar dichos servicios según nuestas necesidades, sin perder los beneficios que nos proveen las opciones por defecto.
+Los diferentes productos de Auth0 nos ofrecen entornos de trabajo óptimos para cada una de las opciones que deseemos utilizar, y además también existen múchas formas en las que nosotros podemos configurar dichos servicios según nuestas necesidades, sin perder los beneficios que nos proveen las opciones que ya trae por defecto.
 
-En este post explicaré cómo implementar funcionalidad de autenticación y autorización básica en nuestras aplicaciones web, utilizando NextJS como frontend y backend.
+En este post explicaré cómo implementar las funcionalidades de autenticación y autorización básica en nuestras aplicaciones web, utilizando NextJS como frontend y backend.
 
 Podés encontrar el código finalizado de este ejemplo en mi repositorio [Tutorials](https://github.com/itscarlosecp/tutorials/tree/main/auth-nextjs).
 
 ## Aplicación de NextJS
 
-NextJS es un framework basado en React, que nos facilita la creación de aplicaciones web o single page applications. Está pensado para mejorar el rendimiento, seguiridad y SEO de nuestra aplicaciones, así como también la experiencia de desarrollo. Entre otra de sus ventajas está la cercana integración de frontend y backend, ya que NextJS nos permite construir serverless functions que funcionen a manera de backend, directamente desde nuestra aplicación.
+NextJS es un framework basado en React, que nos facilita la creación de "single page applications". Está pensado para mejorar el rendimiento, la seguridad y SEO de nuestras aplicaciones, así como también la experiencia de desarrollo. Otra de sus ventajas es acercar la integración de frontend y backend, ya que NextJS nos permite construir serverless functions que funcionan a manera de backend, directamente desde nuestra aplicación.
 
 Para iniciar una aplicación básica de NextJS, corremos el siguiente comando:
 
@@ -34,32 +34,31 @@ Para iniciar una aplicación básica de NextJS, corremos el siguiente comando:
 npx create-next-app auth0-nextjs
 ```
 
-Esto crea nuestra aplicación dentro del folder llamado `auth0-nextjs` en la carpeta en la que hayamos corrido el comando. Finalmente abrimos esta nueva carpeta dentro de nuestro editor de código preferido.
+Esto crea nuestra aplicación dentro del folder llamado `auth0-nextjs` en la carpeta en la que hayamos corrido el comando. Finalmente, abrimos esta nueva carpeta dentro de nuestro editor de código preferido.
 
 Antes de iniciar a correr la aplicación, debemos borrar algunos archivos que se nos generaron al momento de crear nuestra aplicación. Primero borramos todo lo que esté dentro de la carpeta `styles` a excepción del archivo `globals.css`.
 
 También borramos todos los archivos que estén dentro de la carpeta `/pages/api`, sin borrar la carpeta, ya que la utilizaremos más adelante. Finalmente podemos borrar todo lo que está en el archivo `/pages/index.js` sin borrar el archivo en sí.
 
-Luego vamos a agregar botones para iniciar sesión junto con una sección que mostrará algunos datos del usuario que se encuentra loggeado, y también aprendermos a crear páginas accesibles solo para usuarios que hayan iniciado sesión.
+Luego vamos a agregar botones de inicio de sesión y una sección que mostrará algunos datos del usuario que se encuentra loggeado.
 
 ## Configuración de Auth0
 
-Para poder consumir los servicios de Auth0 tenemos que registrar la aplicación (o aplicaciones) desde las cuales queramos utilizarlos bajo nuestros proyectos. Esto lo podemos hacer desde el dashboard de nuestro cuenta de Auth0 (si no tenemos cuenta podemos crearla de manera gratuita [acá](https://auth0.com/)).
+Para poder consumir los servicios de Auth0 tenemos que registrar la aplicación (o aplicaciones) desde las cuales querramos utilizarlos. Esto lo podemos hacer desde el dashboard de nuestro cuenta de Auth0 (si no tenemos cuenta podemos crearla de manera gratuita [acá](https://auth0.com/)).
 
-Al momento de escribir este artículo, podemos registrar una aplicación accediendo a la opción "Applications" bajo el menú del mismo nombre, ubicada en la barra de navegación principal de la pantall de inicio de nuestro perfil de Auth0. Una vez estamos en dicha página, procedemos a registrar una nueva aplicación.
+Al momento de escribir este artículo, podemos registrar una aplicación accediendo a la opción "Applications" bajo el menú del mismo nombre, ubicada en la barra de navegación principal de la pantalla de inicio de nuestro perfil de Auth0. Una vez estamos en dicha página, procedemos a registrar una nueva aplicación.
 
 <Callout>
 	Es imporante que el tipo de aplicación que seleccionemos sea "Regular Web
-	Application" en vez de "Single Page Application". Esto se debe a que NextJS
-	funciona tanto como frontend a como backend, y consumiremos algunos
-	servicios desde el backend.
+	Application" en vez de "Single Page Application", ya que consumiremos
+	algunos servicios desde nuestro backend.
 </Callout>
 
 Una vez dentro del panel de configuración de la aplicación que creamos, debemos acceder a la pestaña "Settings" de nuestra app. Ahí vamos a encontrar información importante para conectar esta aplicación registrada en Auth0 con nuestra aplicación de NextJS. De esta pestaña nos interesan tres valores: "Domain", "Client ID" y "Client Secret". Estas son llaves que nos permitirán acceder a nuestra aplicación de Auth0 de manera segura desde nuestra aplicación web.
 
-Para guardar estas llaves, debemos crear un archivo llamado `.env.local` en la raíz de nuestra aplicación web. Dicho archivo almacenará las variables de entorno en nuestra aplicación, que son datos que solo pueden ser proporcionados por el servidor, de tal manera que escondemos sus valores al público. Creamos el archivo y colocamos las siguientes llaves:
+Para guardar estas llaves, debemos crear un archivo llamado `.env.local` en la raíz de nuestra aplicación web. Dicho archivo almacenará las variables de entorno en nuestra aplicación, que son datos que solo pueden ser leído por el servidor, de tal manera que escondemos sus valores al público. Creamos el archivo y colocamos las siguientes llaves:
 
--   **SECRET:** Debe ser una llave que va a encriptar nuestras request. Podemos generarla de manera aleatoria con [randomkeys](https://randomkeygen.com/), o incluso solo escribir cualquier cosa.
+-   **SECRET:** Debe ser un valor con el que vamos a encriptar nuestras request. Podemos generarla de manera aleatoria con [randomkeys](https://randomkeygen.com/), o incluso solo escribir cualquier cosa.
 -   **BASE_URL:** Su valor corresponde al URL de nuestra aplicación. En esta caso http://localhost:3000.
 -   **ISSUER_BASE_URL:** Este es el valor llamado "Domain" que obtuvimos de nuestro dashboard en nuestra aplicación de Auth0.
 -   **CLIENT_ID y CLIENT_SECRET:** Son los valores de "Client ID" y "Client Secret" que obtuvimos de Auth0.
@@ -79,7 +78,7 @@ AUTH0_CLIENT_SECRET=...
 	proporciona Auth0.
 </Callout>
 
-Finalmente debemos agregar dos valores para terminar de configurar nuestra aplicación dentro de la misma pestaña "Settings" desde Auth0. Para esto nos vamos a la sección "Application Login URI", en la misma página en donde encontramos nuestras keys privadas. En los siguientes campos colocamos los valores:
+Finalmente, debemos agregar dos valores para terminar de configurar nuestra aplicación dentro de la misma pestaña "Settings" desde Auth0. Para esto nos vamos a la sección "Application Login URI", en la misma página en donde encontramos nuestras keys privadas. En los siguientes campos colocamos los valores:
 
 -   **Allowed Callback URLs:** http://localhost:3000/api/auth/callback
 -   **Allowed Logout URLs:** http://localhost:3000/
