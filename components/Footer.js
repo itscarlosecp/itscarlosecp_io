@@ -22,11 +22,6 @@ const Footer = () => (
 						Home
 					</a>
 				</Link>
-				<Link href='/blog'>
-					<a className='text-gray-500 dark:text-gray-400 hover:text-gray-600 '>
-						Blog
-					</a>
-				</Link>
 				<Link href='/about'>
 					<a className='text-gray-500 dark:text-gray-400 hover:text-gray-600 '>
 						About

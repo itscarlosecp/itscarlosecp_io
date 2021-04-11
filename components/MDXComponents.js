@@ -18,7 +18,7 @@ const CustomLink = (props) => {
 }
 
 const Callout = ({ children }) => (
-	<div className='w-full px-4 py-3.5 bg-gray-200 dark:bg-[#1C1C1C] rounded-lg flex gap-2 callout'>
+	<div className='w-full px-4 py-3.5 bg-gray-200 dark:bg-[#1C1C1C] rounded-lg flex gap-2 callout border border-gray-300 dark:border-gray-700'>
 		<div className='w-5 h-5 mt-1'>
 			<svg
 				xmlns='http://www.w3.org/2000/svg'
