@@ -219,7 +219,7 @@ export default (req, res) => {
 	res.json({
 		...session,
 		idToken,
-		user: {
+    user: {
 			...session.user,
 			picture,
 		},
