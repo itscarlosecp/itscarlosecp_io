@@ -1,7 +1,7 @@
 ---
 title: 'Cómo utilizar Spotify API'
 publishedAt: '2021-03-11'
-summary: 'Aprende a consumir los servicios que nos brinda Spotify API, con la que podemos acceder a listados de las canciones más populares, visualizar nuestras canciones favoritas o incluso controlar la reproducción de música de nuestras cuentas.'
+summary: 'Aprende a consumir los servicios que nos brinda Spotify API, con los que podemos acceder a listados de las canciones más populares, visualizar nuestras canciones favoritas o incluso controlar la reproducción de música de nuestras cuentas.'
 images: 'https://res.cloudinary.com/dgaiej4np/image/upload/q_auto:eco/v1618097682/itscarlosecp_dev/blog/spotify-api/banner_gmcqhp.webp'
 featured: true
 tags: ['spotify', 'api', 'nextjs', 'react']
@@ -16,7 +16,7 @@ tags: ['spotify', 'api', 'nextjs', 'react']
 	height={1080}
 />
 
-Spotify API es una serie de servicios que nos proporciona esta popular aplicación de streaming de música. Nos permiten acceder a información de la actividad en la plataforma, ya sean listados de las canciones más populares del momento, información sobre álbumes o artistas específicos, datos de un usuario o incluso interactuar de manera directa con la sesión del mismo, pudiendo pausar o reanudar canciones o agregar y eliminar pistas de alguna playlist, entre otras acciones.
+Spotify API es una serie de servicios que nos proporciona esta popular aplicación de streaming de música. Nos permite acceder a información de la actividad en la plataforma, ya sean listados de las canciones más populares del momento, información sobre álbumes o artistas específicos, datos de un usuario o incluso interactuar de manera directa con la sesión del mismo, pudiendo pausar o reanudar canciones o agregar y eliminar pistas de alguna playlist, entre otras acciones.
 
 En este post explicaré cómo consumir algunos de los endpoints que nos provee este servicio, utilizando NextJS para construir la interfaz.
 
@@ -117,7 +117,7 @@ Para comenzar a utilizar la gran mayoría de APIs que nos proporciona Spotify ([
 
 4. Refrescar el token de acceso. El token que nos fue devuelto tras la autorización inicial tiene vencimiento, así que debemos estarlo refrescando constantemente para mantener la conexión.
 
-### Token temporal
+### Solicitud de token temporal
 
 Para hacer la primera solicitud de autorización debemos acceder a un URL específico que nos devolverá nuestro primer token temporal. Este URL está compuesto de los siguiente parámetros:
 
@@ -175,7 +175,7 @@ Ahora debemos hacer la petición para obtener el token permanente. Para esto pod
 curl -H "Authorization: Basic <TOKEN_BASE64>" -d grant_type=authorization_code -d code=<TOKEN_TEMPORAL> -d redirect_uri=http%3A%2F%2Flocalhost:3000 https://accounts.spotify.com/api/token
 ```
 
-Reemplazamos `<TOKEN_BASE64>` con el valor encriptado que generamos recientemente, y `<TOKEN_TEMPORAL>` con el que habíamos obtenido en el [paso anterior](/blog/spotify-api#token-temporal), el que se nos devolvía con el nombre "code" a través del URL. Al realizar esta petición se nos retornará un objeto JSON que contiene la llave `refresh_token`. Copiamos esa llave y la guardamos junto a las demás variables de entorno.
+Reemplazamos `<TOKEN_BASE64>` con el valor encriptado que generamos recientemente, y `<TOKEN_TEMPORAL>` con el que habíamos obtenido en el [paso anterior](/blog/spotify-api#solicitud-de-token-temporal), el que se nos devolvía con el nombre "code" a través del URL. Al realizar esta petición se nos retornará un objeto JSON que contiene la llave `refresh_token`. Copiamos esa llave y la guardamos junto a las demás variables de entorno.
 
 <Callout>
 	Si el llamado nos retorna una respuesta incorrecta y nos hemos asegurado de
@@ -273,7 +273,7 @@ const TrackItem = ({ track, ranking }) => (
 export default TrackItem
 ```
 
-Este componente va a tomar la información de cada una de las canciones y nos va a renderizar un elemento representando esta canción en una lista que vamos a generar a partir de la información que obtengamos de `getTopTracks` y `getRecentlyPlayed`. También vamos a crear un componente que nos generará estas listas con de elementos `TrackItem`. Para esto creamos un nuevo archivo llamado `TrackList.js` en la misma carpeta que el componente anterior:
+Este componente va a tomar la información de cada una de las canciones y nos va a renderizar un elemento representando esta canción en una lista que vamos a generar a partir de la información que obtengamos de `getTopTracks` y `getRecentlyPlayed`. También vamos a crear un componente que nos generará estas listas con elementos `TrackItem`. Para esto creamos un nuevo archivo llamado `TrackList.js` en la misma carpeta que el componente anterior:
 
 ```jsx:/components/TrackList.js
 import TrackItem from './TrackItem'
@@ -329,4 +329,4 @@ export default index
 
 Desde `getStaticProps` obtenemos los resultados de las funciones que habíamos creado anteriormente, a manera de lista de canciones. La lista que nos retorna nuestras últimas canciones reproducidas contienen un formato ligeramente diferente al de la lista de canciones más escuchadas, por lo que debemos formatear su valor de retorno para poderla utilizar con el mismo componente `<TrackList />`. Cuando nuestro servidor recompila la aplicación, se encarga de renderizar esta página y pasa los resultados de esta función a `index` a manera de props.
 
-Podemos utilizar el mismo workflow de autenticación para consumir los demás endpoint de Spotify API, e incluso existen algunos que ni siquiera requiren que estamos autenticados. Esta metodología la podemos aplicar en cualquier tipo de aplicación web, independientemente de la tecnología con la que la construyamos. Para mayor información sobre este tema visita la guía oficial para [Spotify Web API](https://developer.spotify.com/documentation/web-api/).
+Podemos utilizar el mismo workflow de autenticación para consumir los demás endpoints de Spotify API, e incluso existen algunos que ni siquiera requiren que estemos autenticados. Esta metodología la podemos aplicar en cualquier tipo de aplicación web, independientemente de la tecnología con la que la construyamos. Para mayor información sobre este tema visita la guía oficial para [Spotify Web API](https://developer.spotify.com/documentation/web-api/).

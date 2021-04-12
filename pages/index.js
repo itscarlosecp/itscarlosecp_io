@@ -19,7 +19,7 @@ const Home = ({ featuredPostsFrontMatter }) => {
 				</h1>
 				<Paragraph
 					content={`I'm a developer from Nicaragua, currently living in
-					Argentina and studying computer engineering @ University of
+					Argentina and studying Computer Engineering @ University of
 					Buenos Aires.`}
 				/>
 			</div>
@@ -31,7 +31,7 @@ const Home = ({ featuredPostsFrontMatter }) => {
 			<Section title='Projects'>
 				<RepoCard
 					title='Blog'
-					description={`My personal blog and portfolio. This blog was built with NextJS and TailwindCSS using the JAMStack approach. It features light and dark mode, markdown, code and katex rendering, among other cool libraries. `}
+					description={`My personal blog and portfolio. This blog was built with NextJS and TailwindCSS using the JAMStack approach. It features light and dark mode, markdown, code and katex rendering, among other cool stuff. `}
 					href={`${siteMetadata.github}/itscarlosecp_dev`}
 					icon='nextjs'
 				/>

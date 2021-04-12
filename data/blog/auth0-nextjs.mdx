@@ -1,7 +1,7 @@
 ---
 title: 'Integrar Auth0 con NextJS'
 publishedAt: '2021-04-10'
-summary: 'Auth0 es un servicio de autenticación que nos permite implementar dicha funcionalidad en nuestras aplicaciones sin que tengamos que construirlo desde cero. Es popular por sus capacidades de configuración y extensibilidad. Aprende a implementar la funcionalidad básica de Auth0 utilizando React con NextJS.'
+summary: 'Auth0 es un servicio de autenticación que nos permite implementar dicha funcionalidad en nuestras aplicaciones sin que tengamos que construirla desde cero. Es popular por sus capacidades de configuración y extensibilidad. Aprende a implementar la funcionalidad básica de Auth0 utilizando React con NextJS.'
 images: 'https://res.cloudinary.com/dgaiej4np/image/upload/q_auto:eco/v1618078448/itscarlosecp_dev/blog/auth0-nextjs/banner_uz2iaa.webp'
 featured: true
 tags: ['auth', 'auth0', 'nextjs', 'react']
@@ -22,7 +22,7 @@ Los diferentes productos de Auth0 nos ofrecen entornos de trabajo óptimos para 
 
 En este post explicaré cómo implementar las funcionalidades de autenticación y autorización básica en nuestras aplicaciones web, utilizando NextJS como frontend y backend.
 
-Podés encontrar el código finalizado de este ejemplo en mi repositorio [Tutorials](https://github.com/itscarlosecp/tutorials/tree/main/auth-nextjs).
+Podés encontrar el código finalizado de este ejemplo en mi repositorio [Tutorials](https://github.com/itscarlosecp/tutorials/tree/main/auth0-nextjs).
 
 ## Aplicación de NextJS
 
@@ -93,9 +93,9 @@ Finalmente, debemos agregar dos valores para terminar de configurar nuestra apli
 	Recordemos guardar los cambios en Auth0, de lo contrario los perderemos.
 </Callout>
 
-## Implentando autenticación en nuestra app
+## Implementando autenticación en nuestra app
 
-Ahora que ya tenemos configurado todo lo que necesitamos, vamos a iniciar a consumir los servicios de Auth0 a los que tenemos acceso desde NextJS. Para esto instalaremos una librería que nos va a facilitar mucho el uso de Auth0. Para esto corremos el siguiente comando dentro del directorio de nuestra aplicación:
+Ahora que ya tenemos configurado todo lo que necesitamos, vamos a iniciar a consumir los servicios de Auth0 a los que tenemos acceso desde NextJS. Para esto instalaremos una librería que nos va a facilitar mucho el uso de Auth0. ra Corremos el siguiente comando dentro del directorio de nuestra aplicación:
 
 ```bash
 npm install @auth0/nextjs-auth0
@@ -115,9 +115,9 @@ Este archivo se encarga de crear cuatro funciones y cuatro endpoints, que corres
 
 Si quisiéramos modificar de alguna forma el comportamiento por defecto de estas funciones, podemos reescribirlas y Auth0 las identificará de manera automática. Podemos referirnos al [repositorio oficial](https://github.com/auth0/nextjs-auth0) para más información sobre cómo configurar estas funciones.
 
-Una vez creadas estas rutas, podemos acceder a ellas para ejectuar sus acciones correspondientes. En el caso de nuestra aplicación, vamos a utilizar un botón para acceder a las rutas de login y logout. Para esto debemos determinar si actualmente hay un usuario en la aplicación, y decir que botón mostrar en dependencia de esto.
+Una vez creadas estas rutas, podemos acceder a ellas para ejectuar sus acciones correspondientes. En el caso de nuestra aplicación, vamos a utilizar un botón para acceder a las rutas de login y logout. Para esto debemos determinar si actualmente hay un usuario en la aplicación, y decir qué botón mostrar en dependencia de esto.
 
-Podemos obtener información de la sesión actual con el context que nos provee NextJS para aplicaciones de React, para esto debemos envolver nuestra aplicación con el componente `<UserProvider />` lo que hacemos de la siguiente manera:
+Podemos obtener información de la sesión actual con el context que nos provee NextJS para aplicaciones de React, para lo que debemos envolver nuestra aplicación con el componente `<UserProvider />` lo que hacemos de la siguiente manera:
 
 ```jsx:/pages/_app.js
 import { UserProvider } from '@auth0/nextjs-auth0'
@@ -171,7 +171,7 @@ export default index
 
 Con esto ya podemos acceder a la funcionalidad de login desde la interfaz. Podemos registrar una nueva cuenta si lo necesitamos o acceder con una cuenta ya existente, y por defecto también podemos acceder con nuestra cuenta de Google, aunque podemos agregar muchas otras cuentas de terceros a través de Auth0.
 
-Una vez accedemos vamos a ser redirigidos a la página principal de nuestra app y ya vamos a tener el valor correspondiente en el objeto `user` que nos proporciona el hook que usamos anteriormente, y por lo tanto, mostramos la información correspondiente a esta condición.
+Una vez accedemos, vamos a ser redirigidos a la página principal de nuestra app y ya vamos a tener el valor correspondiente en el objeto `user` que nos proporciona el hook que usamos anteriormente, y por lo tanto, mostramos la información correspondiente a esta condición.
 
 ## Página protegidas
 
@@ -234,13 +234,13 @@ export default (req, res) => {
 }
 ```
 
-Acá estamos utilizando dos funciones de Auth0 que solo pueden ser utilizadas del lado del servidor. Por una parte `withApiAuthRequired` bloquea los llamados sin autenticación, de manera similar como lo hace `withPageAuthRequired` con las páginas. La segunda función, `getSession` se encarga de obtener información adicional sobre la sesión actual utilizando los obtejos request y response que se pasan automáticamente al momento de hacer el llamado a esta ruta. Las variables `idToken` y `picture` corresponden a las variables del mismo nombre que nos proporciona el objeto `session`, sin embargo están acortadas ya que sus valores son muy largos para mostrarlos en una sola línea desde la interfaz.
+Acá estamos utilizando dos funciones de Auth0 que solo pueden ser utilizadas del lado del servidor. Por una parte `withApiAuthRequired` bloquea los llamados sin autenticación, de manera similar como lo hace `withPageAuthRequired` con las páginas. La segunda función, `getSession` se encarga de obtener información adicional sobre la sesión actual utilizando los objetos request y response que se pasan automáticamente al momento de hacer el llamado a esta ruta. Las variables `idToken` y `picture` corresponden a las variables del mismo nombre que nos proporciona el objeto `session`, sin embargo están acortadas ya que sus valores son muy largos para mostrarlos en una sola línea desde la interfaz.
 
 ## Más configuración
 
 El cliente de Auth0 para NextJS también nos proporciona algunas otras funciones que podemos utilizar, principalmente del lado del backend. Podemos echarle un vistazo a la utilidad y configuración de dichas funciones a través de la [documentación oficial](https://auth0.github.io/nextjs-auth0/index.html).
 
-Sin embargo no estamos limitados a la funcionalidad que nos provea esta librería. Podemos utilizar las funcionalidad propias de Auth0 para modificar el funcionamiento de nuestro proceso de autenticación y autorización de cualquier manera, a nuestro gusto, como cambiar la base de datos, o crear rules que se ejecuten como serverless functions tras la autenticación de un usuario, entre muchas otras opciones.
+Sin embargo no estamos limitados a la funcionalidad que nos provea esta librería. Podemos utilizar las funcionalidades propias de Auth0 para modificar el funcionamiento de nuestro proceso de autenticación y autorización de cualquier manera, a nuestro gusto, como cambiar la base de datos, o crear rules que se ejecuten como serverless functions tras la autenticación de un usuario, entre muchas otras opciones.
 
 Muchas de estas cosas se pueden configurar directamente desde nuestras consolas en el dashboard de Auth0, sin embargo, también podemos utilizar [Management API](https://auth0.com/docs/api/management/v2#!), que nos permite consumir funcionalidad aún mas compleja a través de nuestra aplicaciones, como por ejemplo, tener la capacidad de crear, borrar, modificar o bloquear usuarios, administrar las cuentas registradas, obtener más información de la que nos provee la SDK para NextJS, cambiar las contraseñas de una cuenta, actualizar rules, y muchas de las otras acciones que podemos ejectuar através del dashboard, pero ahora accesibles desde nuestras aplicaciones.
 
