@@ -21,6 +21,8 @@ export default async (req, res) => {
 
 		return res.status(201).json({ error: '' })
 	} catch (err) {
+		console.error(err)
+
 		const errorMsg =
 			err.response.body.title === 'Member Exists'
 				? err.response.body.detail.split('. ')[0] + '.'
