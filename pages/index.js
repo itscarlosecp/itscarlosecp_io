@@ -4,6 +4,7 @@ import { Section, Paragraph } from '@/components/Page'
 import PostItem from '@/components/PostItem'
 import RepoCard from '@/components/RepoCard'
 import siteMetadata from '@/data/siteMetadata'
+import Subscribe from '@/components/Subscribe'
 
 const Home = ({ featuredPostsFrontMatter }) => {
 	return (
@@ -42,6 +43,7 @@ const Home = ({ featuredPostsFrontMatter }) => {
 					icon='vscode'
 				/>
 			</Section>
+			<Subscribe />
 		</>
 	)
 }
