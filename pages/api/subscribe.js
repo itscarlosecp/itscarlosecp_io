@@ -21,15 +21,11 @@ export default async (req, res) => {
 
 		return res.status(201).json({ error: '' })
 	} catch (err) {
-		console.error(err)
-
 		const errorMsg =
 			err.response.body.title === 'Member Exists'
 				? err.response.body.detail.split('. ')[0] + '.'
 				: err.message || err.toString()
 
-		return res
-			.status(500)
-			.json({ error: `Error ${err.status}! ${errorMsg}` })
+		return res.status(500).json({ error: errorMsg })
 	}
 }

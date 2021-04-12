@@ -37,7 +37,10 @@ const Subscribe = () => {
 				Stay tuned! I'll only send emails when new content is posted or
 				when new features are dropped. No spam.
 			</p>
-			<form onSubmit={subscribe} className='mt-4 flex gap-2'>
+			<form
+				onSubmit={subscribe}
+				className='mt-4 flex flex-col sm:flex-row gap-2'
+			>
 				<input
 					id='email-input'
 					name='email'
@@ -49,12 +52,16 @@ const Subscribe = () => {
 				/>
 				<button
 					type='submit'
-					className='px-4 bg-gray-200 dark:bg-blue-300 rounded font-bold text-black dark:text-blue-900'
+					className='px-4 py-2 sm:py-0 bg-gray-200 dark:bg-blue-300 rounded font-bold text-black dark:text-blue-900'
 				>
 					Subscribe
 				</button>
 			</form>
-			{message && <div className='mt-4'>{message}</div>}
+			{message && (
+				<div className='mt-4 text-gray-800 dark:text-gray-200'>
+					{message}
+				</div>
+			)}
 		</div>
 	)
 }
