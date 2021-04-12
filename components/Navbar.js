@@ -13,8 +13,7 @@ const Navbar = () => {
 		<>
 			<header className='w-full bg-gradient-to-r from-blue-700 to-blue-400 '>
 				<p className='w-full max-w-4xl p-4 sm:px-8 mx-auto text-center font-medium text-white'>
-					Welcome to my website! 🎉 — The first realease is now live
-					on{' '}
+					Version v1.1.0 Released! 🎉 — Checkout the new features at{' '}
 					<a
 						href={siteMetadata.siteRepo}
 						target='_blank'
