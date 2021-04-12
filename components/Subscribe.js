@@ -29,32 +29,39 @@ const Subscribe = () => {
 	}
 
 	return (
-		<div className='w-full p-6 bg-blue-50 border border-blue-200 rounded'>
-			<p className='text-xl font-bold text-blue-900'>
+		<div className='w-full p-6 bg-blue-50 dark:bg-[#080935] border border-blue-200 dark:border-blue-900 rounded'>
+			<p className='text-xl font-bold text-blue-900 dark:text-blue-100'>
 				Subscribe to my newsletter
 			</p>
-			<p className='mt-1 text-gray-800'>
+			<p className='mt-1 text-gray-800 dark:text-gray-300'>
 				Stay tuned! I'll only send emails when new content is posted or
 				when new features are dropped. No spam.
 			</p>
-			<form onSubmit={subscribe} className='mt-4 flex gap-2'>
+			<form
+				onSubmit={subscribe}
+				className='mt-4 flex flex-col sm:flex-row gap-2'
+			>
 				<input
 					id='email-input'
 					name='email'
 					placeholder='you@awesome.com'
-					className='flex-auto px-4 py-2 rounded'
+					className='flex-auto px-4 py-2 rounded bg-white dark:bg-gray-800'
 					ref={inputEl}
 					required
 					type='email'
 				/>
 				<button
 					type='submit'
-					className='px-4 bg-gray-200 rounded font-bold text-black'
+					className='px-4 py-2 sm:py-0 bg-gray-300 dark:bg-blue-300 rounded font-bold text-black dark:text-blue-900'
 				>
 					Subscribe
 				</button>
 			</form>
-			{message && <div className='mt-4'>{message}</div>}
+			{message && (
+				<div className='mt-4 text-gray-800 dark:text-gray-200'>
+					{message}
+				</div>
+			)}
 		</div>
 	)
 }
