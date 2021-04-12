@@ -40,5 +40,6 @@ yarn-error.log*
 /public/workbox-*.js.map
 /public/worker-*.js
 
-# sitemap
+# sitemaps
 /public/sitemap.xml
+/public/feed.xml
